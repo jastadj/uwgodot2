@@ -1,0 +1,2878 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#allpals.dat -->
+<html class="client-js" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Ultima Underworld internal formats - The Codex of Ultima Wisdom, a wiki for Ultima and Ultima Online</title>
+<script async="" src="./Ultima Underworld internal formats - The Codex of Ultima Wisdom, a wiki for Ultima and Ultima Online_files/analytics.js.download"></script><script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"YtRPWOIbCeEbQYplL5AWSQAAAD0","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Ultima_Underworld_internal_formats","wgTitle":"Ultima Underworld internal formats","wgCurRevisionId":163139,"wgRevisionId":163139,"wgArticleId":13506,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Technical Details","Ultima Underworld","Ultima Underworld II"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Ultima_Underworld_internal_formats","wgRelevantArticleId":13506,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":
+!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Ultima_Underworld_Internal_Formats","wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/Ultima_Underworld_internal_formats"};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","mediawiki.toc.styles":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.content.externallinks":"ready","skins.monobook.responsive":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","ext.smw.style","ext.smw.tooltips","smw.entityexaminer","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.monobook.mobile"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="./Ultima Underworld internal formats - The Codex of Ultima Wisdom, a wiki for Ultima and Ultima Online_files/load.php">
+<link rel="stylesheet" href="./Ultima Underworld internal formats - The Codex of Ultima Wisdom, a wiki for Ultima and Ultima Online_files/load(1).php">
+<script async="" src="./Ultima Underworld internal formats - The Codex of Ultima Wisdom, a wiki for Ultima and Ultima Online_files/load(2).php"></script>
+<!--[if lt IE 9]><link rel="stylesheet" href="/skins/MonoBook/resources/screen-desktop.css?d010f" media="screen"/><![endif]--><style>#mw-indicator-mw-helplink {display:none;}</style>
+<style>
+@media screen and (max-width: 550px) {
+	#sidebar .generated-sidebar,#p-search-mobilejs,#p-tb-mobilejs,#p-lang-mobilejs,#t-contributions{display:none}#p-cactions,#p-personal,#p-tb,#p-lang,#sidebar-mobilejs{position:absolute;top:-9999px;left:0}#p-cactions.mobile-menu-active,#p-personal.mobile-menu-active,#p-tb.mobile-menu-active,#p-lang.mobile-menu-active,#sidebar-mobilejs.mobile-menu-active{top:2em;left:0}.mobile-menu-active{position:absolute;z-index:10000;background:#ffffff;border:solid 1px #fabd23;border-left:0;padding:2em 2em 0 1.5em;font-size:125%}.mobile-menu-active *[id^='ca-nstab-'],.mobile-menu-active #ca-talk,.mobile-menu-active #ca-edit{position:absolute;top:-9999px;left:0}.mobile-menu-active ul{padding-top:1em}.mobile-menu-active li{white-space:nowrap}.mobile-menu-active a{display:block;padding:0.65em 0}.mobile-menu-active h3:first-child{margin-right:2em}.mobile-menu-active .pBody{margin-bottom:2em}.mobile-menu-active .mobile-close-button{width:20px;height:20px;background-image:url(/skins/MonoBook/resources/images/icon-close.gif?9a868);background-image:linear-gradient(transparent,transparent),url(/skins/MonoBook/resources/images/icon-close.svg?a9af1);background-position:0 0;background-repeat:no-repeat;position:absolute;top:1em;right:0.75em;cursor:pointer}.menus-cover{display:none;top:0;left:0;width:100%;height:100%;z-index:9999}.menus-cover.visible{display:block}#menus-cover{position:fixed;opacity:0.45;background-color:#ffffff}#menus-cover-background{position:absolute;background-color:#f9f9f9;background-image:url(/skins/MonoBook/resources/images/headbg.jpg?78766);background-image:linear-gradient(transparent,transparent),url(/skins/MonoBook/resources/images/headbg.svg?0be07);background-position:0 0;background-repeat:no-repeat;opacity:0.55}#p-cactions-mobile li#ca-edit-mobile a{background-image:url(/skins/MonoBook/resources/images/icon-edit.gif?a6fe6);background-image:linear-gradient(transparent,transparent),url(/skins/MonoBook/resources/images/icon-edit.svg?badf7)}#p-cactions-mobile li#t-contributions-mobile a{background-image:url(/skins/MonoBook/resources/images/icon-user.gif?d13ac);background-image:linear-gradient(transparent,transparent),url(/skins/MonoBook/resources/images/icon-user.svg?9bf49)}}
+@media screen {
+	body{margin:0}main{display:block}hr{box-sizing:content-box;height:0;overflow:visible}abbr[title]{border-bottom:1px dotted;cursor:help}@supports (text-decoration:underline dotted){abbr[title]{border-bottom:0;text-decoration:underline dotted}}pre,code,tt,kbd,samp{font-family:monospace,monospace}sub,sup{line-height:1}img{border:0}button::-moz-focus-inner,[type='button']::-moz-focus-inner,[type='reset']::-moz-focus-inner,[type='submit']::-moz-focus-inner{border-style:none;padding:0}legend{color:inherit;padding:0}   a{text-decoration:none;color:#0645ad;background:none}a:not([href]){cursor:pointer; }a:visited{color:#0b0080}a:active{color:#faa700}a:hover,a:focus{text-decoration:underline}a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.stub{color:#723}a.new,#p-personal a.new{color:#d33} a.mw-selflink{color:inherit;font-weight:bold;text-decoration:inherit}a.mw-selflink:hover{cursor:inherit;text-decoration:inherit}a.mw-selflink:active,a.mw-selflink:visited{color:inherit}a.new:visited,#p-personal a.new:visited{color:#a55858} .mw-parser-output a.extiw,.mw-parser-output a.external{color:#36b}.mw-parser-output a.extiw:visited,.mw-parser-output a.external:visited{color:#636; }.mw-parser-output a.extiw:active,.mw-parser-output a.external:active{color:#b63}.mw-parser-output a.external.free{word-wrap:break-word} img{border:0; vertical-align:middle}hr{height:1px;background-color:#a2a9b1;border:0;margin:0.2em 0} h1,h2,h3,h4,h5,h6{color:#000;margin:0;padding-top:0.5em;padding-bottom:0.17em;overflow:hidden}h1,h2{margin-bottom:0.6em;border-bottom:1px solid #a2a9b1}h3,h4,h5{margin-bottom:0.3em}h1{font-size:188%;font-weight:normal}h2{font-size:150%;font-weight:normal}h3{font-size:128%}h4{font-size:116%}h5{font-size:108%}h6{font-size:100%}p{margin:0.4em 0 0.5em 0}p img{margin:0}ul{margin:0.3em 0 0 1.6em;padding:0}ol{margin:0.3em 0 0 3.2em;padding:0;list-style-image:none}li{margin-bottom:0.1em}dt{font-weight:bold;margin-bottom:0.1em}dl{margin-top:0.2em;margin-bottom:0.5em}dd{margin-left:1.6em;margin-bottom:0.1em} pre,code,tt,kbd,samp,.mw-code{ font-family:monospace,monospace}code{color:#000;background-color:#f8f9fa;border:1px solid #eaecf0;border-radius:2px;padding:1px 4px}pre,.mw-code{color:#000;background-color:#f8f9fa;border:1px solid #eaecf0;padding:1em; white-space:pre-wrap; overflow-x:hidden; word-wrap:break-word} table{font-size:100%} fieldset{border:1px solid #2a4b8d;margin:1em 0 1em 0;padding:0 1em 1em}legend{padding:0.5em;font-size:95%}form{border:0;margin:0}textarea{width:100%;padding:0.1em;display:block;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box} .center{width:100%;text-align:center}*.center *{margin-left:auto;margin-right:auto} .small{font-size:94%}table.small{font-size:100%}   .toc,.mw-warning,.toccolours{border:1px solid #a2a9b1;background-color:#f8f9fa;padding:5px;font-size:95%} .toc{display:table;padding:7px} table.toc{border-collapse:collapse} table.toc td{padding:0}.toc h2{display:inline;border:0;padding:0;font-size:100%;font-weight:bold}.toc .toctitle{text-align:center}.toc ul{list-style-type:none;list-style-image:none;margin-left:0;padding:0;text-align:left}.toc ul ul{margin:0 0 0 2em} .tocnumber,.toctext{display:table-cell; text-decoration:inherit} .tocnumber{color:#202122;padding-left:0;padding-right:0.5em} .mw-content-ltr .tocnumber{padding-left:0;padding-right:0.5em} .mw-content-rtl .tocnumber{padding-left:0.5em;padding-right:0} .mw-warning{margin-left:50px;margin-right:50px;text-align:center}  div.floatright,table.floatright{margin:0 0 0.5em 0.5em} div.floatleft,table.floatleft{margin:0 0.5em 0.5em 0} div.thumb{margin-bottom:0.5em;width:auto;background-color:transparent}div.thumbinner{border:1px solid #c8ccd1;padding:3px;background-color:#f8f9fa;font-size:94%;text-align:center; overflow:hidden}html .thumbimage{background-color:#fff;border:1px solid #c8ccd1}html .thumbcaption{border:0;line-height:1.4em;padding:3px;font-size:94%; text-align:left}.magnify{ float:right;margin-left:3px}.magnify a{display:block; text-indent:15px;white-space:nowrap;overflow:hidden; width:15px;height:11px;  background-image:url(resources/src/mediawiki.skinning/images/magnify-clip-ltr.png?4f704);background-image:linear-gradient(transparent,transparent),url(resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg?8330e); -moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}img.thumbborder{border:1px solid #eaecf0}  .mw-content-ltr .thumbcaption{text-align:left} .mw-content-ltr .magnify{float:right;margin-left:3px;margin-right:0} .mw-content-ltr .magnify a{ background-image:url(resources/src/mediawiki.skinning/images/magnify-clip-ltr.png?4f704);background-image:linear-gradient(transparent,transparent),url(resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg?8330e)} .mw-content-rtl .thumbcaption{text-align:right} .mw-content-rtl .magnify{float:left;margin-left:0;margin-right:3px} .mw-content-rtl .magnify a{ background-image:url(resources/src/mediawiki.skinning/images/magnify-clip-rtl.png?a9fb3);background-image:linear-gradient(transparent,transparent),url(resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg?38fd5)} div.tright{margin:0.5em 0 1.3em 1.4em} div.tleft{margin:0.5em 1.4em 1.3em 0} body.mw-hide-empty-elt .mw-empty-elt{display:none}   .catlinks{border:1px solid #a2a9b1;background-color:#f8f9fa;padding:5px;margin-top:1em;clear:both}textarea{  border:1px solid #c8ccd1}.editOptions{background-color:#eaecf0;color:#202122;border:1px solid #c8ccd1;border-top:0;padding:1em 1em 1.5em 1em;margin-bottom:2em}.usermessage{background-color:#ffce7b;border:1px solid #ffa500;color:#000;font-weight:bold;margin:2em 0 1em;padding:0.5em 1em;vertical-align:middle}#siteNotice{position:relative;text-align:center;margin:0}#localNotice{margin-bottom:0.9em} #siteSub{display:none}#contentSub,#contentSub2{font-size:84%;line-height:1.2em;margin:0 0 1.4em 1em;color:#54595d;width:auto}span.subpages{display:block} .client-nojs #t-print{display:none; }      .mw-content-ltr{ direction:ltr}.mw-content-rtl{ direction:rtl} .sitedir-ltr textarea,.sitedir-ltr input{ direction:ltr}.sitedir-rtl textarea,.sitedir-rtl input{ direction:rtl}.mw-userlink{word-wrap:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;-ms-hyphens:auto;hyphens:auto;unicode-bidi:embed} mark{background-color:#ff0;color:#000}  wbr{display:inline-block}  input[type='submit'],input[type='button'],input[type='reset'],input[type='file']{direction:ltr} textarea[dir='ltr'],input[dir='ltr']{ direction:ltr}textarea[dir='rtl'],input[dir='rtl']{ direction:rtl} abbr[title],.explain[title]{border-bottom:1px dotted;cursor:help}@supports (text-decoration:underline dotted){abbr[title],.explain[title]{border-bottom:0;text-decoration:underline dotted}} span.comment{font-style:italic;unicode-bidi:-moz-isolate;unicode-bidi:isolate} #editform,#toolbar,#wpTextbox1{clear:both} #toolbar{height:22px} .mw-underline-always a{text-decoration:underline}.mw-underline-never a{text-decoration:none} li span.deleted,span.history-deleted{text-decoration:line-through;color:#72777d;font-style:italic} .not-patrolled{background-color:#ffa}.unpatrolled{font-weight:bold;color:#d33}div.patrollink{font-size:75%;text-align:right} td.mw-label{text-align:right;vertical-align:middle}td.mw-input{text-align:left}td.mw-submit{text-align:left;white-space:nowrap}.mw-input-with-label{white-space:nowrap;display:inline-block}  .mw-content-ltr .thumbcaption{text-align:left} .mw-content-ltr .magnify{float:right} .mw-content-rtl .thumbcaption{text-align:right} .mw-content-rtl .magnify{float:left} #catlinks{ text-align:left}.catlinks ul{display:inline;margin:0;padding:0;list-style:none none}.catlinks li{display:inline-block;line-height:1.25em;border-left:1px solid #a2a9b1;margin:0.125em 0;padding:0 0.5em}.catlinks li:first-child{padding-left:0.25em;border-left:0} .catlinks li a.mw-redirect{font-style:italic} .mw-hidden-cats-hidden{display:none}.catlinks-allhidden{display:none} p.mw-protect-editreasons,p.mw-filedelete-editreasons,p.mw-delete-editreasons{font-size:90%;text-align:right} .autocomment,.autocomment a,.autocomment a:visited{color:#72777d} .newpage,.minoredit,.botedit{font-weight:bold} .mw-warning-with-logexcerpt{clear:both}.mw-warning-with-logexcerpt ul li{font-size:90%} span.mw-revdelundel-link,strong.mw-revdelundel-link{font-size:90%}span.mw-revdelundel-hidden,input.mw-revdelundel-hidden{visibility:hidden}td.mw-revdel-checkbox,th.mw-revdel-checkbox{padding-right:10px;text-align:center} a.new{color:#ba0000} .plainlinks a.external{background:none !important; padding:0 !important; }  .rtl a.external.free,.rtl a.external.autonumber{direction:ltr;unicode-bidi:embed} .wikitable{background-color:#f8f9fa;color:#202122;margin:1em 0;border:1px solid #a2a9b1;border-collapse:collapse}.wikitable > tr > th,.wikitable > tr > td,.wikitable > * > tr > th,.wikitable > * > tr > td{border:1px solid #a2a9b1;padding:0.2em 0.4em}.wikitable > tr > th,.wikitable > * > tr > th{background-color:#eaecf0;text-align:center}.wikitable > caption{font-weight:bold} .error,.warning,.success{font-size:larger}.error{color:#d33}.warning{color:#ac6600}.success{color:#14866d} .mw-infobox{border:2px solid #fc3;margin:0.5em;clear:left;overflow:hidden}.mw-infobox-left{margin:7px;float:left;width:35px}.mw-infobox-right{margin:0.5em 0.5em 0.5em 49px} .previewnote{margin-bottom:1em}.visualClear{clear:both} .mw-datatable{border:1px solid #a2a9b1;border-collapse:collapse}.mw-datatable td,.mw-datatable th{border:1px solid #a2a9b1;padding:0.2em 0.4em}.mw-datatable th{background-color:#eaeeff}.mw-datatable td{background-color:#fff}.mw-datatable tr:hover td{background-color:#eaf3ff}.mw-ajax-loader{background-image:url(resources/src/mediawiki.skinning/images/ajax-loader.gif?57f34);background-position:center center;background-repeat:no-repeat;padding:16px;position:relative;top:-16px}.mw-small-spinner{padding:10px !important; margin-right:0.6em;background-image:url(resources/src/mediawiki.skinning/images/spinner.gif?ca65b);background-position:center center;background-repeat:no-repeat} .mw-content-ltr ul,.mw-content-rtl .mw-content-ltr ul{ margin:0.3em 0 0 1.6em;padding:0}.mw-content-rtl ul,.mw-content-ltr .mw-content-rtl ul{ margin:0.3em 1.6em 0 0;padding:0}.mw-content-ltr ol,.mw-content-rtl .mw-content-ltr ol{ margin:0.3em 0 0 3.2em;padding:0}.mw-content-rtl ol,.mw-content-ltr .mw-content-rtl ol{ margin:0.3em 3.2em 0 0;padding:0} .mw-content-ltr dd,.mw-content-rtl .mw-content-ltr dd{margin-left:1.6em;margin-right:0} .mw-content-rtl dd,.mw-content-ltr .mw-content-rtl dd{margin-right:1.6em;margin-left:0}  h1:lang(anp),h1:lang(as),h1:lang(bh),h1:lang(bho),h1:lang(bn),h1:lang(gu),h1:lang(hi),h1:lang(kn),h1:lang(ks),h1:lang(ml),h1:lang(mr),h1:lang(my),h1:lang(mai),h1:lang(ne),h1:lang(new),h1:lang(or),h1:lang(pa),h1:lang(pi),h1:lang(sa),h1:lang(ta),h1:lang(te){line-height:1.6em !important; } h2:lang(anp),h3:lang(anp),h4:lang(anp),h5:lang(anp),h6:lang(anp),h2:lang(as),h3:lang(as),h4:lang(as),h5:lang(as),h6:lang(as),h2:lang(bho),h3:lang(bho),h4:lang(bho),h5:lang(bho),h6:lang(bho),h2:lang(bh),h3:lang(bh),h4:lang(bh),h5:lang(bh),h6:lang(bh),h2:lang(bn),h3:lang(bn),h4:lang(bn),h5:lang(bn),h6:lang(bn),h2:lang(gu),h3:lang(gu),h4:lang(gu),h5:lang(gu),h6:lang(gu),h2:lang(hi),h3:lang(hi),h4:lang(hi),h5:lang(hi),h6:lang(hi),h2:lang(kn),h3:lang(kn),h4:lang(kn),h5:lang(kn),h6:lang(kn),h2:lang(ks),h3:lang(ks),h4:lang(ks),h5:lang(ks),h6:lang(ks),h2:lang(ml),h3:lang(ml),h4:lang(ml),h5:lang(ml),h6:lang(ml),h2:lang(mr),h3:lang(mr),h4:lang(mr),h5:lang(mr),h6:lang(mr),h2:lang(my),h3:lang(my),h4:lang(my),h5:lang(my),h6:lang(my),h2:lang(mai),h3:lang(mai),h4:lang(mai),h5:lang(mai),h6:lang(mai),h2:lang(ne),h3:lang(ne),h4:lang(ne),h5:lang(ne),h6:lang(ne),h2:lang(new),h3:lang(new),h4:lang(new),h5:lang(new),h6:lang(new),h2:lang(or),h3:lang(or),h4:lang(or),h5:lang(or),h6:lang(or),h2:lang(pa),h3:lang(pa),h4:lang(pa),h5:lang(pa),h6:lang(pa),h2:lang(pi),h3:lang(pi),h4:lang(pi),h5:lang(pi),h6:lang(pi),h2:lang(sa),h3:lang(sa),h4:lang(sa),h5:lang(sa),h6:lang(sa),h2:lang(ta),h3:lang(ta),h4:lang(ta),h5:lang(ta),h6:lang(ta),h2:lang(te),h3:lang(te),h4:lang(te),h5:lang(te),h6:lang(te){line-height:1.2em}  ol:lang(azb) li,ol:lang(bcc) li,ol:lang(bgn) li,ol:lang(bqi) li,ol:lang(fa) li,ol:lang(glk) li,ol:lang(kk-arab) li,ol:lang(lrc) li,ol:lang(luz) li,ol:lang(mzn) li{list-style-type:persian}ol:lang(ckb) li,ol:lang(sdh) li{list-style-type:arabic-indic}ol:lang(hi) li,ol:lang(mai) li,ol:lang(mr) li,ol:lang(ne) li{list-style-type:devanagari}ol:lang(as) li,ol:lang(bn) li{list-style-type:bengali}ol:lang(or) li{list-style-type:oriya}.toc ul{margin:0.3em 0}  .mw-content-ltr .toc ul,.mw-content-rtl .mw-content-ltr .toc ul{text-align:left} .mw-content-rtl .toc ul,.mw-content-ltr .mw-content-rtl .toc ul{text-align:right} .mw-content-ltr .toc ul ul,.mw-content-rtl .mw-content-ltr .toc ul ul{margin:0 0 0 2em} .mw-content-rtl .toc ul ul,.mw-content-ltr .mw-content-rtl .toc ul ul{margin:0 2em 0 0}.toc .toctitle{direction:ltr}#mw-clearyourcache,#mw-sitecsspreview,#mw-sitejspreview,#mw-usercsspreview,#mw-userjspreview{direction:ltr;unicode-bidi:embed}#mw-revision-info,#mw-revision-info-current,#mw-revision-nav{direction:ltr}  div.tright,div.floatright,table.floatright{clear:right;float:right} div.tleft,div.floatleft,table.floatleft{float:left;clear:left} #mw-credits a{unicode-bidi:embed} .printfooter{display:none} .xdebug-error{position:absolute;z-index:99}.mw-editsection{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none} .mw-editsection,.mw-editsection-like{font-size:small;font-weight:normal;margin-left:1em;vertical-align:baseline; line-height:1em}  .mw-content-ltr .mw-editsection,.mw-content-rtl .mw-content-ltr .mw-editsection{margin-left:1em} .mw-content-rtl .mw-editsection,.mw-content-ltr .mw-content-rtl .mw-editsection{margin-right:1em} sup,sub{line-height:1}}
+.messagebox,.errorbox,.warningbox,.successbox{color:#000;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-bottom:16px;border:1px solid;padding:12px 24px;word-wrap:break-word; overflow-wrap:break-word;overflow:hidden} .messagebox :only-child,.errorbox :only-child,.warningbox :only-child,.successbox :only-child{margin:0}.messagebox h2,.errorbox h2,.warningbox h2,.successbox h2{color:inherit;display:inline;margin:0 0.5em 0 0;border:0;font-size:1em;font-weight:bold}.messagebox{background-color:#eaecf0;border-color:#a2a9b1}.errorbox{background-color:#fee7e6;border-color:#d33}.warningbox{background-color:#fef6e7;border-color:#fc3}.successbox{background-color:#d5fdf4;border-color:#14866d}
+.mw-wiki-logo{background-image:url(/skins/ultimaWiki2.png?bcb89)}
+@media print {
+	.noprint, .catlinks,.magnify,.mw-cite-backlink,.mw-editsection,.mw-editsection-like,.mw-hidden-catlinks,.mw-indicators,.mw-redirectedfrom,.patrollink,.usermessage, #column-one,#footer-places,#mw-navigation,#siteNotice, #f-poweredbyico,#f-copyrightico,li#about,li#disclaimer,li#mobileview,li#privacy{display:none} body{background:#fff;color:#000;margin:0;padding:0} a{background:none !important; padding:0 !important; }a,a.external,a.new,a.stub{color:inherit !important; text-decoration:inherit !important; } .mw-parser-output a.external.text:after,.mw-parser-output a.external.autonumber:after{content:' (' attr(href) ')';word-break:break-all;word-wrap:break-word} .mw-parser-output a.external.text[href^='//']:after,.mw-parser-output a.external.autonumber[href^='//']:after{content:' (https:' attr(href) ')'}dt{font-weight:bold}h1,h2,h3,h4,h5,h6{font-weight:bold; page-break-after:avoid;page-break-before:avoid}p{margin:1em 0;line-height:1.2; orphans:3;widows:3}img,figure,.wikitable,.thumb{ page-break-inside:avoid}img{border:0;vertical-align:middle}pre,.mw-code{background:#fff;color:#000;border:1pt dashed #000;padding:1em;font-size:8pt;white-space:pre-wrap; overflow-x:hidden; word-wrap:break-word} sup,sub{line-height:1}ul{list-style-type:square} #globalWrapper{width:100% !important; min-width:0 !important; }.mw-body{background:#fff;color:#000;border:0 !important; padding:0 !important; margin:0 !important; direction:ltr}#column-content{margin:0 !important; }#column-content .mw-body{padding:1em;margin:0 !important; }.toc{background-color:#f9f9f9;border:1pt solid #aaa;padding:5px;display:table} .tocnumber,.toctext{display:table-cell} .tocnumber{padding-left:0;padding-right:0.5em} .mw-content-ltr .tocnumber{padding-left:0;padding-right:0.5em} .mw-content-rtl .tocnumber{padding-left:0.5em;padding-right:0}  table.floatright,div.floatright,div.tright{float:right;clear:right} table.floatleft,div.floatleft,div.tleft{float:left;clear:left} div.tleft{margin:0.5em 1.4em 1.3em 0} div.tright{margin:0.5em 0 1.3em 1.4em} table.floatright,div.floatright{margin:0 0 0.5em 0.5em;border:0} table.floatleft,div.floatleft{margin:0 0.5em 0.5em 0;border:0}.center{text-align:center} div.thumb{background-color:transparent;width:auto}div.thumb a{border-bottom:0}div.thumbinner{background-color:#fff;border:0;border-radius:2px;padding:5px;font-size:10pt;color:#666;text-align:center; overflow:hidden;min-width:100px}html .thumbcaption{text-align:left;line-height:1.4;padding:3px}img.thumbborder{border:1pt solid #ddd}  .wikitable,.mw_metadata{background:#fff;margin:1em 0;border:1pt solid #aaa;border-collapse:collapse;font-size:10pt}.wikitable > caption,.mw_metadata caption{padding:5px;font-size:10pt}.wikitable > tr > th,.wikitable > tr > td,.wikitable > * > tr > th,.wikitable > * > tr > td,.mw_metadata th,.mw_metadata td{ background:#fff !important;  color:#000 !important; border:1pt solid #aaa;padding:0.4em 0.6em}.wikitable > tr > th,.wikitable > * > tr > th,.mw_metadata th{text-align:center}table.listing,table.listing td{border:1pt solid #000;border-collapse:collapse} .catlinks ul{display:inline;padding:0;list-style:none none}.catlinks li{display:inline-block;line-height:1.15;margin:0.1em 0;border-left:1pt solid #aaa;padding:0 0.4em}.catlinks li:first-child{border-left:0;padding-left:0.2em} .printfooter{padding:1em 0}#footer{background:#fff;color:#000;margin-top:1em;border-top:1pt solid #aaa;padding-top:5px;direction:ltr}}
+.tippy-iOS{cursor:pointer!important;-webkit-tap-highlight-color:transparent }.tippy-popper{transition-timing-function:cubic-bezier(.165,.84,.44,1);max-width:calc(100% - 8px);pointer-events:none;outline:0 }.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0 }.tippy-popper[x-placement^=top] .tippy-roundarrow{bottom:-7px;bottom:-6.5px;-webkit-transform-origin:50% 0;transform-origin:50% 0;margin:0 3px }.tippy-popper[x-placement^=top] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(180deg);transform:rotate(180deg) }.tippy-popper[x-placement^=top] .tippy-arrow{border-top:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;bottom:-7px;margin:0 3px;-webkit-transform-origin:50% 0;transform-origin:50% 0 }.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 25%;transform-origin:0 25% }.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-55%);transform:scale(1) translate(-50%,-55%) }.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%,-45%);transform:scale(.2) translate(-50%,-45%);opacity:0 }.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px) }.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px) }.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom }.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(-10px) rotateX(0);transform:perspective(700px) translateY(-10px) rotateX(0) }.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) translateY(0) rotateX(60deg);transform:perspective(700px) translateY(0) rotateX(60deg) }.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px) }.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px) }.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px) }.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0) }.tippy-popper[x-placement^=top] [data-animation=scale]{-webkit-transform-origin:bottom;transform-origin:bottom }.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(-10px) scale(1);transform:translateY(-10px) scale(1) }.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px) scale(.5);transform:translateY(-10px) scale(.5) }.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30% }.tippy-popper[x-placement^=bottom] .tippy-roundarrow{top:-7px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%;margin:0 3px }.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(0);transform:rotate(0) }.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;top:-7px;margin:0 3px;-webkit-transform-origin:50% 100%;transform-origin:50% 100% }.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -50%;transform-origin:0 -50% }.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-45%);transform:scale(1) translate(-50%,-45%) }.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%);transform:scale(.2) translate(-50%);opacity:0 }.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px) }.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px) }.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top }.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(10px) rotateX(0);transform:perspective(700px) translateY(10px) rotateX(0) }.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) translateY(0) rotateX(-60deg);transform:perspective(700px) translateY(0) rotateX(-60deg) }.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px) }.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px) }.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px) }.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0) }.tippy-popper[x-placement^=bottom] [data-animation=scale]{-webkit-transform-origin:top;transform-origin:top }.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(10px) scale(1);transform:translateY(10px) scale(1) }.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px) scale(.5);transform:translateY(10px) scale(.5) }.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:50% 0 0 50% }.tippy-popper[x-placement^=left] .tippy-roundarrow{right:-12px;-webkit-transform-origin:33.33333333% 50%;transform-origin:33.33333333% 50%;margin:3px 0 }.tippy-popper[x-placement^=left] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(90deg);transform:rotate(90deg) }.tippy-popper[x-placement^=left] .tippy-arrow{border-left:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;right:-7px;margin:3px 0;-webkit-transform-origin:0 50%;transform-origin:0 50% }.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:50% 0;transform-origin:50% 0 }.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%) }.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-75%,-50%);transform:scale(.2) translate(-75%,-50%);opacity:0 }.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px) }.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px) }.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right }.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(-10px) rotateY(0);transform:perspective(700px) translateX(-10px) rotateY(0) }.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) translateX(0) rotateY(-60deg);transform:perspective(700px) translateX(0) rotateY(-60deg) }.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px) }.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px) }.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px) }.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0) }.tippy-popper[x-placement^=left] [data-animation=scale]{-webkit-transform-origin:right;transform-origin:right }.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(-10px) scale(1);transform:translateX(-10px) scale(1) }.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px) scale(.5);transform:translateX(-10px) scale(.5) }.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 50% 50% 0 }.tippy-popper[x-placement^=right] .tippy-roundarrow{left:-12px;-webkit-transform-origin:66.66666666% 50%;transform-origin:66.66666666% 50%;margin:3px 0 }.tippy-popper[x-placement^=right] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg) }.tippy-popper[x-placement^=right] .tippy-arrow{border-right:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;left:-7px;margin:3px 0;-webkit-transform-origin:100% 50%;transform-origin:100% 50% }.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-50% 0;transform-origin:-50% 0 }.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%) }.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-25%,-50%);transform:scale(.2) translate(-25%,-50%);opacity:0 }.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px) }.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px) }.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left }.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(10px) rotateY(0);transform:perspective(700px) translateX(10px) rotateY(0) }.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) translateX(0) rotateY(60deg);transform:perspective(700px) translateX(0) rotateY(60deg) }.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px) }.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px) }.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px) }.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0) }.tippy-popper[x-placement^=right] [data-animation=scale]{-webkit-transform-origin:left;transform-origin:left }.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(10px) scale(1);transform:translateX(10px) scale(1) }.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px) scale(.5);transform:translateX(10px) scale(.5) }.tippy-tooltip{position:relative;color:#fff;border-radius:.25rem;font-size:.875rem;padding:.3125rem .5625rem;line-height:1.4;text-align:center;background-color:#333 }.tippy-tooltip[data-size=small]{padding:.1875rem .375rem;font-size:.75rem }.tippy-tooltip[data-size=large]{padding:.375rem .75rem;font-size:1rem }.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:transparent }.tippy-tooltip[data-interactive],.tippy-tooltip[data-interactive] .tippy-roundarrow path{pointer-events:auto }.tippy-tooltip[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11) }.tippy-tooltip[data-inertia][data-state=hidden]{transition-timing-function:ease }.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0 }.tippy-roundarrow{width:18px;height:7px;fill:#333;pointer-events:none }.tippy-backdrop{position:absolute;background-color:#333;border-radius:50%;width:calc(110% + 2rem);left:50%;top:50%;z-index:-1;transition:all cubic-bezier(.46,.1,.52,.98);-webkit-backface-visibility:hidden;backface-visibility:hidden }.tippy-backdrop:after{content:"";float:left;padding-top:100% }.tippy-backdrop+.tippy-content{transition-property:opacity;will-change:opacity }.tippy-backdrop+.tippy-content[data-state=visible]{opacity:1 }.tippy-backdrop+.tippy-content[data-state=hidden]{opacity:0 }.tippy-tooltip.light-border-theme{background-color:#fff;background-clip:padding-box;border:1px solid rgba(0,8,16,.15);color:#26323d;box-shadow:0 3px 14px -.5px rgba(0,8,16,.08) }.tippy-tooltip.light-border-theme .tippy-backdrop{background-color:#fff }.tippy-tooltip.light-border-theme .tippy-arrow:after,.tippy-tooltip.light-border-theme .tippy-arrow:before,.tippy-tooltip.light-border-theme .tippy-roundarrow:after,.tippy-tooltip.light-border-theme .tippy-roundarrow:before{content:"";position:absolute;z-index:-1 }.tippy-tooltip.light-border-theme .tippy-roundarrow{fill:#fff }.tippy-tooltip.light-border-theme .tippy-roundarrow:after{background-image:url(data:image/svg+xml;base64,PHN2ZyBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEuNDE0IiB2aWV3Qm94PSIwIDAgMTggNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCA3czIuMDIxLS4wMTUgNS4yNTMtNC4yMThDNi41ODQgMS4wNTEgNy43OTcuMDA3IDkgMGMxLjIwMy0uMDA3IDIuNDE2IDEuMDM1IDMuNzYxIDIuNzgyQzE2LjAxMiA3LjAwNSAxOCA3IDE4IDd6IiBmaWxsPSIjMzMzIiBmaWxsLW9wYWNpdHk9Ii4yMzUiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvc3ZnPg==);background-size:18px 7px;width:18px;height:7px;left:0;top:0;fill:rgba(0,8,16,.15) }.tippy-tooltip.light-border-theme[x-placement^=top] .tippy-roundarrow:after{top:1px;-webkit-transform:rotate(180deg);transform:rotate(180deg) }.tippy-tooltip.light-border-theme[x-placement^=top] .tippy-arrow{border-top-color:#fff }.tippy-tooltip.light-border-theme[x-placement^=top] .tippy-arrow:after{border-top:7px solid #fff;top:-7px }.tippy-tooltip.light-border-theme[x-placement^=top] .tippy-arrow:before{border-top:7px solid rgba(0,8,16,.2);bottom:-1px }.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-roundarrow:after{top:-1px }.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-arrow{border-bottom-color:#fff }.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-arrow:after{border-bottom:7px solid #fff;bottom:-7px }.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-arrow:before{border-bottom:7px solid rgba(0,8,16,.2);bottom:-6px }.tippy-tooltip.light-border-theme[x-placement^=left] .tippy-roundarrow:after{left:1px;top:0;-webkit-transform:rotate(90deg);transform:rotate(90deg) }.tippy-tooltip.light-border-theme[x-placement^=left] .tippy-arrow{border-left-color:#fff }.tippy-tooltip.light-border-theme[x-placement^=left] .tippy-arrow:after{border-left:7px solid #fff;left:-7px }.tippy-tooltip.light-border-theme[x-placement^=left] .tippy-arrow:before{border-left:7px solid rgba(0,8,16,.2);left:-6px }.tippy-tooltip.light-border-theme[x-placement^=right] .tippy-roundarrow:after{left:-1px;top:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg) }.tippy-tooltip.light-border-theme[x-placement^=right] .tippy-arrow{border-right-color:#fff }.tippy-tooltip.light-border-theme[x-placement^=right] .tippy-arrow:after{border-right:7px solid #fff;right:-7px }.tippy-tooltip.light-border-theme[x-placement^=right] .tippy-arrow:before{border-right:7px solid rgba(0,8,16,.2);right:-6px }.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-arrow,.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-roundarrow,.tippy-tooltip.light-border-theme[x-placement^=top] .tippy-arrow,.tippy-tooltip.light-border-theme[x-placement^=top] .tippy-roundarrow{-webkit-transform:translateX(-1px);transform:translateX(-1px) }.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-arrow:after,.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-arrow:before,.tippy-tooltip.light-border-theme[x-placement^=top] .tippy-arrow:after,.tippy-tooltip.light-border-theme[x-placement^=top] .tippy-arrow:before{left:-7px;border-left:7px solid transparent;border-right:7px solid transparent }.tippy-tooltip.light-border-theme[x-placement^=left] .tippy-arrow,.tippy-tooltip.light-border-theme[x-placement^=left] .tippy-roundarrow,.tippy-tooltip.light-border-theme[x-placement^=right] .tippy-arrow,.tippy-tooltip.light-border-theme[x-placement^=right] .tippy-roundarrow{-webkit-transform:translateY(-1px);transform:translateY(-1px) }.tippy-tooltip.light-border-theme[x-placement^=left] .tippy-arrow:after,.tippy-tooltip.light-border-theme[x-placement^=left] .tippy-arrow:before,.tippy-tooltip.light-border-theme[x-placement^=right] .tippy-arrow:after,.tippy-tooltip.light-border-theme[x-placement^=right] .tippy-arrow:before{top:-7px;border-top:7px solid transparent;border-bottom:7px solid transparent }.tippy-tooltip.light-theme{color:#26323d;box-shadow:0 0 20px 4px rgba(154,161,177,.15),0 4px 80px -8px rgba(36,40,47,.25),0 4px 4px -2px rgba(91,94,105,.15);background-color:#fff }.tippy-tooltip.light-theme[x-placement^=top] .tippy-arrow{border-top:8px solid #fff;border-right:8px solid transparent;border-left:8px solid transparent }.tippy-tooltip.light-theme[x-placement^=bottom] .tippy-arrow{border-bottom:8px solid #fff;border-right:8px solid transparent;border-left:8px solid transparent }.tippy-tooltip.light-theme[x-placement^=left] .tippy-arrow{border-left:8px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent }.tippy-tooltip.light-theme[x-placement^=right] .tippy-arrow{border-right:8px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent }.tippy-tooltip.light-theme .tippy-backdrop{background-color:#fff }.tippy-tooltip.light-theme .tippy-roundarrow{fill:#fff }.tippy-tooltip.light-theme[data-animatefill]{background-color:transparent }
+@media screen {
+	.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;font-size:94%}}</style><style>
+.tippy-popper{z-index:100 !important}.tippy-header{padding:.5em .8em .3em .8em;margin-bottom:0;font-size:14px;color:inherit;background-color:#f7f7f7;border-bottom:1px solid #ebebeb;border-top-left-radius:calc(.3em - 1px);border-top-right-radius:calc(.3em - 1px);text-align:left}.tippy-bottom{padding:.5em .8em .5em .8em;margin-bottom:0;font-size:14px;color:inherit;background-color:#fff;border-top:1px solid #ebebeb;border-bottom-left-radius:calc(.3em - 1px);border-bottom-right-radius:calc(.3em - 1px);text-align:left}.tippy-content-container{padding:.5em .8em;text-align:initial;word-break:break-word; font-size:14px;max-height:250px;overflow-y:auto}.tippy-content-container ul{padding-inline-start:10px;margin:0.3em 0.3em 0.3em 0.5em}.tippy-content-container code{word-break:break-all}.tippy-content-overlay{height:40px;width:260px;margin-top:10px}.tippy-tooltip.light-border-theme,.tippy-tooltip.light-theme{padding:0}.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-arrow,.tippy-tooltip.light-theme[x-placement^=bottom] .tippy-arrow,.tippy-tooltip.light-border-theme[x-placement^=bottom] .tippy-arrow:after,.tippy-tooltip.light-theme[x-placement^=bottom] .tippy-arrow:after{border-bottom-color:#f7f7f7 }.tippy-tooltip.light-border-theme.square-border-transparent-arrow[x-placement^=bottom] .tippy-arrow,.tippy-tooltip.light-border-theme.square-border-light[x-placement^=bottom] .tippy-arrow,.tippy-tooltip.light-theme.square-border-transparent-arrow[x-placement^=bottom] .tippy-arrow,.tippy-tooltip.light-theme.square-border-light[x-placement^=bottom] .tippy-arrow,.tippy-tooltip.light-border-theme.square-border-transparent-arrow[x-placement^=bottom] .tippy-arrow:after,.tippy-tooltip.light-border-theme.square-border-light[x-placement^=bottom] .tippy-arrow:after,.tippy-tooltip.light-theme.square-border-transparent-arrow[x-placement^=bottom] .tippy-arrow:after,.tippy-tooltip.light-theme.square-border-light[x-placement^=bottom] .tippy-arrow:after{border-bottom-color:#fff}.tippy-tooltip.light-border-theme.square-border,.tippy-tooltip.light-border-theme.square-border-light,.tippy-tooltip.light-border-theme.square-border-transparent-arrow{border-radius:0}.square-border-light .tippy-header{background-color:#fff }.tippy-cancel{width:auto;height:auto;float:right;font-size:20px;font-weight:bold;line-height:18px;color:#000000;text-shadow:0 1px 0 #ffffff;opacity:0.2;margin-left:10px}.tippy-cancel:after{content:'×'}.tippy-cancel:hover{color:#000000;text-decoration:none;cursor:pointer;opacity:0.4}.tippy-warning-circle{float:right;height:10px;width:10px;background-color:#ffae19;display:inline-block;margin-top:3.5px;margin-left:15px;border-radius:50%}.tippy-error-circle{float:right;height:10px;width:10px;background-color:#e04006;display:inline-block;margin-top:3.5px;margin-left:15px;border-radius:50%}.tippy-header.wide-popup{padding:.5em .6em .5em .8em}.tippy-top.wide-popup{padding:.5em .8em .0em .8em;font-size:12px}.tippy-content-container.wide-popup{padding:.5em .8em;margin-bottom:0px;font-size:14px;overflow-y:auto;overflow-x:hidden;max-height:300px}.tippy-header.accordion-popup,.tippy-header.accordion-popup.plain{padding:.5em .8em .5em .8em;font-weight:600}.tippy-header.accordion-popup.plain{background-color:transparent}.tippy-top.accordion-popup,.tippy-top.accordion-popup.plain{text-align:justify;padding:0.8em}.tippy-content-container.accordion-popup,.tippy-content-container.accordion-popup.plain{padding:0;margin-top:0px;margin-bottom:0px;font-size:14px;overflow-y:hidden;overflow-x:hidden;max-height:300px}.tippy-content-container.wide-popup ul{margin:0em 0.3em 0.3em 0.5em}.tippy-content-container.wide-popup ul{font-size:12px}.tippy-bottom.wide-popup{padding:.5em .8em .95em .8em}</style><style>
+.smw-indicator-compare-list{font-size:12px;margin-top:5px}.smw-indicator-compare-list-row{display:flex;align-items:flex-start;flex-wrap:wrap;height:100%}.smw-indicator-compare-list-row span{width:50%}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Ultima Underworld internal formats - The Codex of Ultima Wisdom, a wiki for Ultima and Ultima Online_files/load(3).php">
+<meta name="generator" content="MediaWiki 1.35.4">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0">
+<link rel="alternate" type="application/rdf+xml" title="Ultima Underworld internal formats" href="https://wiki.ultimacodex.com/index.php?title=Special:ExportRDF/Ultima_Underworld_internal_formats&amp;xmlmime=rdf">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit">
+<link rel="edit" title="Edit" href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit">
+<link rel="shortcut icon" href="https://wiki.ultimacodex.com/skins/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://wiki.ultimacodex.com/opensearch_desc.php" title="Ultima Codex (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.ultimacodex.com/api.php?action=rsd">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="canonical" href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats">
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Ultima_Underworld_internal_formats rootpage-Ultima_Underworld_internal_formats skin-monobook action-view"><div id="globalWrapper"><div id="column-content"><div id="content" class="mw-body" role="main"><a id="top"></a><div class="mw-indicators mw-body-content">
+<div id="mw-indicator-smw-entity-examiner" class="mw-indicator"></div>
+</div>
+<h1 id="firstHeading" class="firstHeading" lang="en"><i>Ultima Underworld</i> internal formats</h1><div id="bodyContent" class="mw-body-content"><div id="siteSub">From Ultima Codex</div><div id="contentSub" lang="en" dir="ltr"><span class="mw-redirectedfrom">(Redirected from <a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_Internal_Formats&amp;redirect=no" class="mw-redirect" title="Ultima Underworld Internal Formats">Ultima Underworld Internal Formats</a>)</span></div><div id="jump-to-nav"></div><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#column-one" class="mw-jump-link">Jump to navigation</a><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#searchInput" class="mw-jump-link">Jump to search</a><!-- start content --><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page documents the <i><b>Ultima Underworld</b></i> engine's <b>internal formats</b> (used in <i><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld:_The_Stygian_Abyss" title="Ultima Underworld: The Stygian Abyss">Ultima Underworld</a></i> and <i><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_II:_Labyrinth_of_Worlds" title="Ultima Underworld II: Labyrinth of Worlds">Ultima Underworld&nbsp;II</a></i>). <a href="http://en.wikipedia.org/wiki/System_Shock" class="extiw" title="wikipedia:System Shock"><i>System Shock</i></a> used an overhauled, vastly different engine that is not discussed here.
+</p><p>If not specifically noted, anything here refers to <i>Ultima Underworld</i> (<i>UW1</i>) only. <i>Ultima Underworld&nbsp;II</i> (<i>UW2</i>) changes some formats, which will be documented later.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#General_Types"><span class="tocnumber">1</span> <span class="toctext">General Types</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Files"><span class="tocnumber">2</span> <span class="toctext">Files</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#File_Formats"><span class="tocnumber">3</span> <span class="toctext">File Formats</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Font_files_.28.sys_extensions.29"><span class="tocnumber">3.1</span> <span class="toctext">Font files (.sys extensions)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Level_Archives_.28data.2Flev.ark_and_save.23.2Flev.ark.29"><span class="tocnumber">3.2</span> <span class="toctext">Level Archives (data/lev.ark and save#/lev.ark)</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Level_Chunk_.2831752_bytes.29"><span class="tocnumber">3.2.1</span> <span class="toctext">Level Chunk (31752 bytes)</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Texture_list_chunk_.28122_bytes.29"><span class="tocnumber">3.2.2</span> <span class="toctext">Texture list chunk (122 bytes)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Graphics_Files_.28.gr_and_.tr_extensions.29"><span class="tocnumber">3.3</span> <span class="toctext">Graphics Files (.gr and .tr extensions)</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Format_4_.E2.80.93_Raw"><span class="tocnumber">3.3.1</span> <span class="toctext">Format 4 – Raw</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Format_6_.E2.80.93_5-bit_RLE"><span class="tocnumber">3.3.2</span> <span class="toctext">Format 6 – 5-bit RLE</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Format_8_.E2.80.93_4-bit_RLE"><span class="tocnumber">3.3.3</span> <span class="toctext">Format 8 – 4-bit RLE</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Format_10_.E2.80.93_4-bit"><span class="tocnumber">3.3.4</span> <span class="toctext">Format 10 – 4-bit</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Models_.28uw.exe.2C_uw2.exe.29"><span class="tocnumber">3.4</span> <span class="toctext">Models (uw.exe, uw2.exe)</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Palette_Files_.28data.2Fpals.dat.29"><span class="tocnumber">3.5</span> <span class="toctext">Palette Files (data/pals.dat)</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Player_saves_.28save.23.2Fplayer.dat.29"><span class="tocnumber">3.6</span> <span class="toctext">Player saves (save#/player.dat)</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Strings_.28data.2Fstrings.pak.29"><span class="tocnumber">3.7</span> <span class="toctext">Strings (data/strings.pak)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Enumerations"><span class="tocnumber">4</span> <span class="toctext">Enumerations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#.22data.2Foptbtns.gr.22_images"><span class="tocnumber">4.1</span> <span class="toctext">"data/optbtns.gr" images</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Object_Types"><span class="tocnumber">4.2</span> <span class="toctext">Object Types</span></a>
+<ul>
+<li class="toclevel-3 tocsection-20"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Ultima_Underworld"><span class="tocnumber">4.2.1</span> <span class="toctext"><i>Ultima Underworld</i></span></a>
+<ul>
+<li class="toclevel-4 tocsection-21"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Behaviours"><span class="tocnumber">4.2.1.1</span> <span class="toctext">Behaviours</span></a></li>
+<li class="toclevel-4 tocsection-22"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Stored_Parameters"><span class="tocnumber">4.2.1.2</span> <span class="toctext">Stored Parameters</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="General_Types">General Types</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=1" title="Edit section: General Types">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>These types are used in this page: 
+</p>
+<ul><li>char – A 7-bit (1-byte) ASCII character code.</li>
+<li>charz – As with char, but a null character (code 0) terminates a string.</li>
+<li>uint8 – Unsigned 8-bit (1-byte) integer, between 0 and 255 (2<sup>8</sup>-1).</li>
+<li>uint16 – Unsigned 16-bit (2-byte) integer, between 0 and 65535 (2<sup>16</sup>-1), in little-<a href="http://en.wikipedia.org/wiki/Endianness" class="extiw" title="wikipedia:Endianness">endian</a> byte-order.</li>
+<li>uint32 – Unsigned 32-bit (4-byte) integer, between 0 and 4294967295 (2<sup>32</sup>-1), in little-endian byte-order.</li></ul>
+<h2><span class="mw-headline" id="Files">Files</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=2" title="Edit section: Files">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>This is a hierarchical index of the files in <i>Ultima Underworld</i> and what is known about them. 
+</p>
+<ul><li>uw.exe</li>
+<li>crit/ – Creature animations.
+<ul><li>cr##page.n##</li></ul></li>
+<li>cuts/ – Cutscenes.
+<ul><li>cuts/cs###.n##</li></ul></li>
+<li>data/ – General static data.
+<ul><li>data/3dwin.gr</li>
+<li><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#allpals.dat">data/allpals.dat</a> – A collection of uint8 that is used by various graphics to map from a 4-bit value to the 8-bit palette. See the <a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Graphics_Files_.28.gr_and_.tr_extensions.29">“Graphics Files”</a> section for details.</li>
+<li>data/animo.gr – Spell effect animation graphics (palette 0).</li>
+<li>data/armor_f.gr – Female armor paper doll graphics (palette 0).</li>
+<li>data/armor_m.gr – Male armor paper doll graphics (palette 0).</li>
+<li>data/babglobs.dat</li>
+<li>data/bodies.gr – Paper doll body graphics (palette 0); five male, then five female.</li>
+<li>data/buttons.gr – Contains editor buttons (palette 0).</li>
+<li>data/chains.gr – Chain animation graphics (palette 0).</li>
+<li>data/charhead.gr – Character portrait graphics (palette 0), each 34x34.</li>
+<li>data/chrbtns.gr – Character creation screen graphics (palette 3).</li>
+<li>data/chrgen.dat</li>
+<li>data/cmb.dat</li>
+<li>data/cnv.ark</li>
+<li>data/comobj.dat</li>
+<li>data/compass.gr – Compass graphics (palette 0).</li>
+<li>data/converse.gr – Conversation pane graphics (palette 0).</li>
+<li>data/cursors.gr – Cursor graphics (palette 0). In order, they are the crosshair, forward, backward, left, right, turn left, turn right, bear left, bear right, circle, x, writing quill, well, quill cursor, ankh frame 1, ankh frame 2, ankh frame 3, and ankh frame 4.</li>
+<li>data/doors.gr – Door textures (palette 0); each 32x64. This does not include the portcullis texture.</li>
+<li>data/dragons.gr – Graphics for the dragons on the borders of the screen (palette 0).</li>
+<li>data/eyes.gr – Graphics for the eyes on the borders of the screen (palette 0).</li>
+<li>data/flasks.gr – <a href="https://wiki.ultimacodex.com/wiki/Health" title="Health">Health</a>/<a href="https://wiki.ultimacodex.com/wiki/Mana" class="mw-redirect" title="Mana">mana</a>/<a href="https://wiki.ultimacodex.com/wiki/Poison_(concept)" title="Poison (concept)">poisoned</a> flask graphics (palette 0).</li>
+<li>data/font4x5p.sys – A&nbsp;5x4 font (see the <a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#aFont">“Font file” section</a>). Note the name lists the height first.<br></li>
+<li>data/font5x6i.sys – A&nbsp;6x5 italicised font (see the “Font” section).<br></li>
+<li>data/font5x6p.sys – A&nbsp;6x5 font (see the “Font files” section).<br></li>
+<li>data/fontbig.sys – An 11x15 font (see the “Font files” section]]).<br></li>
+<li>data/fontbutn.sys – A 9x6 font only containing capital A-Z&nbsp;(see the “Font files” section]]).<br></li>
+<li>data/fontchar.sys – A&nbsp;9x10 font (see the “Font files” section).<br></li>
+<li>data/genhead.gr – Generic character portrait graphics (palette 0); many entries are empty.</li>
+<li>data/grave.dat</li>
+<li>data/heads.gr – Player portrait graphics (palette 0).</li>
+<li>data/inv.gr – Apparently unused graphics (palette 0). Mostly a bunch of yellow rectangles and a cut-off window.<br></li>
+<li><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#lev.ark">data/lev.ark</a> – The initial game state archive.</li>
+<li>data/lfti.gr – Game action button graphics (palette 0). These are options, options highlight, speak, speak highlight, move, move highlight, look, look highlight, combat, combat highlight, use, and use highlight.</li>
+<li>data/light.dat</li>
+<li>data/lights.dat</li>
+<li>data/mono.dat</li>
+<li>data/objects.dat</li>
+<li>data/objects.gr – Object icon graphics (palette 0). This includes some editing icons, or possibly icons that would be displayed in-game with a special mode.</li>
+<li>data/opbtn.gr – Title screen button graphics (palette 2).</li>
+<li>data/optb.gr – More option screen button graphics (palette 0).</li>
+<li>data/optbtns.gr – Option screen button graphics (palette 0); see the <a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#Enumerations">“Enumerations”</a> section for the list of buttons.</li>
+<li><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#pals.dat">data/pals.dat</a> – The 8 palettes used throughout the normal game. 0 is the main game palette, 1 is the map screen palette, 2 is the title screen palette, 3 is the character creation screen palette, 4 is unknown, 5 is the splash screen palette, 6 is unknown, and 7 is the win screen palette.</li>
+<li>data/panels.gr – Panel graphics file (palette 0, explicit sizes 83x114, 83x114, 83x114, and 6x60). Images are the paper doll background, item list background, character sheet background, and some kind of borders.</li>
+<li>data/player.dat</li>
+<li>data/power.gr – Strike power animation graphics (palette 0).</li>
+<li>data/question.gr – Question cursor graphics (palette 0); contains one image, which is the question cursor.</li>
+<li>data/scrledge.gr – Ledger scroll edge animation graphics (palette 0).</li>
+<li>data/shades.dat</li>
+<li>data/skills.dat</li>
+<li>data/spells.gr – Spell icon graphics (palette 0); each 16x18.</li>
+<li>data/strings.pak – Game strings file (see the Strings section).<br></li>
+<li>data/terrain.dat</li>
+<li>data/tmflat.gr – Flats graphics (palette 0). These are the buttons and levers shown on dungeon walls. Each is 16x16.</li>
+<li>data/tmobj.gr – Miscellaneous graphics (palette 0). This contains a variety of graphics: door sides, dial flats, tombstone textures, signs, a door, and big numbers that appear to be developer-related (considering the yellow 'HI' written on one).</li>
+<li>data/uw.cfg</li>
+<li>data/views.gr – Only contains an icon labeled "MV".</li></ul></li>
+<li>data/weapons.cm (<i>UW1</i>) or weap.cm (<i>UW2</i>)
+<ul><li>data/weapons.dat (<i>UW1</i>) or weap.dat (<i>UW2</i>) – Weapon animation offsets from the bottom-left corner of the screen. The format is (WeaponOffset[8]), where WeaponOffset is for each weapon and has the format (int8[28] xOffsets, int8[28] yOffsets).<br></li>
+<li>data/weapons.gr (UW1) or weap.gr (UW2) – Weapon animation graphics (palette 0). There are 8 weapons, 28 images per weapon. "data/weapons.dat" contains the offsets.</li>
+<li>data/win1.byt – Win screen with text as a raw 320x200 graphic (palette 7).</li>
+<li>data/win2.byt – Win screen without text as a raw 320x200 graphic (palette 7).</li>
+<li>data/xfer.dat</li></ul></li>
+<li>save#/ – Save files.
+<ul><li>save#/bglobals.dat</li>
+<li><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#lev.ark">save#/lev.ark</a> – The dynamic game world.</li></ul></li>
+<li>sound/ – Sound files and drivers.
+<ul><li>sound/*.adv – Sound device drivers.</li>
+<li>sound/sounds.dat</li>
+<li>sound/uw.ad</li>
+<li>sound/uw.mt</li></ul></li>
+<li>install.exe</li>
+<li>uw.exe</li>
+<li>uwsound.exe</li></ul>
+<p>These files are only in <i>Ultima Underworld</i>:
+</p>
+<ul><li>uw2.exe</li>
+<li>crit/
+<ul><li>crit/assoc.anm</li></ul></li>
+<li>sound/
+<ul><li>data/blnkmap.byt – Map background as a raw 320x200 graphic (palette 1).</li>
+<li>data/chargen.byt – Character creation screen background as a raw 320x200 graphic (palette 3).</li>
+<li>data/conv.byt – Sample conversation as a raw 320x200 graphic (palette 0). This is obviously not used.<br></li>
+<li>data/f16.tr – Floor texture graphics (palette 0); each is 16x16. The ceiling texture is index 15. This is the same as "data/f32.tr", just 1/4th the size.</li>
+<li>data/f32.tr – Floor texture graphics (palette 0); each is 32x32. The ceiling texture is index 15. This is the same as "data/f16.tr", just 4 times the size.</li>
+<li>data/main.byt – Game play background as a raw 320x200 graphic (palette 0).</li>
+<li>data/opscr.byt – Title screen background as a raw 320x200 graphic (palette 2).</li>
+<li>data/pres1.byt – First splash screen as a raw 320x200 graphic (palette 5); this is the Origin title.</li>
+<li>data/pres2.byt – Second splash screen as a raw 320x200 graphic (palette 5); this is the Blue Sky Productions title.</li>
+<li>data/w16.tr – Wall texture graphics (palette 0); each is 16x16. These are the same as "data/w64.tr", just 1/16th the size.</li>
+<li>data/w64.tr – Wall texture graphics (palette 0); each is 64x64. These are the same as "data/w16.tr", just 16 times the size.</li></ul></li>
+<li>sound/
+<ul><li>sound/aw##.xmi</li>
+<li>sound/uw##.xmi</li>
+<li>sound/##.voc</li></ul></li></ul>
+<p>These files are only in <i>Ultima Underworld&nbsp;II</i>:
+</p>
+<ul><li>crit/
+<ul><li>crit/as.an</li>
+<li>crit/cr.an</li>
+<li>crit/pg.mp</li></ul></li>
+<li>cuts/
+<ul><li>cuts/lback00#.byt (# is 0 to 7)</li></ul></li>
+<li>data/
+<ul><li>data/byt.ark</li>
+<li>data/controls.dat</li>
+<li>data/dl.dat</li>
+<li>data/gempt.gr</li>
+<li>data/ghed.gr</li>
+<li>data/lighting.dat</li>
+<li>data/scd.ark</li>
+<li>data/t64.tr</li></ul></li>
+<li>save#/
+<ul><li>save#/desc</li>
+<li>save#/player.dat</li>
+<li>save#/scd.arc</li></ul></li>
+<li>sound/
+<ul><li>sound/bsp##.voc</li>
+<li>sound/sample.opl</li>
+<li>sound/sp##.voc</li>
+<li>sound/uw.opl</li>
+<li>sound/uwa##.xmi</li>
+<li>sound/uwr##.xmi</li></ul></li></ul>
+<h2><span class="mw-headline" id="File_Formats">File Formats</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=3" title="Edit section: File Formats">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span id="Font_files_(.sys_extensions)"></span><span class="mw-headline" id="Font_files_.28.sys_extensions.29"><span id="aFont"></span>Font files (.sys extensions)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=4" title="Edit section: Font files (.sys extensions)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Fonts are stored in a binary format. 
+</p>
+<table cellspacing="0" border="1" style="text-align: left; width: 693px; height: 212px;">
+
+<tbody><tr>
+<th>Offset
+</th>
+<th>Length
+</th>
+<th>Type
+</th>
+<th>Name
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>00h
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>WidthBytes
+</td>
+<td>The width in bytes of a character; always 1.
+</td></tr>
+<tr>
+<td>02h
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>CharacterBytes
+</td>
+<td>The size in bytes of a character.
+</td></tr>
+<tr>
+<td>04h
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>SpaceWidth
+</td>
+<td>The width in pixels of a space character.
+</td></tr>
+<tr>
+<td>06h
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>CharacterHeight
+</td>
+<td>The height in pixels of a character.
+</td></tr>
+<tr>
+<td>08h
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>RowBytes
+</td>
+<td>The number of bytes in a row.
+</td></tr>
+<tr>
+<td>0Ah
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>MaximumWidth
+</td>
+<td>Maximum width of a character in pixels.
+</td></tr>
+<tr>
+<td valign="top">0Ch<br>
+</td>
+<td valign="top">X<br>
+</td>
+<td valign="top">Character[X]<br>
+</td>
+<td valign="top">Characters<br>
+</td>
+<td valign="top">Character images, described below. There are as many characters as there is space in the file, although no font has more than 127.<br>
+</td></tr>
+<tr>
+<td colspan="5">This is the format of the Character type:<br>
+</td></tr>
+<tr>
+<td valign="top">00h<br>
+</td>
+<td valign="top">CharacterSize<br>
+</td>
+<td valign="top">uint8[CharacterSize]<br>
+</td>
+<td valign="top">Graphic<br>
+</td>
+<td valign="top">Bitmap of the character graphic in descending bit order. So the first pixel is mask 128, the second is mask 64, and so on.<br>
+</td></tr>
+<tr>
+<td valign="top">XX
+</td>
+<td valign="top">1
+</td>
+<td valign="top">uint8
+</td>
+<td valign="top">Width
+</td>
+<td valign="top">Width in pixels of the character.
+</td></tr></tbody></table>
+<h3><span id="Level_Archives_(data/lev.ark_and_save#/lev.ark)"></span><span class="mw-headline" id="Level_Archives_.28data.2Flev.ark_and_save.23.2Flev.ark.29"><span id="lev.ark"></span>Level Archives (data/lev.ark and save#/lev.ark)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=5" title="Edit section: Level Archives (data/lev.ark and save#/lev.ark)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>This contains the entire state of the levels of the game. Its header has the following format:
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Offset</th>
+<th>Length</th>
+<th>Type</th>
+<th>Name</th>
+<th>Descripion
+</th></tr>
+<tr>
+<td>00h</td>
+<td>2</td>
+<td>uint16</td>
+<td>ChunkCount</td>
+<td>Number of chunks in the file.
+</td></tr>
+<tr>
+<td>02h</td>
+<td>4*ChunkCount</td>
+<td>uint32[ChunkCount]</td>
+<td>ChunkOffsets</td>
+<td>Offsets from the start of the file to the chunk, or zero if there are no more chunks.
+</td></tr></tbody></table>
+<p>The type of the chunk depends upon how many bytes it is, which you can find out by subtracting the next chunk offset from this one, or the file size from this offset if this is the last chunk. All chunks of one type are in order. For example, in <i>UW1</i> there are nine 31752-byte Level chunks followed by nine 384-byte unknown chunks, followed by 9 122-byte TextureList chunks, followed by 0-9 4096-byte map data chunks.
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Length</th>
+<th>Name</th>
+<th>Description
+</th></tr>
+<tr>
+<td>31752</td>
+<td>Level</td>
+<td>A new level description.
+</td></tr>
+<tr>
+<td>384</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>122</td>
+<td>TextureList</td>
+<td>The textures used by the last-defined level.
+</td></tr>
+<tr>
+<td>4096</td>
+<td>Map</td>
+<td>Map data, present only in savegames.
+</td></tr></tbody></table>
+<h4><span id="Level_Chunk_(31752_bytes)"></span><span class="mw-headline" id="Level_Chunk_.2831752_bytes.29">Level Chunk (31752 bytes)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=6" title="Edit section: Level Chunk (31752 bytes)">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>In the below, MobileCount is 256 and ObjectCount is 768.
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Offset</th>
+<th>Length</th>
+<th>Type</th>
+<th>Name</th>
+<th>Descripion
+</th></tr>
+<tr>
+<td>0000h</td>
+<td>4*64*64</td>
+<td>Tile[64*64]</td>
+<td>Tiles</td>
+<td>Level tiles in [x + y * 64] order, described below.
+</td></tr>
+<tr>
+<td>4000h</td>
+<td>27*MobileCount</td>
+<td>Mobile[MobileCount]</td>
+<td>Mobiles</td>
+<td>List of mobiles in the level.
+</td></tr>
+<tr>
+<td>5B00h</td>
+<td>8*ObjectCount</td>
+<td>Object[ObjectCount]</td>
+<td>Objects</td>
+<td>Immobile objects in the level.
+</td></tr>
+<tr>
+<td>7300h</td>
+<td>2*(MobileCount - 2)</td>
+<td>uint16[MobileCount - 2]</td>
+<td>FreeMobiles</td>
+<td>Free mobile list. There are two few because mobile 0 is null and doesn't exist, and 1 is the <a href="https://wiki.ultimacodex.com/wiki/Avatar" title="Avatar">Avatar</a> and cannot be freed.
+</td></tr>
+<tr>
+<td>74FCh</td>
+<td>2*ObjectCount</td>
+<td>uint16[ObjectCount]</td>
+<td>FreeObjects</td>
+<td>Free object list.
+</td></tr>
+<tr>
+<td>7AFCh</td>
+<td>260</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>7C00h</td>
+<td>2</td>
+<td>uint16</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>7C02h</td>
+<td>2</td>
+<td>uint16</td>
+<td>LastFreeMobile</td>
+<td>Index of the last free mobile index in the FreeMobiles list.
+</td></tr>
+<tr>
+<td>7C04h</td>
+<td>2</td>
+<td>uint16</td>
+<td>LastFreeObject</td>
+<td>Index of the last free object index in the FreeObjects list.
+</td></tr>
+<tr>
+<td>7C08h</td>
+<td>2</td>
+<td>char[2]</td>
+<td>Marker</td>
+<td>The text 'uw'.
+</td></tr></tbody></table>
+<p>This is the bit format of a Tile, which is 4 bytes long and treated as a uint32:
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Shift</th>
+<th>Bits</th>
+<th>Mask</th>
+<th>Name</th>
+<th>Description
+</th></tr>
+<tr>
+<td>0</td>
+<td>4</td>
+<td>15</td>
+<td>Type</td>
+<td>Shape of the tile, see below.
+</td></tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>15</td>
+<td>FloorHeight</td>
+<td>Basic height of the floor. A value of 15 connects with the ceiling.
+</td></tr>
+<tr>
+<td>8</td>
+<td>2</td>
+<td>3</td>
+<td>??</td>
+<td>Always zero in <i>UW1</i>. Likely to be an unused part of FloorHeight.
+</td></tr>
+<tr>
+<td>10</td>
+<td>4</td>
+<td>15</td>
+<td>FloorTexture</td>
+<td>Index into the level's floor texture list for the floor texture. Note that the level itself only stores 10.
+</td></tr>
+<tr>
+<td>14</td>
+<td>2</td>
+<td>3</td>
+<td>??</td>
+<td>Sometimes non-zero, seemingly always for tiles containing doors, but not exhaustively checked.
+</td></tr>
+<tr>
+<td>16</td>
+<td>6</td>
+<td>63</td>
+<td>WallTexture</td>
+<td>Index into the level's wall texture list for the wall texture.
+</td></tr>
+<tr>
+<td>22</td>
+<td>10</td>
+<td>1023</td>
+<td>FirstObject</td>
+<td>Index of the first object on the tile or 0 if there are none.
+</td></tr></tbody></table>
+<p>In the game, each height unit is 11 world units and tiles are 48 units across. However, the game used a 320x200 resolution with non-square pixels, so the aspect ratio needs to be corrected (multiplied by 4/3 in the perspective matrix) or the image will look squashed. These are the tile types:
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Value</th>
+<th>Name</th>
+<th>Description
+</th></tr>
+<tr>
+<td>0</td>
+<td>Solid</td>
+<td>The tile is completely solid. Floor height is ignored.
+</td></tr>
+<tr>
+<td>1</td>
+<td>Open</td>
+<td>A square tile of empty space.
+</td></tr>
+<tr>
+<td>2</td>
+<td>DiagonalSW</td>
+<td>Diagonal, open to the south-west.
+</td></tr>
+<tr>
+<td>3</td>
+<td>DiagonalSE</td>
+<td>Diagonal, open to the south-east.
+</td></tr>
+<tr>
+<td>4</td>
+<td>DiagonalNW</td>
+<td>Diagonal, open to the north-west.
+</td></tr>
+<tr>
+<td>5</td>
+<td>DiagonalNE</td>
+<td>Diagonal, open to the north-east.
+</td></tr>
+<tr>
+<td>6</td>
+<td>SlopeN</td>
+<td>Slope to the north.
+</td></tr>
+<tr>
+<td>7</td>
+<td>SlopeS</td>
+<td>Slope to the south.
+</td></tr>
+<tr>
+<td>8</td>
+<td>SlopeE</td>
+<td>Slope to the east.
+</td></tr>
+<tr>
+<td>9</td>
+<td>SlopeW</td>
+<td>Slope to the west.
+</td></tr></tbody></table>
+<p>Slope tiles raise the edge they're sloping towards by one unit. For example, if the tile height is 4 and the tile Type is SlopeN, then the northwest and northeast corners are height 5 and the southwest and southeast corners are height 4.
+</p><p>This is the format of an Object, which is 8 bytes long:
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Offset</th>
+<th>First bit</th>
+<th>Bits</th>
+<th>Mask</th>
+<th>Name</th>
+<th>Description
+</th></tr>
+<tr>
+<td>00h-01h</td>
+<td>0</td>
+<td>9</td>
+<td>511</td>
+<td>TypeIndex</td>
+<td>The zero-based index of the type of this object.
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>9</td>
+<td>3</td>
+<td>7</td>
+<td>Option</td>
+<td>Meaning depends upon type.
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>12</td>
+<td>1</td>
+<td>1</td>
+<td>IsEnchanted</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>13</td>
+<td>1</td>
+<td>1</td>
+<td>IsTurned</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>14</td>
+<td>1</td>
+<td>1</td>
+<td>IsInvisible</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>15</td>
+<td>1</td>
+<td>1</td>
+<td>IsUnlinked</td>
+<td>??
+</td></tr>
+<tr>
+<td>02h-03h</td>
+<td>0</td>
+<td>7</td>
+<td>127</td>
+<td>PositionZ</td>
+<td>Vertical position of the object.
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>7</td>
+<td>3</td>
+<td>7</td>
+<td>Angle</td>
+<td>Angle in 45-degree increments.
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>10</td>
+<td>3</td>
+<td>7</td>
+<td>PositionY</td>
+<td>Vertical position within the tile.
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>13</td>
+<td>3</td>
+<td>7</td>
+<td>PositionX</td>
+<td>Horizontal position within the tile.
+</td></tr>
+<tr>
+<td>04h-05h</td>
+<td>0</td>
+<td>6</td>
+<td>63</td>
+<td>Quality</td>
+<td>Meaning depends upon type.
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>6</td>
+<td>10</td>
+<td>1023</td>
+<td>ChainIndex</td>
+<td>Chain object index or 0 for none.
+</td></tr>
+<tr>
+<td>06h-07h</td>
+<td>0</td>
+<td>6</td>
+<td>63</td>
+<td>OwnerIndex</td>
+<td>Object index of the owner of this item or 0 for none.
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>6</td>
+<td>10</td>
+<td>1023</td>
+<td>Special</td>
+<td>Meaning depends upon type.
+</td></tr></tbody></table>
+<p>For an object index, values from 0-255 are a mobile, and values from 256-1023 are an object.
+</p><p>The Mobile type is complex enough that it warrants a different table. It starts with an Object header, then is followed by a packed 19 bytes:
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Offset</th>
+<th>First bit</th>
+<th>Bits</th>
+<th>Mask</th>
+<th>Name</th>
+<th>Description
+</th></tr>
+<tr>
+<td>00h</td>
+<td>0</td>
+<td>7</td>
+<td>127</td>
+<td>HitPoints</td>
+<td>Current hit points.
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>7</td>
+<td>1</td>
+<td>1</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>01h</td>
+<td>0</td>
+<td>8</td>
+<td>255</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>02h</td>
+<td>0</td>
+<td>8</td>
+<td>255</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>03h</td>
+<td>0</td>
+<td>3</td>
+<td>7</td>
+<td>Goal</td>
+<td>??
+</td></tr>
+<tr>
+<td>03h-04h</td>
+<td>3</td>
+<td>8</td>
+<td>255</td>
+<td>GoalTarget</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>11</td>
+<td>5</td>
+<td>31</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>05h</td>
+<td>0</td>
+<td>4</td>
+<td>15</td>
+<td>GoalLevel</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>4</td>
+<td>4</td>
+<td>15</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>06h</td>
+<td>0</td>
+<td>4</td>
+<td>15</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>TalkedTo</td>
+<td>Has the Avatar talked to this character?
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>6</td>
+<td>2</td>
+<td>3</td>
+<td>Attitude</td>
+<td>??
+</td></tr>
+<tr>
+<td>07h-08h</td>
+<td>0</td>
+<td>6</td>
+<td>63</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>6</td>
+<td>7</td>
+<td>127</td>
+<td>Height</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>13</td>
+<td>3</td>
+<td>7</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>09h-0Dh</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>0Eh-0Fh</td>
+<td>0</td>
+<td>4</td>
+<td>15</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>4</td>
+<td>6</td>
+<td>63</td>
+<td>HomeY</td>
+<td>Home location on the map.
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>10</td>
+<td>6</td>
+<td>63</td>
+<td>HomeX</td>
+<td>Home location on the map.
+</td></tr>
+<tr>
+<td>10h</td>
+<td>0</td>
+<td>5</td>
+<td>31</td>
+<td>Heading</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>5</td>
+<td>3</td>
+<td>7</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>11h</td>
+<td>0</td>
+<td>7</td>
+<td>127</td>
+<td>Hunger</td>
+<td>??
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>7</td>
+<td>1</td>
+<td>1</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>12h</td>
+<td>0</td>
+<td>8</td>
+<td>255</td>
+<td>ConversationIndex</td>
+<td>Conversation index when talking to this mobile, or zero for none.
+</td></tr></tbody></table>
+<h4><span id="Texture_list_chunk_(122_bytes)"></span><span class="mw-headline" id="Texture_list_chunk_.28122_bytes.29">Texture list chunk (122 bytes)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=7" title="Edit section: Texture list chunk (122 bytes)">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>This maps floor, wall, and door textures from their values in the tiles and entities to graphics from the "data/f16.tr" or "data/f32.tr" files for floors, and the "data/w16.tr" or "data/w64.tr" files for walls. This chunk has the following format:
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Offset</th>
+<th>Length</th>
+<th>Type</th>
+<th>Name</th>
+<th>Description
+</th></tr>
+<tr>
+<td>00h</td>
+<td>2*48</td>
+<td>uint16[48]</td>
+<td>Walls</td>
+<td>Indices into the "data/w16.tr" or "data/w64.tr" files for wall graphics.
+</td></tr>
+<tr>
+<td>60h</td>
+<td>2*10</td>
+<td>uint16[10]</td>
+<td>Floors</td>
+<td>Indices into the "data/f16.tr" or "data/f32.tr" files for floor graphics. The final value is the graphic index to use for the ceiling.
+</td></tr>
+<tr>
+<td>74h</td>
+<td>6</td>
+<td>uint8[6]</td>
+<td>Doors</td>
+<td>??
+</td></tr></tbody></table>
+<h3><span id="Graphics_Files_(.gr_and_.tr_extensions)"></span><span class="mw-headline" id="Graphics_Files_.28.gr_and_.tr_extensions.29"><span id="aGraphics"></span>Graphics Files (.gr and .tr extensions)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=8" title="Edit section: Graphics Files (.gr and .tr extensions)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>These contain sets of images. They start with a header: 
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Offset
+</th>
+<th>Length
+</th>
+<th>Type
+</th>
+<th>Name
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>00h
+</td>
+<td>01h
+</td>
+<td>uint8
+</td>
+<td>IsForcedSize
+</td>
+<td>Either 1 or 2. If 2, then this field is followed by (uint8 ForcedSize), which is the width and height of all images in the file (except for any with an explicit size, which depends upon the file); the images themselves do not have Width and Height fields in this case.
+</td></tr>
+<tr>
+<td>01h
+</td>
+<td>02h
+</td>
+<td>uint16
+</td>
+<td>Count
+</td>
+<td>Number of images.
+</td></tr>
+<tr>
+<td>03h
+</td>
+<td>4*Count
+</td>
+<td>uint32[Count +&nbsp;1]
+</td>
+<td>Offsets
+</td>
+<td>Image offsets relative to start of file. The last offset is for the end of the file.
+</td></tr></tbody></table>
+<p>If the image has an explicit size, either due to IsForcedSize or the file itself, then at the image offset is (uint8[Width * Height] Data), where Data are in [x + y * Width] order. Otherwise at each image offset is this structure: 
+</p>
+<table cellspacing="0" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Offset
+</th>
+<th>Length
+</th>
+<th>Type<br>
+</th>
+<th>Name
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>00h
+</td>
+<td>01h
+</td>
+<td>uint8 <br>
+</td>
+<td>Format<br>
+</td>
+<td>Storage format.<br>
+</td></tr>
+<tr>
+<td>01h
+</td>
+<td>01h
+</td>
+<td>uint8
+</td>
+<td>Width
+</td>
+<td>Width of the image in pixels.
+</td></tr>
+<tr>
+<td>02h
+</td>
+<td>01h
+</td>
+<td>uint8
+</td>
+<td>Height
+</td>
+<td>Height of the image in pixels.
+</td></tr></tbody></table>
+<p>The Format field dictates the structure of the following data. 
+</p>
+<h4><span id="Format_4_–_Raw"></span><span class="mw-headline" id="Format_4_.E2.80.93_Raw">Format 4 – Raw<br></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=9" title="Edit section: Format 4 – Raw">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>This has the simple format (uint16 DataSize, uint8[DataSize] Data), where DataSize must match (Width *&nbsp;Height) and Data are in [x&nbsp;+&nbsp;y *&nbsp;Width] order.
+</p><p>Note that the UW engines draw the floor tiles with positive Y facing North. If you are extracting the floor graphics for an engine that draws them with the Y facing South, you will need to flip the Y values, ie use [x&nbsp;+&nbsp;(Height -&nbsp;y - 1) *&nbsp;Width] order. This is noticable on tiles that connect with other tiles, eg the partial water or partial lava tiles.
+</p>
+<h4><span id="Format_6_–_5-bit_RLE"></span><span class="mw-headline" id="Format_6_.E2.80.93_5-bit_RLE">Format 6 – 5-bit RLE</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=10" title="Edit section: Format 6 – 5-bit RLE">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>This uses the RLE&nbsp;format discussed below with a 5-bit code size. This is always encountered with an explicit auxiliary palette. 
+</p>
+<h4><span id="Format_8_–_4-bit_RLE"></span><span class="mw-headline" id="Format_8_.E2.80.93_4-bit_RLE">Format 8 – 4-bit RLE</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=11" title="Edit section: Format 8 – 4-bit RLE">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>This uses the RLE&nbsp;format with a 4-bit code size. If there is no explicit auxiliary palette, then a (uint8 AuxiliaryPalette)&nbsp;index, multiplied by 16, indexes the <span id="allpals.dat"></span>"static/allpals.dat"&nbsp;auxiliary palette. 
+</p><p>These formats both start with (uint16 DataSize)&nbsp;(after the auxiliary palette index, if present). Pseudocode would explain reading bit values most clearly:<br> 
+</p>
+<pre>int CodeBits = 4 or 5, depending upon the format
+int Buffer = 0, BufferBits = 0;
+
+int ReadCode()&nbsp;{
+    BufferBits -= CodeBits;
+    if(BufferBits &lt;&nbsp;0)&nbsp;{
+        Buffer = (Buffer &lt;&lt;&nbsp;8)&nbsp;|&nbsp;ReadByte();
+        BufferBits += 8;
+    }
+    return (Buffer &gt;&gt;&nbsp;BufferBits)&nbsp;&amp;&nbsp;((1 &lt;&lt;&nbsp;CodeBits)&nbsp;- 1);
+}
+
+// Note that this does not use CodeBits for the shift as it should.
+// This is an error in the RLE&nbsp;format itself.
+int ReadCode2()&nbsp;{
+    int code1 = ReadCode(), code2 = ReadCode();
+    return (code1 &lt;&lt;&nbsp;4)&nbsp;|&nbsp;code2;
+}
+
+int ReadCode3()&nbsp;{
+    int code1 = ReadCode(), code2 = ReadCode(), code3 = ReadCode();
+    return (code1 &lt;&lt;&nbsp;8)&nbsp;|&nbsp;(code2 &lt;&lt;&nbsp;4)&nbsp;|&nbsp;code3;
+}
+
+int ReadCount()&nbsp;{
+    int value = ReadCode();
+    if(value&nbsp;!= 0)
+        return value;
+    value = ReadCode2();
+    if(value&nbsp;!= 0)
+        return value;
+    return ReadCode3();
+}
+
+int ReadAux()&nbsp;{
+    return AuxPalette[ReadCode()];
+}
+</pre> 
+<p>Pseudocode also explains the code itself: 
+</p>
+<pre>void OutputLine(int value, int count)&nbsp;{
+    while(count-- &gt; 0)
+        Output(value);
+}
+
+bool state = false;
+int count, repeats, value;
+
+while(NotEnded)&nbsp;{
+    count = ReadCount();
+
+    state =&nbsp;!state;
+    if(state)&nbsp;{
+        if(count == 2)&nbsp;{
+            int repeats = ReadCount();
+            while(repeats-- &gt;&nbsp;0)&nbsp;{
+                count = ReadCount();
+                value = ReadAux();
+                OutputLine(value, count);
+           &nbsp;}
+        } else if(count &gt;&nbsp;0)&nbsp;{
+            value = ReadAux();
+            OutputLine(value, count);
+        }
+    } else {
+        while(count-- &gt;&nbsp;0)
+            Output(ReadAux());
+    }
+}
+</pre> 
+<h4><span id="Format_10_–_4-bit"></span><span class="mw-headline" id="Format_10_.E2.80.93_4-bit">Format 10 – 4-bit</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=12" title="Edit section: Format 10 – 4-bit">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>This uses the system auxiliary palette from "static/allpals.dat".&nbsp;It starts with a header of (uint8 AuxiliaryPalette, uint16 DataSize), where AuxiliaryPalette is multiplied by 16 to compute a byte index. This is then followed by (Width *&nbsp;Height *&nbsp;4 +&nbsp;7)&nbsp;/ 8 bytes. The top nibble (mask F0h) is the first pixel's index into the auxiliary palette, and the bottom nibble (mask 0Fh)&nbsp;is the second pixel's index. 
+</p>
+<h3><span id="Models_(uw.exe,_uw2.exe)"></span><span class="mw-headline" id="Models_.28uw.exe.2C_uw2.exe.29"><span id="aModels"></span>Models (uw.exe, uw2.exe)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=13" title="Edit section: Models (uw.exe, uw2.exe)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Models (chairs, tables, stones, shrines) are stored in the executables as instruction streams. The first task is to locate the table. For UW1 (including the demo), search for the byte sequence (B6h, 4Ah, 06h, 40h); the TableOffset (discussed later) is from the end of the magic sequence plus 138. For <i>UW2</i> search for (D4h, 64h, AAh, 59h); the TableOffset is the offset from the end of the magic sequence plus 150.
+</p><p>There are a number of data types unique to models:
+</p>
+<ul><li>fixed – 8.8 fixed-point stored as an int16. To convert to float, divide by 256f.</li>
+<li>bigfixed – 24.8 fixed-point stored as an int32. To convert to float, divide by 256f.</li>
+<li>normal – A value between -1 and 1 stored as int16. To convert to float, divide by 32767f. -32768 doesn't seem to occur.</li>
+<li>unormal – A value between 0 and 1 stored as uint16. To convert to float, divide by 65535f.</li>
+<li>vertex – A uint16 multiplied by 8. Divide it by 8 to get the vertex index. This is probably a data index.</li></ul>
+<p>Then rewind four bytes and read (uint16[64] ModelOffsets) – that is, the magic numbers were the first two model offset values. Each offset is based off the TableOffset, which is where each Model is located.
+</p><p>This is the format of a model at this offset:
+</p>
+<table cellspacing="0" border="1" style="text-align: left; width: 693px;">
+
+<tbody><tr>
+<th>Offset</th>
+<th>Length</th>
+<th>Type</th>
+<th>Name</th>
+<th>Description
+</th></tr>
+<tr>
+<td>00h</td>
+<td>4</td>
+<td>bigfixed</td>
+<td>Radius</td>
+<td>Radius of the model. If this is zero, this model slot is empty, and nothing beyond this field exists.
+</td></tr>
+<tr>
+<td>04h</td>
+<td>6</td>
+<td>fixed[3]</td>
+<td>Extents</td>
+<td>Bounding box of the model.
+</td></tr>
+<tr>
+<td>0Ah</td>
+<td>X</td>
+<td>Intruction[X]</td>
+<td>Instructions</td>
+<td>Instructions of the model.
+</td></tr></tbody></table>
+<p>In <i>UW1</i>, model indices 14 and 15 (zero-based index) point into the middle of other models and are therefore invalid.
+</p><p>Each instruction begins with (uint16 opcode), and has varying types of arguments. This has one special type, vertex, which is encoded as uint16 and multiplied by 8 (there is no remainder). The opcode are:
+</p>
+<table cellspacing="0" border="1" style="text-align: left; width: 693px;">
+
+<tbody><tr>
+<th>Value</th>
+<th>Name</th>
+<th>Notes
+</th></tr>
+<tr>
+<td>0000h</td>
+<td>End</td>
+<td>() – Terminate the mesh processing.
+</td></tr>
+<tr>
+<td>0006h</td>
+<td>Sort</td>
+<td>(normal NormalX, fixed DistanceX, normal NormalY, fixed DistanceY, normal NormalZ, fixed DistanceZ, uint16 LeftNodeOffset, uint16 RightNodeOffset)
+</td></tr>
+<tr>
+<td>000Ch</td>
+<td>SortZY</td>
+<td>(normal NormalZ, fixed DistanceZ, normal NormalY, fixed DistanceY, uint16 LeftNodeOffset, uint16 RightNodeOffset)
+</td></tr>
+<tr>
+<td>000Eh</td>
+<td>SortXY</td>
+<td>(normal NormalX, fixed DistanceX, normal NormalY, fixed DistanceY, uint16 LeftNodeOffset, uint16 RightNodeOffset)
+</td></tr>
+<tr>
+<td>0010h</td>
+<td>SortXZ</td>
+<td>(normal NormalX, fixed DistanceX, normal NormalZ, fixed DistanceZ, uint16 LeftNodeOffset, uint16 RightNodeOffset)
+</td></tr>
+<tr>
+<td>0012h</td>
+<td>??</td>
+<td>(uint16 Unknown)
+</td></tr>
+<tr>
+<td>0014h</td>
+<td>VertexColor</td>
+<td>(vertex Index, uint8 ColorA, uint8 ColorB, vertex NewIndex)
+</td></tr>
+<tr>
+<td>0016h</td>
+<td>??</td>
+<td>(uint16[3] Unknown)
+</td></tr>
+<tr>
+<td>002Eh</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>0040h</td>
+<td>FaceIntroUnknown</td>
+<td>()
+</td></tr>
+<tr>
+<td>0044h</td>
+<td>FaceIntroUnknown2</td>
+<td>()
+</td></tr>
+<tr>
+<td>0058h</td>
+<td>FacePlane</td>
+<td>(uint16 SkipWhenHidden, normal NormalX, fixed DistanceX, normal NormalY, fixed DistanceY, normal NormalZ, fixed DistanceZ)
+</td></tr>
+<tr>
+<td>005Eh</td>
+<td>FacePlaneZY</td>
+<td>(uint16 SkipWhenHidden, normal NormalZ, fixed DistanceZ, normal NormalY, fixed DistanceY)
+</td></tr>
+<tr>
+<td>0060h</td>
+<td>FacePlaneXY</td>
+<td>(uint16 SkipWhenHidden, normal NormalX, fixed DistanceX, normal NormalY, fixed DistanceY)
+</td></tr>
+<tr>
+<td>0062h</td>
+<td>FacePlaneXZ</td>
+<td>(uint16 SkipWhenHidden, normal NormalX, fixed DistanceX, normal NormalZ, fixed DistanceZ)
+</td></tr>
+<tr>
+<td>0064h</td>
+<td>FacePlaneX</td>
+<td>(uint16 SkipWhenHidden, normal NormalX, fixed Distance)
+</td></tr>
+<tr>
+<td>0066h</td>
+<td>FacePlaneZ</td>
+<td>(uint16 SkipWhenHidden, normal NormalZ, fixed Distance)
+</td></tr>
+<tr>
+<td>0068h</td>
+<td>FacePlaneY</td>
+<td>(uint16 SkipWhenHidden, normal NormalY, fixed Distance)
+</td></tr>
+<tr>
+<td>0078h</td>
+<td>Center</td>
+<td>(vertex OriginIndex, fixed[3] Origin, uint16 Unknown)
+</td></tr>
+<tr>
+<td>007Ah</td>
+<td>Vertex</td>
+<td>(fixed[3] Point, vertex ListIndex) – Set a vertex list index.
+</td></tr>
+<tr>
+<td>007Eh</td>
+<td>FaceVertices</td>
+<td>(uint16 Count, vertex[Count] Indices)
+</td></tr>
+<tr>
+<td>0082h</td>
+<td>Vertices</td>
+<td>(uint16 Count, vertex FirstIndex, (fixed[3])[Count] Vertices)
+</td></tr>
+<tr>
+<td>0086h</td>
+<td>VertexOffsetX</td>
+<td>(vertex Index, fixed AddToX, vertex NewIndex)
+</td></tr>
+<tr>
+<td>0088h</td>
+<td>VertexOffsetZ</td>
+<td>(vertex Index, fixed AddToZ, vertex NewIndex)
+</td></tr>
+<tr>
+<td>008Ah</td>
+<td>VertexOffsetY</td>
+<td>(vertex Index, fixed AddToY, vertex NewIndex)
+</td></tr>
+<tr>
+<td>008Ch</td>
+<td>VertexVariableZ</td>
+<td>(vertex Index, uint16 Unknown, vertex NewIndex) – Used for pillars and doorframes where the model reaches to the ceiling.
+</td></tr>
+<tr>
+<td>0090h</td>
+<td>VertexOffsetXZ</td>
+<td>(fixed AddX, fixed AddZ, vertex Index, vertex NewIndex)
+</td></tr>
+<tr>
+<td>0092h</td>
+<td>VertexOffsetXY</td>
+<td>(fixed AddX, fixed AddY, vertex Index, vertex NewIndex)
+</td></tr>
+<tr>
+<td>0094h</td>
+<td>VertexOffsetYZ</td>
+<td>(fixed AddY, fixed AddZ, vertex Index, vertex NewIndex)
+</td></tr>
+<tr>
+<td>00A0h</td>
+<td>DrawFaceShort</td>
+<td>(vertex Unknown, uint8 IndexA, uint8 IndexB, uint8 IndexC, uint8 IndexD)
+</td></tr>
+<tr>
+<td>00A8h</td>
+<td>DrawFaceTextured</td>
+<td>(uint16 TextureNumber?, uint16 VertexCount, (vertex VertexIndex, texel[2] TextureCoordinate)[VertexCount] Vertices)
+</td></tr>
+<tr>
+<td>00B4h</td>
+<td>DrawFaceTexels</td>
+<td>(uint16 VertexCount, (vertex Vertex, texel[2] TextureCoordinate)[VertexCount] Vertices)
+</td></tr>
+<tr>
+<td>00BCh</td>
+<td>FaceShade</td>
+<td>(uint16 ColorIndex, uint16 ShadeDark)
+</td></tr>
+<tr>
+<td>00BEh</td>
+<td>FaceShade2</td>
+<td>(uint16 Variable1, uint16 Variable2)
+</td></tr>
+<tr>
+<td>00CEh</td>
+<td>DrawFaceTexels2</td>
+<td>(uint16 VertexCount, (vertex Vertex, texel[2] TextureCoordinate)[VertexCount] Vertices)
+</td></tr>
+<tr>
+<td>00D2h</td>
+<td>ShortFace2</td>
+<td>??
+</td></tr>
+<tr>
+<td>00D4h</td>
+<td>DrawFaceDark</td>
+<td>(uint16 Count, uint16 BaseColor, (vertex Index, uint8 Dark)[Count] Vertices, ?uint8 PadIfOdd)
+</td></tr>
+<tr>
+<td>00D6h</td>
+<td>Gouraud</td>
+<td>()
+</td></tr></tbody></table>
+<h3><span id="Palette_Files_(data/pals.dat)"></span><span class="mw-headline" id="Palette_Files_.28data.2Fpals.dat.29"><span id="aPalettes"></span><span id="pals.dat"></span>Palette Files (data/pals.dat)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=14" title="Edit section: Palette Files (data/pals.dat)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>This contains 8 palettes, each 256 colours in RGB order, with components from 0 to 63. 
+</p><p>Palettes 0 and 2 have rotating colours, where a span of colours is rotated once per period. For example, if the rotating colors are represented as [ABCD], then they will become [BCDA], then [CDAB], then [DABC], then the pattern will repeat. 
+</p><p>Palette 0 has two rotating spans, from 16 to 23 (inclusive) and 48 to 51 (inclusive). Palette 2 has one rotating span, from 64 to 127 (inclusive), and it rotates in blocks of 16 colours. 
+</p><p>Palette 0 rotates 5 colours per second. Palette 2 rotates 10 colours per second, which is 0.625 blocks per second (since it rotates 16 colours at a time). 
+</p>
+<h3><span id="Player_saves_(save#/player.dat)"></span><span class="mw-headline" id="Player_saves_.28save.23.2Fplayer.dat.29">Player saves (save#/player.dat)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=15" title="Edit section: Player saves (save#/player.dat)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h3><span id="Strings_(data/strings.pak)"></span><span class="mw-headline" id="Strings_.28data.2Fstrings.pak.29">Strings (data/strings.pak)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=16" title="Edit section: Strings (data/strings.pak)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Game strings are stored in this Huffman-coded file. It has the following format: 
+</p>
+<table cellspacing="0" border="1" style="text-align: left; width: 693px;">
+
+<tbody><tr>
+<th>Offset
+</th>
+<th>Length
+</th>
+<th>Type
+</th>
+<th>Name
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>00h
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>NodeCount
+</td>
+<td>Number of nodes in the tree.
+</td></tr>
+<tr>
+<td>02h
+</td>
+<td>NodeCount*4
+</td>
+<td>Node[NodeCount]
+</td>
+<td>Nodes
+</td>
+<td>List of nodes, described below.
+</td></tr>
+<tr>
+<td>XX
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>BlockCount
+</td>
+<td>Number of blocks.
+</td></tr>
+<tr>
+<td>XX
+</td>
+<td>BlockCount*6
+</td>
+<td>BlockHeader[BlockCount]
+</td>
+<td>BlockHeaders
+</td>
+<td>Block headers, described below.
+</td></tr>
+<tr>
+<td colspan="5">Node format:
+</td></tr>
+<tr>
+<td>00h
+</td>
+<td>1
+</td>
+<td>char
+</td>
+<td>Value
+</td>
+<td>The character at this node.
+</td></tr>
+<tr>
+<td>01h
+</td>
+<td>1
+</td>
+<td>uint8
+</td>
+<td>Parent
+</td>
+<td>Parent node index, zero-based.
+</td></tr>
+<tr>
+<td>02h
+</td>
+<td>1
+</td>
+<td>uint8
+</td>
+<td>Left
+</td>
+<td>Left child node index, zero-based, 255 for a leaf node.
+</td></tr>
+<tr>
+<td>03h
+</td>
+<td>1
+</td>
+<td>uint8
+</td>
+<td>Right
+</td>
+<td>Right child node index, zero-based, 255 for a leaf node.
+</td></tr>
+<tr>
+<td colspan="5">BlockHeader format:
+</td></tr>
+<tr>
+<td>00h
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>Id
+</td>
+<td>String set identifier.
+</td></tr>
+<tr>
+<td>02h
+</td>
+<td>4
+</td>
+<td>uint32
+</td>
+<td>Offset
+</td>
+<td>Offset to the block from the start of the file.
+</td></tr>
+<tr>
+<td colspan="5">At each BlockHeader.Offset is the Block itself:
+</td></tr>
+<tr>
+<td>00h
+</td>
+<td>2
+</td>
+<td>uint16
+</td>
+<td>Count
+</td>
+<td>Number of strings in the block.
+</td></tr>
+<tr>
+<td>02h
+</td>
+<td>2*Count
+</td>
+<td>uint16[Count]
+</td>
+<td>Offsets
+</td>
+<td>Offset to the string relative to the end of Offsets.
+</td></tr></tbody></table>
+<p>At the string offset is the string itself. It's much easier simply to show pseudocode than to describe the format:
+</p>
+<pre>int bits = 0, value = 0;
+string result = "";
+
+while(true)&nbsp;{
+    Node node = Nodes[NodeCount - 1];
+    while(node.Left&nbsp;!= 255) {
+        if(bits == 0)&nbsp;{
+            value = ReadByte();
+            bits = 8;
+        }
+
+        if((value &amp;&nbsp;128) == 0)
+            node = node.Left;
+        else
+            node = node.Right;
+
+        value *= 2;
+        bits -= 1;
+    }
+
+    if(node.Value == '|')
+        break;
+    Output(node.Value);
+}
+</pre>
+<h2><span class="mw-headline" id="Enumerations">Enumerations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=17" title="Edit section: Enumerations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>This appendix contains lists of data that are important but would break the flow of the main body. 
+</p>
+<h3><span id="&quot;data/optbtns.gr&quot;_images"></span><span class="mw-headline" id=".22data.2Foptbtns.gr.22_images">"data/optbtns.gr" images</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=18" title="Edit section: &quot;data/optbtns.gr&quot; images">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>These are the images for the options screen. 
+</p>
+<table cellspacing="0" cellpadding="1" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Value
+</th>
+<th>Name
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>0
+</td>
+<td>Normal
+</td>
+<td>Background panel for the normal icons (options, talk, move, look, attack, use).
+</td></tr>
+<tr>
+<td>1
+</td>
+<td>Options
+</td>
+<td>Background panel for the game options (save, restore, music, sound, detail, return to game, quit game).
+</td></tr>
+<tr>
+<td>2
+</td>
+<td>Save
+</td>
+<td>Background panel for save/restore game (save/restore, 1, 2, 3, 4, cancel).
+</td></tr>
+<tr>
+<td>3
+</td>
+<td>Quit
+</td>
+<td>Background panel for quit game (yes, no).
+</td></tr>
+<tr>
+<td>4
+</td>
+<td>Audio
+</td>
+<td>Background panel for music/sound options (current state, music/sound, on, off, done).
+</td></tr>
+<tr>
+<td>5
+</td>
+<td>Detail
+</td>
+<td>Background panel for detail option (current state, low, medium, high, very high, done).
+</td></tr>
+<tr>
+<td>6
+</td>
+<td>OptionsSaveLow
+</td>
+<td>Lowlight for Save button on Options panel.
+</td></tr>
+<tr>
+<td>7
+</td>
+<td>OptionsSave
+</td>
+<td>Highlight for Save button on Options panel.
+</td></tr>
+<tr>
+<td>8
+</td>
+<td>OptionsRestoreLow
+</td>
+<td>Lowlight for Restore button on Options panel.
+</td></tr>
+<tr>
+<td>9
+</td>
+<td>OptionsRestore
+</td>
+<td>Highlight for Restore button on Options panel.
+</td></tr>
+<tr>
+<td>10
+</td>
+<td>OptionsMusicLow
+</td>
+<td>Lowlight for Music button on Options panel.
+</td></tr>
+<tr>
+<td>11
+</td>
+<td>OptionsMusic
+</td>
+<td>Highlight for Music button on Options panel.
+</td></tr>
+<tr>
+<td>12
+</td>
+<td>OptionsSoundLow
+</td>
+<td>Lowlight for Sound button on Options panel.
+</td></tr>
+<tr>
+<td>13
+</td>
+<td>OptionsSound
+</td>
+<td>Highlight for Sound button on Options panel.
+</td></tr>
+<tr>
+<td>14
+</td>
+<td>OptionsDetailLow
+</td>
+<td>Lowlight for Detail button on Options panel.
+</td></tr>
+<tr>
+<td>15
+</td>
+<td>OptionsDetail
+</td>
+<td>Highlight for Detail button on Options panel.
+</td></tr>
+<tr>
+<td>16
+</td>
+<td>OptionsReturnLow
+</td>
+<td>Lowlight for Return to Game button on Options panel.
+</td></tr>
+<tr>
+<td>17
+</td>
+<td>OptionsReturn
+</td>
+<td>Highlight for Return to Game button on Options panel.
+</td></tr>
+<tr>
+<td>18
+</td>
+<td>OptionsQuitLow
+</td>
+<td>Lowlight for Quit button on Options panel.
+</td></tr>
+<tr>
+<td>19
+</td>
+<td>OptionsQuit
+</td>
+<td>Highlight for Quit button on Options panel.
+</td></tr>
+<tr>
+<td>20
+</td>
+<td>AudioOnLow
+</td>
+<td>Lowlight for On button on Music/Sound panel.
+</td></tr>
+<tr>
+<td>21
+</td>
+<td>AudioOn
+</td>
+<td>Highlight for On button on Music/Sound panel.
+</td></tr>
+<tr>
+<td>22
+</td>
+<td>AudioOffLow
+</td>
+<td>Lowlight for Off button on Music/Sound panel.
+</td></tr>
+<tr>
+<td>23
+</td>
+<td>AudioOff
+</td>
+<td>Highlight for Off button on Music/Sound panel.
+</td></tr>
+<tr>
+<td>24
+</td>
+<td>SaveCancelLow
+</td>
+<td>Lowlight for Cancel button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>25
+</td>
+<td>SaveCancel
+</td>
+<td>Highlight for Cancel button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>26
+</td>
+<td>AudioDoneLow
+</td>
+<td>Lowlight for Done button on Music/Sound panel.
+</td></tr>
+<tr>
+<td>27
+</td>
+<td>AudioDone
+</td>
+<td>Highlight for Done button on Music/Sound panel.
+</td></tr>
+<tr>
+<td>28
+</td>
+<td>DetailDoneLow
+</td>
+<td>Lowlight for Done button on Detail panel – note this isn't the same graphic as MusicDoneLow.
+</td></tr>
+<tr>
+<td>29
+</td>
+<td>DetailDone
+</td>
+<td>Highlight for Done button on Detail panel – note this isn't the same graphic as MusicDone.
+</td></tr>
+<tr>
+<td>30
+</td>
+<td>Save1Low
+</td>
+<td>Lowlight for I button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>31
+</td>
+<td>Save1
+</td>
+<td>Highlight for I button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>32
+</td>
+<td>Save2Low
+</td>
+<td>Lowlight for II button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>33
+</td>
+<td>Save2
+</td>
+<td>Highlight for II button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>34
+</td>
+<td>Save3Low
+</td>
+<td>Lowlight for III button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>35
+</td>
+<td>Save3
+</td>
+<td>Highlight for III button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>36
+</td>
+<td>Save4Low
+</td>
+<td>Lowlight for IV button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>37
+</td>
+<td>Save4
+</td>
+<td>Highlight for IV button on Save/Restore panel.
+</td></tr>
+<tr>
+<td>38
+</td>
+<td>DetailLowLow
+</td>
+<td>Lowlight for Low button on Detail panel.
+</td></tr>
+<tr>
+<td>39
+</td>
+<td>DetailLow
+</td>
+<td>Highlight for Low button on Detail panel.
+</td></tr>
+<tr>
+<td>40
+</td>
+<td>DetailMediumLow
+</td>
+<td>Lowlight for Medium button on Detail panel.
+</td></tr>
+<tr>
+<td>41
+</td>
+<td>DetailMedium
+</td>
+<td>Highlight for Medium button on Detail panel.
+</td></tr>
+<tr>
+<td>42
+</td>
+<td>DetailHighLow
+</td>
+<td>Lowlight for High button on Detail panel.
+</td></tr>
+<tr>
+<td>43
+</td>
+<td>DetailHigh
+</td>
+<td>Highlight for High button on Detail panel.
+</td></tr>
+<tr>
+<td>44
+</td>
+<td>DetailVeryHighLow
+</td>
+<td>Lowlight for Very High button on Detail panel.
+</td></tr>
+<tr>
+<td>45
+</td>
+<td>DetailVeryHigh
+</td>
+<td>Highlight for Very High button on Detail panel.
+</td></tr>
+<tr>
+<td>46
+</td>
+<td>SaveRestore
+</td>
+<td>"Restore Game:" overlay turning the Save panel into a Restore panel.
+</td></tr>
+<tr>
+<td>47
+</td>
+<td>AudioMusicOn
+</td>
+<td>"Music is on." overlay for the Music/Sound panel.
+</td></tr>
+<tr>
+<td>48
+</td>
+<td>AudioMusicOff
+</td>
+<td>"Music if off." overlay for the Music/Sound panel.
+</td></tr>
+<tr>
+<td>49
+</td>
+<td>AudioSoundOn
+</td>
+<td>"Sound is on." overlay for the Music/Sound panel.
+</td></tr>
+<tr>
+<td>50
+</td>
+<td>AudioSoundOff
+</td>
+<td>"Sound is off." overlay for the Music/Sound panel.
+</td></tr>
+<tr>
+<td>51
+</td>
+<td>AudioMusic
+</td>
+<td>"Turn music:" overlay for the Music/Sound panel.
+</td></tr>
+<tr>
+<td>52
+</td>
+<td>AudioSound
+</td>
+<td>"Turn sound:" overlay for the Music/Sound panel.
+</td></tr>
+<tr>
+<td>53
+</td>
+<td>DetailIsLow
+</td>
+<td>"Detail level is: Low" overlay for the Detail panel.
+</td></tr>
+<tr>
+<td>54
+</td>
+<td>DetailIsMedium
+</td>
+<td>"Detail level is: Medium" overlay for the Detail panel.
+</td></tr>
+<tr>
+<td>55
+</td>
+<td>DetailIsHigh
+</td>
+<td>"Detail level is: High" overlay for the Detail panel.
+</td></tr>
+<tr>
+<td>56
+</td>
+<td>DetailIsVeryHigh
+</td>
+<td>"Detail level is: VeryHigh" overlay for the Detail panel.
+</td></tr>
+<tr>
+<td>57
+</td>
+<td>QuitYesLow
+</td>
+<td>Lowlight for the Yes button on the Quit panel.
+</td></tr>
+<tr>
+<td>58
+</td>
+<td>QuitYes
+</td>
+<td>Highlight for the Yes button on the Quit panel.
+</td></tr>
+<tr>
+<td>59
+</td>
+<td>QuitNoLow
+</td>
+<td>Lowlight for the No button on the Quit panel.
+</td></tr>
+<tr>
+<td>60
+</td>
+<td>QuitNo
+</td>
+<td>Highlight for the No button on the Quit panel.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Object_Types">Object Types</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=19" title="Edit section: Object Types">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Object types are a messy combination of builtin understanding of what numbers correspond to what type of object, builtin data regarding texture indices and other features (called "inherent parameters" here), and data stored in the game files themselves ("stored parameters"). 
+</p><p>Many objects of different types have shared behaviours, which is given as the "behavior" field. 
+</p>
+<h4><span class="mw-headline" id="Ultima_Underworld"><i>Ultima Underworld</i></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=20" title="Edit section: Ultima Underworld">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<h5><span class="mw-headline" id="Behaviours">Behaviours</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=21" title="Edit section: Behaviours">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<table cellspacing="0" cellpadding="1" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>First
+</th>
+<th>Count
+</th>
+<th>Behavior
+</th>
+<th>Inherent parameters
+</th></tr>
+<tr>
+<td>0
+</td>
+<td>16
+</td>
+<td>Melee
+</td>
+<td>None
+</td></tr>
+<tr>
+<td>16
+</td>
+<td>16
+</td>
+<td>Ranged
+</td>
+<td>None
+</td></tr>
+<tr>
+<td>32
+</td>
+<td>32
+</td>
+<td>Clothing
+</td>
+<td>None
+</td></tr>
+<tr>
+<td>64
+</td>
+<td>64
+</td>
+<td>Critter
+</td>
+<td>None
+</td></tr>
+<tr>
+<td>128
+</td>
+<td>16
+</td>
+<td>Container
+</td>
+<td>None
+</td></tr>
+<tr>
+<td>144
+</td>
+<td>8
+</td>
+<td>Light
+</td>
+<td>None
+</td></tr>
+<tr>
+<td>152
+</td>
+<td>168
+</td>
+<td>&nbsp;??
+</td>
+<td>&nbsp;??
+</td></tr>
+<tr>
+<td>320
+</td>
+<td>1
+</td>
+<td>ClosedDoor
+</td>
+<td>OpenDoor is type 328; Graphic 0; SideGraphic 1
+</td></tr>
+<tr>
+<td>321
+</td>
+<td>1
+</td>
+<td>ClosedDoor
+</td>
+<td>OpenDoor is type 329; Graphic 1; SideGraphic 0
+</td></tr>
+<tr>
+<td>322
+</td>
+<td>1
+</td>
+<td>ClosedDoor
+</td>
+<td>OpenDoor is type 330; Graphic 2; SideGraphic 1
+</td></tr>
+<tr>
+<td>323
+</td>
+<td>1
+</td>
+<td>ClosedDoor
+</td>
+<td>OpenDoor is type 331; Graphic 3; SideGraphic 0
+</td></tr>
+<tr>
+<td>324
+</td>
+<td>1
+</td>
+<td>ClosedDoor
+</td>
+<td>OpenDoor is type 332; Graphic 4; SideGraphic 1
+</td></tr>
+<tr>
+<td>325
+</td>
+<td>1
+</td>
+<td>ClosedDoor
+</td>
+<td>OpenDoor is type 333; Graphic 5; SideGraphic 0
+</td></tr>
+<tr>
+<td>326
+</td>
+<td>1
+</td>
+<td>ClosedDoor
+</td>
+<td>OpenDoor is type 334; Portcullis
+</td></tr>
+<tr>
+<td>327
+</td>
+<td>1
+</td>
+<td>ClosedDoor
+</td>
+<td>OpenDoor is type 335; Secret door
+</td></tr>
+<tr>
+<td>328
+</td>
+<td>8
+</td>
+<td>OpenDoor
+</td>
+<td>OpenDoor forms of the ClosedDoor types from 320-327.
+</td></tr>
+<tr>
+<td>336
+</td>
+<td>1
+</td>
+<td>Model
+</td>
+<td>'a bench'; ModelIndex 3
+</td></tr>
+<tr>
+<td>337
+</td>
+<td>3
+</td>
+<td>&nbsp;??
+</td>
+<td>'an arrow', 'a crossbow bolt', 'a large boulder'
+</td></tr>
+<tr>
+<td>340
+</td>
+<td>1
+</td>
+<td>Model
+</td>
+<td>'a large boulder'; ModelIndex 7
+</td></tr>
+<tr>
+<td>341
+</td>
+<td>2
+</td>
+<td>&nbsp;??
+</td>
+<td>'a boulder', 'a small boulder'
+</td></tr>
+<tr>
+<td>343
+</td>
+<td>1
+</td>
+<td>Model
+</td>
+<td>'a shrine'; ModelIndex 11
+</td></tr>
+<tr>
+<td>344
+</td>
+<td>8
+</td>
+<td>&nbsp;??
+</td>
+<td>'a table', 'a beam', 'a moongate', 'a barrel', 'a chair', 'a chest', 'a nightstand', 'a lotus turbo esprit'
+</td></tr>
+<tr>
+<td>352
+</td>
+<td>1
+</td>
+<td>Pillar
+</td>
+<td>No special information.
+</td></tr>
+<tr>
+<td>353
+</td>
+<td>1
+</td>
+<td>Decal.Lever
+</td>
+<td>'a lever'; GraphicFile "data/tmobj.gr"; GraphicIndices (4, 5, 6, 7, 8, 9, 10, 11)
+</td></tr>
+<tr>
+<td>354
+</td>
+<td>2
+</td>
+<td>&nbsp;??
+</td>
+<td>'a switch', null
+</td></tr>
+<tr>
+<td>356
+</td>
+<td>1
+</td>
+<td>Bridge
+</td>
+<td>None
+</td></tr>
+<tr>
+<td>357
+</td>
+<td>1
+</td>
+<td>Gravestone
+</td>
+<td>None
+</td></tr>
+<tr>
+<td>358
+</td>
+<td>1
+</td>
+<td>Decal.Sign
+</td>
+<td>'some writing'; GraphicsFile "data/tmobj.gr"; GraphicIndices (20)
+</td></tr>
+<tr>
+<td>359
+</td>
+<td>7
+</td>
+<td>&nbsp;??
+</td>
+<td>null to 364, 365 = 'force field'
+</td></tr>
+<tr>
+<td>366
+</td>
+<td>1
+</td>
+<td>TextureMapC
+</td>
+<td>'special tmap obj'
+</td></tr>
+<tr>
+<td>367
+</td>
+<td>6
+</td>
+<td>&nbsp;??
+</td>
+<td>'special tmap obj', 'a button', 'a button', 'a button', 'a button', 'a button'
+</td></tr>
+<tr>
+<td>373
+</td>
+<td>1
+</td>
+<td>Decal
+</td>
+<td>'a lever'; GraphicsFile "data/tmflats.gr"; GraphicIndices (5, 13)
+</td></tr>
+<tr>
+<td>374
+</td>
+<td>1
+</td>
+<td>&nbsp;??
+</td>
+<td>'a pull chain'
+</td></tr>
+<tr>
+<td>375
+</td>
+<td>1
+</td>
+<td>Decal
+</td>
+<td>'a pull chain'; GraphicsFile "data/tmflats.gr"; GraphicIndices (7, 15)
+</td></tr>
+<tr>
+<td>376
+</td>
+<td>1
+</td>
+<td>&nbsp;??
+</td>
+<td>'a button'
+</td></tr>
+<tr>
+<td>377
+</td>
+<td>1
+</td>
+<td>Decal
+</td>
+<td>'a button'; GraphicsFile "data/tmflats.gr"; GraphicIndices (1, 9)
+</td></tr>
+<tr>
+<td>378
+</td>
+<td>2
+</td>
+<td>&nbsp;??
+</td>
+<td>'a button', 'a switch'
+</td></tr>
+<tr>
+<td>380
+</td>
+<td>1
+</td>
+<td>Decal
+</td>
+<td>'a switch'; GraphicsFile "data/tmflats.gr"; GraphicIndices (12, 4)
+</td></tr>
+<tr>
+<td>381
+</td>
+<td>4
+</td>
+<td>&nbsp;??
+</td>
+<td>'a lever', 'a pull chain', 'a pull chain', 'a damage trap'
+</td></tr>
+<tr>
+<td>385
+</td>
+<td>1
+</td>
+<td><a href="https://wiki.ultimacodex.com/wiki/Teleportation_(concept)" title="Teleportation (concept)">Teleport</a>
+</td>
+<td>'a teleport trap'
+</td></tr>
+<tr>
+<td>386
+</td>
+<td>1
+</td>
+<td>&nbsp;??
+</td>
+<td>'a arrow trap'
+</td></tr>
+<tr>
+<td>387
+</td>
+<td>1
+</td>
+<td>Do
+</td>
+<td>'a do trap'
+</td></tr>
+<tr>
+<td>388
+</td>
+<td>4
+</td>
+<td>&nbsp;??
+</td>
+<td>'a pit trap', 'a change terrain trap', 'a spelltrap', 'a create object trap'
+</td></tr>
+<tr>
+<td>392
+</td>
+<td>1
+</td>
+<td>Unlock
+</td>
+<td>'a door trap'
+</td></tr>
+<tr>
+<td>393
+</td>
+<td>7
+</td>
+<td>&nbsp;??
+</td>
+<td>'a ward trap', 'a tell trap', 'a delete object trap', 'an inventory trap', 'a set variable trap', 'a check variable trap', 'a combination trap'
+</td></tr>
+<tr>
+<td>400
+</td>
+<td>1
+</td>
+<td>Text
+</td>
+<td>'a text string trap'
+</td></tr>
+<tr>
+<td>401
+</td>
+<td>15
+</td>
+<td>&nbsp;??
+</td>
+<td>null strings all
+</td></tr>
+<tr>
+<td>416
+</td>
+<td>1
+</td>
+<td>Move
+</td>
+<td>'a move trigger'
+</td></tr>
+<tr>
+<td>417
+</td>
+<td>1
+</td>
+<td>&nbsp;??
+</td>
+<td>'a pick up trigger'
+</td></tr>
+<tr>
+<td>418
+</td>
+<td>1
+</td>
+<td>Use
+</td>
+<td>'a use trigger'
+</td></tr>
+<tr>
+<td>419
+</td>
+<td>1
+</td>
+<td>Look
+</td>
+<td>'a look trigger'
+</td></tr>
+<tr>
+<td>420
+</td>
+<td>92
+</td>
+<td>&nbsp;??
+</td>
+<td>'a step on trigger', 'an open trigger', 'an unlock trigger', null strings...
+</td></tr>
+<tr>
+<td>448</td>
+<td>64</td>
+<td>??</td>
+<td>Various names, many null.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="Stored_Parameters"><span id="objects.dat"></span>Stored Parameters</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=22" title="Edit section: Stored Parameters">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>Here are the stored parameters based upon the behavior for an object type, stored in the "data/objects.dat" file. 
+</p>
+<table cellspacing="0" cellpadding="1" border="1" style="text-align:left">
+
+<tbody><tr>
+<th>Offset</th>
+<th>Size</th>
+<th>Type</th>
+<th>Name</th>
+<th>Description
+</th></tr>
+<tr>
+<td colspan="5">Clothing (4 bytes):
+</td></tr>
+<tr>
+<td>00h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Protection</td>
+<td>??
+</td></tr>
+<tr>
+<td>01h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Durability</td>
+<td>??
+</td></tr>
+<tr>
+<td>02h</td>
+<td>1</td>
+<td>uint8</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>03h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Category</td>
+<td>Shield = 0, Body = 1, Legs = 3, Hands = 4, Feet = 5, Head = 8, Ring = 9
+</td></tr>
+<tr>
+<td colspan="5">Container (3 bytes):
+</td></tr>
+<tr>
+<td>00h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Capacity</td>
+<td>??
+</td></tr>
+<tr>
+<td>01h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Contains</td>
+<td>Runes = 0, Ammo = 1, Maps = 2, Liquids = 3, Anything = 255
+</td></tr>
+<tr>
+<td>02h</td>
+<td>1</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td colspan="5">Critter (48 bytes):
+</td></tr>
+<tr>
+<td>00h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Level</td>
+<td>Level of the creature.
+</td></tr>
+<tr>
+<td>01h</td>
+<td>3</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>04h</td>
+<td>2</td>
+<td>uint16</td>
+<td>HitPoints</td>
+<td>Average hit points.
+</td></tr>
+<tr>
+<td>06h</td>
+<td>1</td>
+<td>uint8</td>
+<td>AttackPower</td>
+<td>Damage on attack.
+</td></tr>
+<tr>
+<td>07h</td>
+<td>1</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>08h</td>
+<td>1</td>
+<td>uint8</td>
+<td>FluidAndRemains</td>
+<td>A combination of remains after death and the type of blood splatters this produces. Mask 0x0F is the splatter type, 0 for dust, 8 for red blood. Mask 0xF0 is the remains; Nothing = 0x00, RotwormCorpse = 0x20, Rubble = 0x40, WoodChips = 0x60, Bones = 0x80, GreenBloodPool = 0xA0, RedBloodPool = 0xC0, RedBloodPoolGiantSpider = 0xE0.
+</td></tr>
+<tr>
+<td>09h</td>
+<td>1</td>
+<td>uint8</td>
+<td>GeneralType</td>
+<td>An index into the strings on page 8, offset 370. This string is the generic name for the creature, like "a creature" for "a goblin" or "a rat" for "a giant rat".
+</td></tr>
+<tr>
+<td>0Ah</td>
+<td>1</td>
+<td>uint8</td>
+<td>Passiveness</td>
+<td>Relative passiveness. 255 will never take a swing at you, even if you kill them.
+</td></tr>
+<tr>
+<td>0Bh</td>
+<td>1</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>0Ch</td>
+<td>1</td>
+<td>uint8</td>
+<td>MovementSpeed</td>
+<td>Speed of movement; 0 is immobile, maxes out at 12 for vampire bat.
+</td></tr>
+<tr>
+<td>0Dh</td>
+<td>2</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>0Fh</td>
+<td>1</td>
+<td>uint8</td>
+<td>PoisonDamage</td>
+<td>Amount of poison damage this is capable of on attack.
+</td></tr>
+<tr>
+<td>10h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Category</td>
+<td>Ethereal = 0x00 (Ethereal creatures like <a href="https://wiki.ultimacodex.com/wiki/Ghosts" title="Ghosts">ghosts</a>, <a href="https://wiki.ultimacodex.com/wiki/Wisps" title="Wisps">wisps</a>, and <a href="https://wiki.ultimacodex.com/wiki/Shadow_beasts" title="Shadow beasts">shadow beasts</a>), Humanoid = 0x01 (Humanlike non-thinking forms like <a href="https://wiki.ultimacodex.com/wiki/Lizard_men" title="Lizard men">lizard men</a>, <a href="https://wiki.ultimacodex.com/wiki/Trolls" title="Trolls">trolls</a>, ghouls(?), and mages(?)), Flying = 0x02 (Flying critters like <a href="https://wiki.ultimacodex.com/wiki/Bats" title="Bats">bats</a> and <a href="https://wiki.ultimacodex.com/wiki/Imps" title="Imps">imps</a>), Swimming = 0x03 (Swimming critters like <a href="https://wiki.ultimacodex.com/wiki/Lurkers" title="Lurkers">lurkers</a>), Creeping = 0x04 (Creeping critters like <a href="https://wiki.ultimacodex.com/wiki/Rats" class="mw-redirect" title="Rats">rats</a> and <a href="https://wiki.ultimacodex.com/wiki/Spiders" class="mw-redirect" title="Spiders">spiders</a>), Crawling = 0x05 (Crawling critters like <a href="https://wiki.ultimacodex.com/wiki/Acid_slugs" title="Acid slugs">acid slugs</a>, <a href="https://wiki.ultimacodex.com/wiki/White_worm" class="mw-redirect" title="White worm">white worms</a>, <a href="https://wiki.ultimacodex.com/wiki/Reapers" title="Reapers">reapers</a> (!), and <a href="https://wiki.ultimacodex.com/wiki/Fire_elementals" title="Fire elementals">fire elementals</a> (!!)), EarthGolem = 0x11 (Only used for the <a href="https://wiki.ultimacodex.com/wiki/Golems" title="Golems">earth golem</a>), <a href="https://wiki.ultimacodex.com/wiki/Human" class="mw-redirect" title="Human">human</a> = 0x51 (Humanlike thinking forms like <a href="https://wiki.ultimacodex.com/wiki/Goblins" title="Goblins">goblins</a>, <a href="https://wiki.ultimacodex.com/wiki/Skeletons" title="Skeletons">skeletons</a>, <a href="https://wiki.ultimacodex.com/wiki/Mountain-folk" title="Mountain-folk">mountain-folk</a>, fighters(?), <a href="https://wiki.ultimacodex.com/wiki/Exiles" title="Exiles">exiles</a>, and stone and metal golems).
+</td></tr>
+<tr>
+<td>11h</td>
+<td>1</td>
+<td>uint8</td>
+<td>EquipmentDamage</td>
+<td>Amount of equipment damage this is capable of on attack.
+</td></tr>
+<tr>
+<td>12h</td>
+<td>1</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>13h</td>
+<td>9</td>
+<td>Probability[3]</td>
+<td>Probabilities</td>
+<td>Each has the form (uint16 value, uint8 percent). What this means is unknown.
+</td></tr>
+<tr>
+<td>1Ch</td>
+<td>12</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>28h</td>
+<td>2</td>
+<td>uint16</td>
+<td>Experience</td>
+<td>Experience provided when killed.
+</td></tr>
+<tr>
+<td>2Ah</td>
+<td>5</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>2Fh</td>
+<td>1</td>
+<td>uint8</td>
+<td>??</td>
+<td>Always 73.
+</td></tr>
+<tr>
+<td colspan="5">Light (1 byte):
+</td></tr>
+<tr>
+<td>00h</td>
+<td>1</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td colspan="5">Melee (8 bytes):
+</td></tr>
+<tr>
+<td>00h</td>
+<td>1</td>
+<td>uint8</td>
+<td>SlashModifier</td>
+<td>Modifier for the slash attack.
+</td></tr>
+<tr>
+<td>01h</td>
+<td>1</td>
+<td>uint8</td>
+<td>BashModifier</td>
+<td>Modifier for the bash attack.
+</td></tr>
+<tr>
+<td>02h</td>
+<td>1</td>
+<td>uint8</td>
+<td>StabModifier</td>
+<td>Modifier for the stab attack.
+</td></tr>
+<tr>
+<td>03h</td>
+<td>3</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>06h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Skill</td>
+<td>Skill this weapon uses; <a href="https://wiki.ultimacodex.com/wiki/Sword" title="Sword">sword</a> = 3, <a href="https://wiki.ultimacodex.com/wiki/Axe" title="Axe">axe</a> = 4, <a href="https://wiki.ultimacodex.com/wiki/Mace" title="Mace">mace</a> = 5, unarmed = 6.
+</td></tr>
+<tr>
+<td>07h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Durability</td>
+<td>Maximum durability.
+</td></tr>
+<tr>
+<td colspan="6">Ranged (3 bytes):
+</td></tr>
+<tr>
+<td>00h</td>
+<td>2</td>
+<td>??</td>
+<td>??</td>
+<td>??
+</td></tr>
+<tr>
+<td>02h</td>
+<td>1</td>
+<td>uint8</td>
+<td>Durability</td>
+<td>Maximum durability.
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit&amp;section=23" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://uwadv.cvs.sourceforge.net/viewvc/uwadv/uwadv/docs/uw-formats.txt">Formats specification</a> from <a rel="nofollow" class="external text" href="http://uwadv.sourceforge.net/">Underworld Adventures</a>.</li></ul>
+<hr style="margin-top:1em; margin-bottom:1em; clear:both;">
+<table style="height: auto; text-align: center; border-top: thin solid black; border-bottom: thin solid black; padding: 0.25em 0em 0.25em 0.25em; margin: 1em auto 1em auto; vertical-align: top; font-size:90%; background: white;" align="center">
+
+<tbody><tr>
+<th colspan="2" style="background: #afa; font-size:120%;padding:2px;"><a href="https://wiki.ultimacodex.com/wiki/Category:Technical_Details" title="Category:Technical Details">Technical Details</a>
+</th></tr>
+<tr>
+<th style="width:130px">Game
+</th>
+<td style="padding:2px;"><a href="https://wiki.ultimacodex.com/wiki/Ultima_III_internal_formats" title="Ultima III internal formats"><i>Ultima&nbsp;III</i></a> ☥ <a href="https://wiki.ultimacodex.com/wiki/Ultima_IV_internal_formats" title="Ultima IV internal formats"><i>Ultima&nbsp;IV</i></a> ☥ <a href="https://wiki.ultimacodex.com/wiki/Ultima_V_internal_formats" title="Ultima V internal formats"><i>Ultima&nbsp;V</i></a> ☥ <a href="https://wiki.ultimacodex.com/wiki/Ultima_VI_internal_formats" title="Ultima VI internal formats"><i>Ultima&nbsp;VI</i></a> ☥ <a href="https://wiki.ultimacodex.com/wiki/Ultima_VII_internal_formats" title="Ultima VII internal formats"><i>Ultima&nbsp;VII</i></a> ☥ <a href="https://wiki.ultimacodex.com/wiki/Ultima_VIII_internal_formats" title="Ultima VIII internal formats"><i>Ultima&nbsp;VIII</i></a> ☥ <a href="https://wiki.ultimacodex.com/wiki/Ultima_IX_internal_formats" title="Ultima IX internal formats"><i>Ultima&nbsp;IX</i></a> ☥ <a class="mw-selflink selflink"><i>Ultima Underworld</i></a>
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20220717171547
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+[SMW] In‐text annotation parser time: 0.01 seconds
+CPU time usage: 0.188 seconds
+Real time usage: 0.217 seconds
+Preprocessor visited node count: 375/1000000
+Post‐expand include size: 1837/2097152 bytes
+Template argument size: 134/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2242/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   54.992      1 -total
+ 49.29%   27.108      1 Template:Internal
+ 16.68%    9.174      7 Template:Anchor
+  8.94%    4.918      7 Template:Ultima_Underworld
+  6.34%    3.488      1 Template:Ultima_IX
+  6.12%    3.365      1 Template:Ultima_VIII
+  6.05%    3.327      1 Template:Ultima_VI
+  5.92%    3.255      1 Template:UU1link
+  5.85%    3.216      1 Template:Ultima_V
+  5.84%    3.209      1 Template:Ultima_VII
+-->
+
+<!-- Saved in parser cache with key spamspam_mediawiki-ec_:pcache:idhash:13506-0!canonical and timestamp 20220717171547 and revision id 163139
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;oldid=163139">https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;oldid=163139</a>"</div>
+<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://wiki.ultimacodex.com/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://wiki.ultimacodex.com/wiki/Category:Technical_Details" title="Category:Technical Details">Technical Details</a></li><li><a href="https://wiki.ultimacodex.com/wiki/Category:Ultima_Underworld" title="Category:Ultima Underworld">Ultima Underworld</a></li><li><a href="https://wiki.ultimacodex.com/wiki/Category:Ultima_Underworld_II" title="Category:Ultima Underworld II">Ultima Underworld II</a></li></ul></div></div><!-- end content --><div class="visualClear"></div></div></div><div class="visualClear"></div></div><div id="column-one" lang="en" dir="ltr"><h2>Navigation menu</h2><div role="navigation" class="portlet" id="p-cactions" aria-labelledby="p-cactions-label"><h3 id="p-cactions-label" lang="en" dir="ltr">Page actions</h3><div class="pBody"><ul lang="en" dir="ltr"><li id="ca-nstab-main" class="selected"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats" title="View the content page [alt-shift-c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="https://wiki.ultimacodex.com/wiki/Talk:Ultima_Underworld_internal_formats" rel="discussion" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li><li id="ca-edit"><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e">Edit</a></li><li id="ca-history"><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">History</a></li></ul></div></div><div role="navigation" class="portlet" id="p-cactions-mobile" aria-labelledby="p-cactions-mobile-label"><h3 id="p-cactions-mobile-label" lang="en" dir="ltr">Page actions</h3><div class="pBody"><ul lang="en" dir="ltr"><li id="ca-nstab-main-mobile" class="selected"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats" title="Page">Page</a></li><li id="ca-talk-mobile"><a href="https://wiki.ultimacodex.com/wiki/Talk:Ultima_Underworld_internal_formats" rel="discussion" title="Discussion">Discussion</a></li><li id="ca-more"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#p-cactions">More</a></li><li id="ca-tools"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#p-tb" title="Tools">Tools</a></li><li id="ca-languages"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#p-lang" title="In other languages">In other languages</a></li></ul></div></div><div role="navigation" class="portlet" id="p-personal" aria-labelledby="p-personal-label"><h3 id="p-personal-label" lang="en" dir="ltr">Personal tools</h3><div class="pBody"><ul lang="en" dir="ltr"><li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="https://wiki.ultimacodex.com/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="https://wiki.ultimacodex.com/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="https://wiki.ultimacodex.com/index.php?title=Special:CreateAccount&amp;returnto=Ultima+Underworld+internal+formats" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://wiki.ultimacodex.com/index.php?title=Special:UserLogin&amp;returnto=Ultima+Underworld+internal+formats" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li></ul></div></div><div class="portlet" id="p-logo" role="banner"><a href="https://wiki.ultimacodex.com/wiki/Main_Page" class="mw-wiki-logo" title="Visit the main page"></a></div><div id="sidebar"><div role="navigation" class="portlet generated-sidebar" id="p-Navigation" aria-labelledby="p-Navigation-label"><h3 id="p-Navigation-label" lang="en" dir="ltr">Navigation</h3><div class="pBody"><ul lang="en" dir="ltr"><li id="n-mainpage"><a href="https://wiki.ultimacodex.com/wiki/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z">Main Page</a></li><li id="n-Games"><a href="https://wiki.ultimacodex.com/wiki/Games">Games</a></li><li id="n-Characters"><a href="https://wiki.ultimacodex.com/wiki/Category:NPCs">Characters</a></li><li id="n-Geography"><a href="https://wiki.ultimacodex.com/wiki/Category:Geography">Geography</a></li><li id="n-Books"><a href="https://wiki.ultimacodex.com/wiki/Category:Books">Books</a></li><li id="n-Trinkets"><a href="https://wiki.ultimacodex.com/wiki/Category:Trinkets">Trinkets</a></li><li id="n-Maps"><a href="https://wiki.ultimacodex.com/wiki/Category:Maps">Maps</a></li><li id="n-Bestiary"><a href="https://wiki.ultimacodex.com/wiki/Bestiary">Bestiary</a></li><li id="n-Fan-works"><a href="https://wiki.ultimacodex.com/wiki/Category:Fan_works">Fan works</a></li><li id="n-randompage"><a href="https://wiki.ultimacodex.com/wiki/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li></ul></div></div><div role="navigation" class="portlet generated-sidebar" id="p-Community" aria-labelledby="p-Community-label"><h3 id="p-Community-label" lang="en" dir="ltr">Community</h3><div class="pBody"><ul lang="en" dir="ltr"><li id="n-The-Ultima-Codex"><a href="http://www.ultimacodex.com/" rel="nofollow">The Ultima Codex</a></li><li id="n-SotAWiki"><a href="http://sotawiki.net/sota/Main_Page" rel="nofollow">SotAWiki</a></li><li id="n-Ultima-Forever-Wiki"><a href="http://wiki.ultimacodex.com/forever/Main_Page" rel="nofollow">Ultima Forever Wiki</a></li><li id="n-Ultima-Online-Wiki"><a href="http://www.uoguide.com/Main_Page" rel="nofollow">Ultima Online Wiki</a></li><li id="n-portal"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Codex:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://wiki.ultimacodex.com/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li><li id="n-help"><a href="https://wiki.ultimacodex.com/wiki/Help:Contents" title="The place to find out">Help</a></li><li id="n-Forum"><a href="https://wiki.ultimacodex.com/wiki/Forum:Index">Forum</a></li><li id="n-Create-new-page"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Codex:CreateNewPage">Create new page</a></li></ul></div></div><div role="navigation" class="portlet" id="p-tb" aria-labelledby="p-tb-label"><h3 id="p-tb-label" lang="en" dir="ltr">Tools</h3><div class="pBody"><ul lang="en" dir="ltr"><li id="t-whatlinkshere"><a href="https://wiki.ultimacodex.com/wiki/Special:WhatLinksHere/Ultima_Underworld_internal_formats" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://wiki.ultimacodex.com/wiki/Special:RecentChangesLinked/Ultima_Underworld_internal_formats" rel="nofollow" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://wiki.ultimacodex.com/wiki/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;oldid=163139" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://wiki.ultimacodex.com/index.php?title=Ultima_Underworld_internal_formats&amp;action=info" title="More information about this page">Page information</a></li><li id="t-smwbrowselink"><a href="https://wiki.ultimacodex.com/wiki/Special:Browse/:Ultima-5FUnderworld-5Finternal-5Fformats" rel="search">Browse properties</a></li></ul></div></div><div role="search" class="portlet" id="p-search"><h3 id="p-search-label" lang="en" dir="ltr"><label for="searchInput">Search</label></h3><div class="pBody" id="searchBody"><form action="https://wiki.ultimacodex.com/index.php" id="searchform"><input type="hidden" value="Special:Search" name="title"><input type="search" name="search" placeholder="Search Ultima Codex" title="Search Ultima Codex [alt-shift-f]" accesskey="f" id="searchInput"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchGoButton" class="searchButton">&nbsp; <input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton"></form></div></div></div><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#sidebar" title="navigation" class="menu-toggle" id="sidebar-toggle"></a><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#p-personal" title="user tools" class="menu-toggle" id="p-personal-toggle"></a><a href="https://wiki.ultimacodex.com/wiki/Ultima_Underworld_internal_formats#globalWrapper" title="back to top" class="menu-toggle" id="globalWrapper-toggle"></a></div><!-- end of the left (by default at least) column --><div class="visualClear"></div><div id="footer" class="mw-footer" role="contentinfo" lang="en" dir="ltr"><div id="f-copyrightico" class="footer-icons"><a href="https://creativecommons.org/licenses/by-sa/3.0/"><img src="./Ultima Underworld internal formats - The Codex of Ultima Wisdom, a wiki for Ultima and Ultima Online_files/88x31.png" alt="Attribution-ShareAlike 3.0 Unported" width="88" height="31" loading="lazy"></a></div><div id="f-poweredbyico" class="footer-icons"><a href="https://www.mediawiki.org/"><img src="./Ultima Underworld internal formats - The Codex of Ultima Wisdom, a wiki for Ultima and Ultima Online_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"></a><a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAACJVBMVEXe3t62trbLy8vGxsbAwMDX19e6urqsrKxHcEzQ0NC2tratra2oqKixsbHd3eDFxcXe3t7U1NTa2trX19fQ0NDV1dWNjY2dnZ2UlJSUlJTS0tKUlJSWlpbR0dGenp79/f38/Pz+/v7t7e3v7+/u7u7s7Oz19fX29vb6+vr7+/vz8/Pz8/P4+fnw8PD39/gWTq/09PX6+vktX7b/sg8XT7F6mc/f5OwhVrNvkMthhsfT2+j7rQ/M1eZqjcmFotPs7e9Cb722xuFResK/zOObstnu7/Grvd3M1+mNqNY6aLoaUbEaUbZWfsTk6fE2Zrnp7O8bTq0kWLQuYcpcg8Xh5/Byk83a4eukud1/nM+6yeQkWcGwwuDxnRQyYrigttvI0+gpW7XGyttLdsBni8geVLo0Z9XlkCPb4u+QqtcfVLLo7PNHcr73phFGX6HsmBnpkxg6bNwnXcbX3er19vnr7/SVrdhuhLl+j70vVqY6Xqv0oxJVcbQhV76DjKTz9ffQ2evE0OZAbbzu7/PS1uFufrDnrGgpSZjy8/SQnMFddrKuekXSiCsgTKRaaZHejy9yang3VptNaqspWbnmliy3j2/m6OzT3e7x8fL4+v3p6uwaN2re0cifqLiLiZWYhYGYb0xXYn+5g0xwiMKYpc2BcHZmW2srRXpGWIhecKfilz4+WID2+PyosMywqbGqss1aVnLZq33p1sGklZqrp7dkfr7CpY9yg59Ud6QZAAAAH3RSTlPfBN/f39/f2wDf39vV3/7N2rrEz5D5c8ONuHaPuXXDImoxqwAABO1JREFUSMe1kQdz01gQgBXaBS4w9OtHwMFSdPKTUNxkW+61xN2Je4tLHJNOGukkAUINJTzaUIbO9fr7TpLtS44DZiC5b6Sn3dW+TysJaWz4cv9eZFPZu/+bhkakYR88WqP59u3vjxzdDCT7GpCD4qNH3sEGzOhB5MCR/4PmA8j25uZ33t0A23lxff5hZTIzOrz2Ph8qK936l7i1tT7hk8DAoHNsbeLWKjPdQcZ+qvX9tHMNXca1XBDXHtL6x2Bh0HWtuXUo8oTgC1gVpcdsdpew92PUYtjwzFq+E9mJYfXxx1x5l2/l5Vhy0DW6TuyQCZcR2hnswXJM0h+203471u5WKMIE5mDpspIIO8sZTMZiIbczY6+JCaI+/sJZ38qjP28+nQjkx/mcqGJ26rW3iKg/fYphCL1jNk5WbqXI0nBnu00RJ2j9bNRp6MmFS0SYIXLuUlQ5w22qizHr5MTyy2u/3XxVvHHlwtWVa/xTCQIIlEaMzrgswzA5P9BrAciYASqNoiNdjL8b0GYAHN3AGAEgzPSQc9UtYCeyBQAMO2G9PhhzXfp9qdifSCT6Lj788QQnrvWEuNPI2um0LW0D+m4A6E4AnIZOeq7ksQuJvi6eUXRW+8EWXsxNPhkYGJiSXr7Rd1qtVp9MXHkgIurzAkdFxjrj7cmKbN4K5v8RGxT2sJMTpwBflNHhUJgBdoUylzy3TuwIDBRi0hf9p9VtbW3qk30X7q2Je1IybZq7mLVWFKTSADXPoqi9AzVorda0kKTS6KkRbSgaR1GT1h5CObYiW1GU27yc5z6F9Fn/yTYedeLi9AIA6AbgxGIxAMPZcZeUHH9cFavVfY97FaNA/DbazRZVV89/61at2BTlg1JXiFtrYoBmRyd7p6/UP0XxaSDmy4pt0jmuh8qx6wQ2MmRz18TaJCUWO9xisUVhMMsoZZDiGHLLuXUbso2iatP/1HvhYu3n3bh6Pe/LUjZSj1NUJ8lSlNwahRRlMRjmyFDICikVn8+SacomdbZTVj+0mQSxweS1WqpiHK/Ncubs858f9idOJ/qKS1cv+RbFuIbMmHEvTbO4QeF25CxyD62nSbmJ1MUzRrpiwR0RPBJMpnCGxWVGXBn8TkarNGQHjuPrxOeWY4GY9FmxWHy19Gvv+ayYF6f8oYi7i8U93bjFkYokvbhWEFu8Og2ZxrUe3NMpc3vLhqqYpVV4XbwDQkpgoVwYKOR9N5d+eXB5vJevQA0pD7oVqi4WOj16vX6EYSA08WKvyeOZJw1cQ6rsnXOa/RYoM0Kls0zLuVoHhHAHL8YFXkwVCoE8uXhvMVCY8mW5Ci8eKkcgJ9azOl0UajNDFiUpj5JeloEqTgwd/iCUJP0sFMSejkpO96b4zl1fPuYiyd6Vs4GBmHSsJoYmLy/WeBTlis5rlJYrgjhe1s+XOXGEtHJOMl4VB2EHLauKdyG7JBLIc//uslRKkhOrcGJqyiU9z5UkOpVOwiGXSyQizRAfqlRc7Y5KJFnV6FReiWSV7xAWeQd/SOSq6qY18eVHq4vjlyazEJ73ScmJPVxJVKdF9MFwYpFIEL+ehvDOcSH8YXRsAa4XfwS7kd0tLfw7Sp7fl7xJywbYjTTVotfTb+849lEcb0K+2lMN/5o+tons+Rxp+PrQ8U3n0BcNSGPj4W+bPuX5ZLNo+uxwY+PfoLJHX1KXgyMAAAAASUVORK5CYII=" alt="Powered by Semantic MediaWiki" class="smw-footer" width="88" height="31" loading="lazy"></a></div><ul id="f-list"><li id="lastmod"> This page was last edited on 3 January 2022, at 04:34.</li><li id="copyright">Content is available under <a class="external" rel="nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/">Attribution-ShareAlike 3.0 Unported</a> unless otherwise noted.</li><li id="privacy"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Codex:Privacy_policy" title="Ultima Codex:Privacy policy">Privacy policy</a></li><li id="about"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Codex:About" title="Ultima Codex:About">About Ultima Codex</a></li><li id="disclaimer"><a href="https://wiki.ultimacodex.com/wiki/Ultima_Codex:General_disclaimer" title="Ultima Codex:General disclaimer">Disclaimers</a></li></ul></div></div>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"smw":{"limitreport-intext-parsertime":0.01000000000000000020816681711721685132943093776702880859375},"limitreport":{"cputime":"0.188","walltime":"0.217","ppvisitednodes":{"value":375,"limit":1000000},"postexpandincludesize":{"value":1837,"limit":2097152},"templateargumentsize":{"value":134,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2242,"limit":5000000},"timingprofile":["100.00%   54.992      1 -total"," 49.29%   27.108      1 Template:Internal"," 16.68%    9.174      7 Template:Anchor","  8.94%    4.918      7 Template:Ultima_Underworld","  6.34%    3.488      1 Template:Ultima_IX","  6.12%    3.365      1 Template:Ultima_VIII","  6.05%    3.327      1 Template:Ultima_VI","  5.92%    3.255      1 Template:UU1link","  5.85%    3.216      1 Template:Ultima_V","  5.84%    3.209      1 Template:Ultima_VII"]},"cachereport":{"timestamp":"20220717171547","ttl":86400,"transientcontent":false}}});});</script>
+<div style="display:none;">
+    <!-- Start of StatCounter Code -->
+    <script type="text/javascript">
+    var sc_project=6697500; 
+    var sc_invisible=1; 
+    var sc_security="0a019cec"; 
+    </script>
+    <script type="text/javascript" src="./Ultima Underworld internal formats - The Codex of Ultima Wisdom, a wiki for Ultima and Ultima Online_files/counter.js.download"></script>
+    <noscript><div class="statcounter"><a title="vBulletin
+    stats" href="https://statcounter.com/vbulletin/"
+    target="_blank"><img class="statcounter"
+    src="https://c.statcounter.com/6697500/0/0a019cec/1/"
+    alt="vBulletin stats"></a></div></noscript>
+    <!-- End of StatCounter Code -->
+</div><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59306328-2', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+
+</script>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":490});});</script></body></html>
