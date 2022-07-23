@@ -7,12 +7,28 @@ script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="image_tester_button" type="Button" parent="CanvasLayer"]
-margin_left = 70.0
-margin_top = 86.0
-margin_right = 172.0
-margin_bottom = 106.0
+[node name="buttons" type="VBoxContainer" parent="CanvasLayer"]
+margin_left = 100.0
+margin_top = 108.0
+margin_right = 202.0
+margin_bottom = 152.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="image_tester_button" type="Button" parent="CanvasLayer/buttons"]
+margin_right = 102.0
+margin_bottom = 20.0
 text = "IMAGE TESTER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="font_tester_button" type="Button" parent="CanvasLayer/buttons"]
+margin_top = 24.0
+margin_right = 102.0
+margin_bottom = 44.0
+text = "FONT TESTER"
 __meta__ = {
 "_edit_use_anchors_": false
 }
