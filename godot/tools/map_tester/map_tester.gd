@@ -100,8 +100,8 @@ func _process(delta):
 				_cell_textures.get_node("floor/TextureRect").texture = null
 				_cell_textures.get_node("wall/TextureRect").texture = null
 			else:
-				_cell_textures.get_node("floor/TextureRect").texture = current_game["images"]["floors"][ current_level["texture_maps"]["floors"][current_cell["floor_texture"]] ]
-				_cell_textures.get_node("wall/TextureRect").texture = current_game["images"]["walls"][ current_level["texture_maps"]["walls"][current_cell["wall_texture"]] ]
+				_cell_textures.get_node("floor/TextureRect").texture = current_game["images"]["floors"][ current_cell["floor_texture"]]
+				_cell_textures.get_node("wall/TextureRect").texture = current_game["images"]["walls"][ current_cell["wall_texture"]]
 			
 			# cell wall texture
 		else:
@@ -194,7 +194,7 @@ func _update_level_node():
 			# if type is not a solid wall, draw a sprite in that cell
 			if type != 0:
 				var newsprite = Sprite.new()
-				newsprite.texture = current_game["images"]["floors"][ current_level["texture_maps"]["floors"][current_cell["floor_texture"]] ]
+				newsprite.texture = current_game["images"]["floors"][ current_cell["floor_texture"]]
 				newsprite.position = Vector2(TILE_SIZE*x, TILE_SIZE*y)
 				newsprite.centered = false
 				

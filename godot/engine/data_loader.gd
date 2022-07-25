@@ -11,7 +11,8 @@ enum TYPE{
 	}
 	
 enum FLAGS{
-	FLIP_Y
+	FLIP_Y=1,
+	REPEAT=2
 	}
 	
 # used for RLE decoding
@@ -95,11 +96,11 @@ func load_uw1_data():
 	# load textures (walls/floors)
 	data["images"] = {}
 	data["images"]["floors"] = load_data(TYPE.TEXTURE, str(data_dir, "/F32.TR"), {"flags":FLAGS.FLIP_Y, "palette":data["palettes"][0]} )
-	data["images"]["walls"] = load_data(TYPE.TEXTURE, str(data_dir, "/W64.TR"), {"flags":0, "palette":data["palettes"][0]} )
+	data["images"]["walls"] = load_data(TYPE.TEXTURE, str(data_dir, "/W64.TR"), {"flags":FLAGS.REPEAT, "palette":data["palettes"][0]} )
 	
-	print("Generating materials...")
-	data["materials"] = {}
-	data["materials"]["floors"] = create_materials_from_textures(data["images"]["floors"], data["rotating_palette_spatial"])
+	#print("Generating materials...")
+	#data["materials"] = {}
+	#data["materials"]["floors"] = create_materials_from_textures(data["images"]["floors"], data["rotating_palette_spatial"])
 	#print("Generated ", data["materials"]["floors"].size(), " floor materials.")
 	#data["materials"]["walls"] = create_materials_from_textures(data["images"]["walls"], data["rotating_palette"])
 	#print("Generated ", data["materials"]["walls"].size(), " wall materials.")
@@ -257,6 +258,7 @@ func load_textures(var filepath: String, sourcedata):
 	var textures = []	
 	var tfile = File.new()
 	var flip_y = false
+	var repeat = false
 	var palette = sourcedata["palette"]
 	var has_rotating_palette = false
 	
@@ -268,7 +270,9 @@ func load_textures(var filepath: String, sourcedata):
 	var header = _get_image_header(tfile)
 	
 	# handle source data
-	if sourcedata.keys().has("flip_y"): flip_y = sourcedata["flip_y"]
+	if sourcedata.keys().has("flags"):
+		if sourcedata["flags"] & FLAGS.FLIP_Y: flip_y = true
+		if sourcedata["flags"] & FLAGS.REPEAT: repeat = true
 	
 	# create texture at each offset
 	for i in header["offsets"]:
@@ -285,7 +289,9 @@ func load_textures(var filepath: String, sourcedata):
 		
 		# create texture
 		var newtexture = ImageTexture.new()
-		newtexture.create_from_image(image, 0)
+		var textureflags = 0
+		if repeat: textureflags |= Texture.FLAG_REPEAT
+		newtexture.create_from_image(image, textureflags)
 		textures.push_back(newtexture)
 	
 	if textures.size() != header["image_count"]:

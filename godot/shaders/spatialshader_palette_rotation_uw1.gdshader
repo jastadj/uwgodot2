@@ -5,7 +5,8 @@ render_mode specular_schlick_ggx;
 
 uniform sampler2D img:hint_albedo;
 // 4 color palette rotator
-uniform float speed_ms;
+uniform float speed_ms = 250.0;
+uniform vec2 scale = vec2(1.0,1.0);
 // water effect (4 sets of 4 colors, rotating down)
 uniform vec4 color0;
 uniform vec4 color1;
@@ -49,7 +50,7 @@ bool colors_match(vec4 c1, vec4 c2)
 }
 
 void fragment() {
-	vec4 current_color = texture(img, UV.xy); // get pixel color
+	vec4 current_color = texture(img, UV.xy * scale); // get pixel color
 	vec3 rgb_color;
 	int cycle1 = int(TIME/(speed_ms*0.001))%4;
 	int cycle2 = int(TIME/(speed_ms*0.001))%5;
