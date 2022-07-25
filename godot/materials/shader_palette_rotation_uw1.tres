@@ -1,0 +1,31 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://shaders/palette_rotation_uw1.gdshader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/speed_ms = 250.0
+shader_param/color0 = null
+shader_param/color1 = null
+shader_param/color2 = null
+shader_param/color3 = null
+shader_param/color4 = null
+shader_param/color5 = null
+shader_param/color6 = null
+shader_param/color7 = null
+shader_param/color8 = null
+shader_param/color9 = null
+shader_param/color10 = null
+shader_param/color11 = null
+shader_param/color12 = null
+shader_param/color13 = null
+shader_param/color14 = null
+shader_param/color15 = null
+shader_param/color16 = null
+shader_param/color17 = null
+shader_param/color18 = null
+shader_param/color19 = null
+shader_param/color20 = null
+shader_param/color21 = null
+shader_param/color22 = null
+shader_param/color23 = null

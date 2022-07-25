@@ -100,3 +100,6 @@ margin_right = 862.0
 margin_bottom = 537.0
 text = "This is a test line."
 max_length = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}

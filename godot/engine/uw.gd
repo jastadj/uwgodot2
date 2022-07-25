@@ -1,8 +1,10 @@
 extends Node
 
-enum GAME_TYPE{NONE, UW1}
+enum GAME_TYPE{NONE, UW1, UW2}
 
 var game_type = GAME_TYPE.NONE
+
+# set the game type directories
 var uw1_dir = "C:/Users/jasta/Documents/uw_data"
 var uw2_dir = null
 

@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://export_pal.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=8]
+code = "shader_type spatial;
+
+uniform sampler2D img;
+
+void fragment()
+{
+	int cycle = int(TIME/(250.0*0.001))%4;
+	vec4 current_color = texture(img, UV.xy);
+	vec3 pcolor = vec3(current_color.r, current_color.g, current_color.b);
+	
+	if (cycle == 0)	ALBEDO = pcolor;
+}"
+
+[resource]
+shader = SubResource( 8 )
+shader_param/img = ExtResource( 1 )

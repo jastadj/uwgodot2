@@ -5,7 +5,9 @@ enum TYPE{
 	AUX_PALETTE,
 	GRAPHIC,
 	TEXTURE,
-	FONT
+	FONT,
+	MAP,
+	BITMAP
 	}
 	
 enum FLAGS{
@@ -42,7 +44,7 @@ func load_data(dtype, filepath, ddict = {}):
 	elif dtype == TYPE.GRAPHIC:
 		var images
 		print("Loading images from file:", filepath)
-		images = load_images(filepath, ddict["palette"])
+		images = load_images(filepath, ddict["palette"], ddict["aux_palette"])
 		if images: print(images.size(), " images loaded.")
 		return images
 	elif dtype == TYPE.FONT:
@@ -51,6 +53,18 @@ func load_data(dtype, filepath, ddict = {}):
 		font = load_font(filepath)
 		if font: print(font["chars"].size(), " font chars loaded.")
 		return font
+	elif dtype == TYPE.MAP:
+		var map
+		print("Loading map from file:", filepath)
+		map = load_map(filepath)
+		if map: print(map["levels"].size(), " levels loaded.")
+		return map
+	elif dtype == TYPE.BITMAP:
+		var bitmap
+		print("Loading bitmap from file:", filepath)
+		bitmap = load_bitmap(filepath, ddict["palette"])
+		if bitmap: print("Loaded bitmap.")
+		return bitmap
 
 func load_uw1_data():
 	
@@ -59,9 +73,17 @@ func load_uw1_data():
 	var data_dir = str(UW.uw1_dir, "/UWDATA")
 	var data = {}
 	
+	data["type"] = UW.GAME_TYPE.UW1
+	
 	# load palettes
 	data["palettes"] = load_data(TYPE.PALETTE, str(data_dir, "/PALS.DAT"))
 	data["aux_palettes"] = load_data(TYPE.AUX_PALETTE, str(data_dir, "/ALLPALS.DAT"))
+	
+	# generate rotating palette material
+	print("Generating rotating palette shader...")
+	var mats = generate_rotating_palette_material(UW.GAME_TYPE.UW1, data["palettes"][0])
+	data["rotating_palette_spatial"] = mats[0]
+	data["rotating_palette_shader"] = mats[1]
 	
 	# load fonts
 	data["fonts"] = []
@@ -75,15 +97,69 @@ func load_uw1_data():
 	data["images"]["floors"] = load_data(TYPE.TEXTURE, str(data_dir, "/F32.TR"), {"flags":FLAGS.FLIP_Y, "palette":data["palettes"][0]} )
 	data["images"]["walls"] = load_data(TYPE.TEXTURE, str(data_dir, "/W64.TR"), {"flags":0, "palette":data["palettes"][0]} )
 	
-	# load character graphics
-	data["images"]["player_heads"] = load_data(TYPE.GRAPHIC, str(data_dir, "/HEADS.GR"), {"palette":data["palettes"][0]})
-	data["images"]["player_armor_male"] = load_data(TYPE.GRAPHIC, str(data_dir, "/ARMOR_M.GR"), {"palette":data["palettes"][0]})
-	data["images"]["player_armor_female"] = load_data(TYPE.GRAPHIC, str(data_dir, "/ARMOR_F.GR"), {"palette":data["palettes"][0]})
-	data["images"]["player_bodies"] = load_data(TYPE.GRAPHIC, str(data_dir, "/BODIES.GR"), {"palette":data["palettes"][0]})
-
-	# load UI grahics
-	data["images"]["3dwin"] = load_data(TYPE.GRAPHIC, str(data_dir, "/3DWIN.GR"), {"palette":data["palettes"][0]})
+	print("Generating materials...")
+	data["materials"] = {}
+	data["materials"]["floors"] = create_materials_from_textures(data["images"]["floors"], data["rotating_palette_spatial"])
+	#print("Generated ", data["materials"]["floors"].size(), " floor materials.")
+	#data["materials"]["walls"] = create_materials_from_textures(data["images"]["walls"], data["rotating_palette"])
+	#print("Generated ", data["materials"]["walls"].size(), " wall materials.")
 	
+	# load player graphics
+	data["images"]["player_heads"] = load_data(TYPE.GRAPHIC, str(data_dir, "/HEADS.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["player_armor_male"] = load_data(TYPE.GRAPHIC, str(data_dir, "/ARMOR_M.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["player_armor_female"] = load_data(TYPE.GRAPHIC, str(data_dir, "/ARMOR_F.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["player_bodies"] = load_data(TYPE.GRAPHIC, str(data_dir, "/BODIES.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+
+	# heads - conversation
+	#data["images"]["generic_heads"] = load_data(TYPE.GRAPHIC, str(data_dir, "/GENHEADS.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["conversation"] = load_data(TYPE.BITMAP, str(data_dir, "/CONV.BYT"), {"palette":data["palettes"][0]})
+	data["images"]["converse"] = load_data(TYPE.GRAPHIC, str(data_dir, "/CONVERSE.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+
+	# load objects
+	data["images"]["objects"] = load_data(TYPE.GRAPHIC, str(data_dir, "/OBJECTS.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})	
+	data["images"]["doors"] = load_data(TYPE.GRAPHIC, str(data_dir, "/DOORS.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})	
+
+	# load small animations
+	data["images"]["small_animations"] = load_data(TYPE.GRAPHIC, str(data_dir, "/ANIMO.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+
+	# mouse cursors
+	data["images"]["cursors"] = load_data(TYPE.GRAPHIC, str(data_dir, "/CURSORS.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+
+	# intro/end
+	data["images"]["opening"] = load_data(TYPE.BITMAP, str(data_dir, "/OPSCR.BYT"), {"palette":data["palettes"][2]})
+	data["images"]["origin"] = load_data(TYPE.BITMAP, str(data_dir, "/PRES1.BYT"), {"palette":data["palettes"][5]})
+	data["images"]["bluesky"] = load_data(TYPE.BITMAP, str(data_dir, "/PRES2.BYT"), {"palette":data["palettes"][5]})
+	data["images"]["win"] = load_data(TYPE.BITMAP, str(data_dir, "/WIN1.BYT"), {"palette":data["palettes"][7]})
+	data["images"]["win_blank"] = load_data(TYPE.BITMAP, str(data_dir, "/WIN2.BYT"), {"palette":data["palettes"][7]})
+
+	# main menu
+	data["images"]["main_buttons"] = load_data(TYPE.GRAPHIC, str(data_dir, "/OPBTN.GR"), {"palette":data["palettes"][2], "aux_palette":data["aux_palettes"]})
+	
+	# char gen
+	data["images"]["heads"] = load_data(TYPE.GRAPHIC, str(data_dir, "/CHARHEAD.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["chargen"] = load_data(TYPE.BITMAP, str(data_dir, "/CHARGEN.BYT"), {"palette":data["palettes"][3]})
+	data["images"]["chargen_buttons"] = load_data(TYPE.GRAPHIC, str(data_dir, "/CHRBTNS.GR"), {"palette":data["palettes"][3], "aux_palette":data["aux_palettes"]})
+
+	# main UI grahics
+	data["images"]["main"] = load_data(TYPE.BITMAP, str(data_dir, "/MAIN.BYT"), {"palette":data["palettes"][0]})
+	data["images"]["3dwin"] = load_data(TYPE.GRAPHIC, str(data_dir, "/3DWIN.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["chains"] = load_data(TYPE.GRAPHIC, str(data_dir, "/CHAINS.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["compass"] = load_data(TYPE.GRAPHIC, str(data_dir, "/COMPASS.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["dragons"] = load_data(TYPE.GRAPHIC, str(data_dir, "/DRAGONS.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["flasks"] = load_data(TYPE.GRAPHIC, str(data_dir, "/FLASKS.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["eyes"] = load_data(TYPE.GRAPHIC, str(data_dir, "/EYES.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["left_buttons"] = load_data(TYPE.GRAPHIC, str(data_dir, "/LFTI.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	data["images"]["scroll"] = load_data(TYPE.GRAPHIC, str(data_dir, "/SCRLEDGE.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	
+	
+	# map image
+	data["images"]["map"] = load_data(TYPE.BITMAP, str(data_dir, "/BLNKMAP.BYT"), {"palette":data["palettes"][1]})
+	
+	# inventory?
+	data["images"]["inventory"] = load_data(TYPE.GRAPHIC, str(data_dir, "/INV.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	
+	# load game map / levels
+	data["map"] = load_data(TYPE.MAP, str(data_dir, "/LEV.ARK"))
 	
 	return data
 
@@ -92,7 +168,7 @@ func load_palettes(var filepath: String):
 	
 	var pals = []	
 	var tfile = File.new()
-	var c = 1.0/64.0
+	#var c = 1.0/64.0
 	var filesize
 	
 	
@@ -114,11 +190,19 @@ func load_palettes(var filepath: String):
 		for i in range(0, 256):
 			
 			# read in RGB value
-			var r = tfile.get_8()
-			var g = tfile.get_8()
-			var b = tfile.get_8()
+			# and reduce floating point resolution to the hundredths
+			# tfile.get_8()*c too much resolution
+			var r = tfile.get_8()*4
+			var g = tfile.get_8()*4
+			var b = tfile.get_8()*4
 			
-			var newcolor = Color(r*c, g*c, b*c)
+			var color_bytes = PoolByteArray([r,g,b])
+			var color_string = str("#ff") + color_bytes.hex_encode()
+			var newcolor = Color(color_string)
+			
+			# testing palette 0, color index 48
+			if pals.empty() and i == 48:
+				print(newcolor)
 			
 			# if the palette #0 and index #0, always transparent
 			if pals.empty() and i == 0: newcolor = Color(1,1,1,0)
@@ -174,6 +258,7 @@ func load_textures(var filepath: String, sourcedata):
 	var tfile = File.new()
 	var flip_y = false
 	var palette = sourcedata["palette"]
+	var has_rotating_palette = false
 	
 	if tfile.open(filepath, File.READ):
 		printerr("Load Textures: Error opening file ", filepath)
@@ -189,7 +274,7 @@ func load_textures(var filepath: String, sourcedata):
 	for i in header["offsets"]:
 		var image = Image.new()
 		tfile.seek(i)
-		tfile.get_8() # format value
+		#tfile.get_8() # format value
 		image.create(header["resolution"], header["resolution"], false, Image.FORMAT_RGBA8)
 		image.lock()
 		for y in range(0, header["resolution"]):
@@ -210,7 +295,7 @@ func load_textures(var filepath: String, sourcedata):
 	tfile.close()
 	return textures
 
-func load_images(var filepath: String, palette):
+func load_images(var filepath: String, palette, aux_palette ):
 	var images = []	
 	var tfile = File.new()
 	
@@ -230,13 +315,13 @@ func load_images(var filepath: String, palette):
 		var format = tfile.get_8()
 		var width = tfile.get_8()
 		var height = tfile.get_8()
-		var aux_pal = null
+		var aux_pal_index = null
 		var image_size
 		var pixels = []
 				
 		# if a 4-bit format, get aux_pal
 		if format == 0x08 or format == 0x0a:
-			aux_pal = tfile.get_8()
+			aux_pal_index = tfile.get_8()
 		
 		# get image size
 		image_size = tfile.get_16()
@@ -276,7 +361,7 @@ func load_images(var filepath: String, palette):
 				bytes.push_back(tfile.get_8())
 				
 			# decode RLE into pixels
-			pixels = _rle_to_pixels(wordsize, bytes, aux_pal)
+			pixels = _rle_to_pixels(wordsize, bytes, aux_pal_index)
 			
 			# is pixel count correct?
 			if pixels.size() < width*height:
@@ -290,18 +375,15 @@ func load_images(var filepath: String, palette):
 		# create image
 		image.create(width, height, false, Image.FORMAT_RGBA8)
 		
-		# testing
-		if i == 2293: print(pixels)
-		
 		# write pixel data to image
 		image.lock()
 		for y in range(0, height):
 			for x in range(0, width):
-				if aux_pal != null:
+				if aux_pal_index != null:
 					var pindex = x + y*width
 					# the RLE decoder can write more words than is needed
 					if pindex >= width*height: continue
-					image.set_pixel(x,y,palette[ UW.aux_palettes[aux_pal][pixels[pindex]] ])
+					image.set_pixel(x,y,palette[ aux_palette[aux_pal_index][pixels[pindex]] ])
 				else:
 					image.set_pixel(x,y,palette[pixels[x + y*width]])
 		image.unlock()
@@ -354,14 +436,14 @@ func load_font(filepath):
 	count = (filesize - 12) / font["charsize"] # file size minus header bytes div by char size
 	
 	# read and create each font character
-	for i in range(0, count):
+	for _i in range(0, count):
 		
 		var char_image = Image.new()
 		var char_bytes = PoolByteArray()
 		var current_width
 		
 		# read in char bytes
-		for b in range(0, font["charsize"]):
+		for _b in range(0, font["charsize"]):
 			char_bytes.push_back(tfile.get_8())
 		
 		# get current characters width
@@ -387,14 +469,200 @@ func load_font(filepath):
 					var bit = ((char_bytes[byte_num]) >> 7-(x%8)) & 0x1
 					if bit: char_image.set_pixel(x,y, Color(1,1,1))
 			char_image.unlock()
+			
+		# create image texture
+		var newtexture = ImageTexture.new()
+		newtexture.create_from_image(char_image, 0)
 		
 		# add new character image to the list
-		font["chars"].push_back(char_image)
+		font["chars"].push_back(newtexture)
 		
 	# done
 	tfile.close()
 	return font
+
+func load_map(filepath):
+	var tfile = File.new()
+	var filesize
+	var map = {"levels":[]}
+	var block_count
+	var offsets = []
+	# texture mapping is only used during level loading
+	var wall_maps = []
+	var floor_maps = []
+	var door_maps = []
+	var levels
 	
+	if tfile.open(filepath, File.READ):
+		printerr("Load Map: Error opening file ", filepath)
+		return null
+	
+	# get size of file
+	filesize = tfile.get_len()
+	
+	# get number of blocks
+	block_count = tfile.get_16()
+	
+	# get number of levels (blocks / 15)
+	levels = block_count/15
+	
+	# get offsets of the blocks
+	for _i in range(0, block_count):
+		offsets.push_back(tfile.get_32())
+	
+	# read texture mapping
+	for o in range(18, 18 + levels):
+		var offset = offsets[o]
+		var walls = []
+		var floors = []
+		var doors = []
+		
+		# move to offset
+		tfile.seek(offset)
+		
+		# read wall texture map indices
+		for _i in range(0, 48):
+			walls.push_back(tfile.get_16())
+		# read floor texture map indices
+		for _i in range(0, 10):
+			floors.push_back(tfile.get_16())
+		# read door texture map indices
+		for _i in range(0, 6):
+			doors.push_back(tfile.get_8())
+		
+		# add texture maps to map
+		wall_maps.push_back(walls)
+		floor_maps.push_back(floors)
+		door_maps.push_back(doors)
+		#map["levels"][o-18]["texture_maps"] = {"walls":walls, "floors":floors, "doors":doors}
+	
+	# read tilemap / object list blocks
+	for o in range(0, levels):
+		var offset = offsets[o]
+		var level = {"cells":[]}
+		if offset == 0: continue # ignore 0 offsets
+		
+		# move to offset
+		tfile.seek(offset)
+		
+		for y in range(0,64):
+			level["cells"].push_back([])
+		
+		# read tilemap bytes (4 bytes) * 64 * 64		
+		for y in range(0, 64):
+			for x in range(0, 64):
+				var info1 = tfile.get_16()
+				var info2 = tfile.get_16()
+				
+				var cell = {}
+				# info byte 1
+				cell["type"] = info1 & 0xf
+				cell["floor_height"] = (info1 & 0xf0) >> 4 # floor height (0-15 max)
+				# instead of keeping the texture mapping values around
+				# just cut out the middle man and save the direct image index
+				cell["floor_texture"] = floor_maps[o][(info1 & 0x3c00) >> 10] # floor texture index
+				cell["allow_magic"] = (info1 >> 14) & 0x1 # allow magic to be cast in this cell
+				cell["door"] = door_maps[o][(info1 >> 15) & 0x1] # used for what?
+				# info byte 2
+				cell["wall_texture"] = wall_maps[o][info2 & 0x3f]
+				cell["object_index"] = (info2 >> 6) & 0x3ff
+				
+				# add cell to level map
+				level["cells"][64-1-y].push_back(cell)
+		
+		# add level to the list
+		map["levels"].push_back(level)
+		
+	# done
+	tfile.close()
+	return map
+
+func load_bitmap(filepath, pal):
+	var tfile = File.new()
+	var width = 320
+	var height = 200
+	var bitmap = []
+	
+	if tfile.open(filepath, File.READ):
+		printerr("Load Bitmap: Error opening file ", filepath)
+		return null
+	
+	var newimage = Image.new()
+	var newtexture = ImageTexture.new()
+	newimage.create(width, height, false, Image.FORMAT_RGBA8)
+	newimage.lock()
+	for y in range(0, 200):
+		for x in range(0, 320):
+			#var byte = tfile.get_8()
+			newimage.set_pixel(x,y, pal[tfile.get_8()])
+	newimage.unlock()
+	newtexture.create_from_image(newimage, 0)
+	
+	bitmap.push_back(newtexture)
+	
+	return bitmap
+			
+
+func create_materials_from_textures(textures, shader = null):
+	var mats = []
+	for texture in textures:
+		var mat = SpatialMaterial.new()
+		mat.albedo_texture = texture
+		#mat.set_shader(shader)
+		mats.push_back(mat)
+	return mats
+	
+func generate_rotating_palette_material(gametype, pal):
+	
+	var mats = []
+	
+	if pal == null:
+		printerr("Error generating rotating palette, palette is null")
+		return null
+	
+	for m in range(0, 2):
+		# generate material / shader for rotating palettes for UW1
+		if gametype == UW.GAME_TYPE.UW1:
+			var colors = []
+			if mats.empty():
+				mats.push_back(load("res://materials/spatialshader_palette_rotation_uw1.tres"))
+			elif mats.size() == 1:
+				mats.push_back(load("res://materials/shader_palette_rotation_uw1.tres"))
+			
+			# set speed
+			mats.back().set_shader_param("speed_ms", 250)
+			
+			# water colors
+			for i in range(48, 64):
+				colors.push_back(pal[i])
+				var index = i-48
+				var paramstr = str("color",index)
+				mats.back().set_shader_param(paramstr, colors[index])
+
+			# fire colors group 1 , 5 pixels
+			colors = []
+			for i in range(16,21):
+				colors.push_back(pal[i])
+				var index = i - 16
+				var paramstr = str("color",index+16)
+				mats.back().set_shader_param(paramstr, colors[index])
+
+			# fire colors group 2 , 3 pixels
+			colors = []
+			for i in range(21,24):
+				colors.push_back(pal[i])
+				var index = i - 21
+				var paramstr = str("color",index+21)
+				mats.back().set_shader_param(paramstr, colors[index])
+		# not a valid game type
+		else:
+			printerr("Error generating rotating palette, game type unknown = ", gametype)
+	
+	if mats.size() == 2:
+		return mats
+	
+	return null
+
 func _get_image_header(var tfile):
 	
 	var filesize = tfile.get_len()
@@ -497,9 +765,10 @@ func _rle_get_count():
 	
 func _rle_get_word(bits):
 	var word = 0
-	for n in range(0, bits):
+	for _n in range(0, bits):
 		if _bitptr >= _bits.size(): break
 		word = word << 1 | _bits[_bitptr]
 		_bitptr += 1
 	return word
+
 

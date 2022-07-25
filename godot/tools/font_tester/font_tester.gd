@@ -29,7 +29,10 @@ func _on_game_type_selected(item):
 	
 	var game_string
 	
-	if item == null or item == -1: return
+	if item == null or item == -1:
+		current_game = null
+		_update_font_list()
+		return
 	game_string = _game_type_list.get_item_text(item)
 	current_game = UW.data[game_string]
 	
@@ -49,14 +52,18 @@ func _update_font_list():
 	# clear font list
 	_font_list.clear()
 	
-	for i in range(current_game["fonts"].size()):
-		_font_list.add_item(str(i))
+	if current_game != null and current_game.has("fonts"):
+		for i in range(current_game["fonts"].size()):
+			_font_list.add_item(str(i))
+	else:
+		_update_font()
 
 func _update_font():
 	
 	# if font is not valid, hide font info and font display
 	if current_font == null:
 		_info.hide()
+		_update_font_string()
 		# need to also hide font display
 		return
 	
@@ -89,9 +96,7 @@ func _update_font_string():
 	for ch in ascii_string:
 		if ch >= current_font["chars"].size(): continue
 		var newimg = TextureRect.new()
-		var newimgtxt = ImageTexture.new()
-		newimgtxt.create_from_image(current_font["chars"][ch], 0)
-		newimg.texture = newimgtxt 
+		newimg.texture = current_font["chars"][ch]
 		_font_line.add_child(newimg)
 
 func _on_input_text_changed(change):

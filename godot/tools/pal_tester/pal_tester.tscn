@@ -1,0 +1,189 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tools/pal_tester/pal_tester.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://materials/spatialshader_palette_rotation_uw1.tres" type="Material" id=3]
+
+[node name="pal_tester" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background_color" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 26.0
+margin_bottom = -40.0
+rect_min_size = Vector2( 200, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 193.0
+margin_bottom = 713.0
+
+[node name="game_type_list" type="OptionButton" parent="PanelContainer/VBoxContainer"]
+margin_right = 186.0
+margin_bottom = 20.0
+
+[node name="pal_type" type="ItemList" parent="PanelContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 186.0
+margin_bottom = 33.0
+size_flags_vertical = 2
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pal_index" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 668.0
+margin_right = 186.0
+margin_bottom = 682.0
+text = "INDEX:"
+
+[node name="export_button" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 686.0
+margin_right = 186.0
+margin_bottom = 706.0
+text = "EXPORT"
+
+[node name="pal_info" type="PanelContainer" parent="."]
+margin_left = 902.0
+margin_top = 75.0
+margin_right = 916.0
+margin_bottom = 89.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pal_info"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 110.0
+margin_bottom = 345.0
+
+[node name="color" type="TextureRect" parent="pal_info/VBoxContainer"]
+material = ExtResource( 3 )
+use_parent_material = true
+margin_left = 19.0
+margin_right = 83.0
+margin_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+
+[node name="color_index" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 68.0
+margin_right = 103.0
+margin_bottom = 82.0
+text = "COLOR INDEX: "
+
+[node name="red" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 86.0
+margin_right = 103.0
+margin_bottom = 100.0
+text = "R:"
+
+[node name="green" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 104.0
+margin_right = 103.0
+margin_bottom = 118.0
+text = "G:"
+
+[node name="blue" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 122.0
+margin_right = 103.0
+margin_bottom = 136.0
+text = "B:"
+
+[node name="alpha" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 140.0
+margin_right = 103.0
+margin_bottom = 154.0
+text = "A:"
+
+[node name="hex" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 158.0
+margin_right = 103.0
+margin_bottom = 172.0
+text = "HEX:"
+
+[node name="HSeparator" type="HSeparator" parent="pal_info/VBoxContainer"]
+margin_top = 176.0
+margin_right = 103.0
+margin_bottom = 180.0
+
+[node name="label" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 184.0
+margin_right = 103.0
+margin_bottom = 198.0
+text = "TEXTURE COLOR"
+
+[node name="color2" type="TextureRect" parent="pal_info/VBoxContainer"]
+material = ExtResource( 3 )
+use_parent_material = true
+margin_left = 19.0
+margin_top = 202.0
+margin_right = 83.0
+margin_bottom = 266.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+
+[node name="red2" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 270.0
+margin_right = 103.0
+margin_bottom = 284.0
+text = "R:"
+
+[node name="green2" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 288.0
+margin_right = 103.0
+margin_bottom = 302.0
+text = "G:"
+
+[node name="blue2" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 306.0
+margin_right = 103.0
+margin_bottom = 320.0
+text = "B:"
+
+[node name="alpha2" type="Label" parent="pal_info/VBoxContainer"]
+margin_top = 324.0
+margin_right = 103.0
+margin_bottom = 338.0
+text = "A:"
+
+[node name="msg" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -56.0
+margin_top = -58.0
+margin_right = 56.0
+rect_scale = Vector2( 2, 2 )
+text = "A BRIEF MESSAGE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pal" type="Node2D" parent="."]
+position = Vector2( 349, 107 )

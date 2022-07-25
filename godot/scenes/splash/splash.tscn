@@ -16,19 +16,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="image_tester_button" type="Button" parent="CanvasLayer/buttons"]
+[node name="pal_tester_button" type="Button" parent="CanvasLayer/buttons"]
 margin_right = 102.0
 margin_bottom = 20.0
+text = "PAL TESTER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="image_tester_button" type="Button" parent="CanvasLayer/buttons"]
+margin_top = 24.0
+margin_right = 102.0
+margin_bottom = 44.0
 text = "IMAGE TESTER"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="font_tester_button" type="Button" parent="CanvasLayer/buttons"]
-margin_top = 24.0
+margin_top = 48.0
 margin_right = 102.0
-margin_bottom = 44.0
+margin_bottom = 68.0
 text = "FONT TESTER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="map_tester_button" type="Button" parent="CanvasLayer/buttons"]
+margin_top = 72.0
+margin_right = 102.0
+margin_bottom = 92.0
+text = "MAP TESTER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playgame" type="Button" parent="CanvasLayer"]
+margin_left = 439.0
+margin_top = 245.0
+margin_right = 524.0
+margin_bottom = 265.0
+text = "PLAY GAME"
 __meta__ = {
 "_edit_use_anchors_": false
 }

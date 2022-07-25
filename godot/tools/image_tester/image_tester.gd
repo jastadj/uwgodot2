@@ -9,7 +9,8 @@ var _image_list
 var _image_index_text
 var _image_texture
 
-
+var zoom = 4.0
+var zoom_step = 0.1
 
 func _ready():
 	
@@ -31,12 +32,22 @@ func _ready():
 	
 	if _game_type_list.get_item_count(): _on_game_type_selected(0)
 	
+	# apply shader to image texture
+	$image_texture.material = UW.data["uw1"]["rotating_palette_shader"]
+	
 	update_image()
+
+func _process(delta):
+	
+	_image_texture.rect_scale = Vector2(zoom, zoom)
 
 func _input(event):
 	
 	if event.is_action_pressed("ui_left"): shift_index(-1)
 	elif event.is_action_pressed("ui_right"): shift_index(1)
+	elif event is InputEventMouseButton:
+		if event.button_index == BUTTON_WHEEL_UP: zoom += zoom_step
+		elif event.button_index == BUTTON_WHEEL_DOWN: zoom -= zoom_step
 
 func _on_item_selected(item):
 	
