@@ -36,7 +36,7 @@ uniform vec4 color23;
 
 bool colors_match(vec4 c1, vec4 c2)
 {
-	float tolerance = 0.0001;
+	float tolerance = 0.001;
 	
 	// red
 	if ( !(c1.r >= (c2.r - tolerance) && c1.r <= (c2.r + tolerance)) ) return false;
