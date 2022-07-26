@@ -1,14 +1,15 @@
 extends Node
 
+# enums
 enum GAME_TYPE{NONE, UW1, UW2}
-
-var game_type = GAME_TYPE.NONE
+enum DIRECTION{NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST}
 
 # set the game type directories
 var uw1_dir = "C:/Users/jasta/Documents/uw_data"
 var uw2_dir = null
 
 var data = {"uw1":{}, "uw2":{}}
+var current_data = null
 
 func _ready():
 	
@@ -17,12 +18,11 @@ func _ready():
 	
 	# get ULTIMA UNDERWORLD 1 data
 	if uw1_dir != null:
-		game_type = GAME_TYPE.UW1
 		data["uw1"] = data_loader.load_uw1_data()
-		
+		current_data = data["uw1"]
 		
 	# if no game type was found
-	if game_type == GAME_TYPE.NONE:
+	if current_data == null:
 		printerr("NO GAME TYPE DETECTED!")
 		get_tree().quit()
 	

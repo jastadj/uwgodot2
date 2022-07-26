@@ -560,9 +560,20 @@ func load_map(filepath):
 				var info1 = tfile.get_16()
 				var info2 = tfile.get_16()
 				
-				var cell = {}
+				var cell = {"position":Vector2(x,y)}
 				# info byte 1
 				cell["type"] = info1 & 0xf
+				# cell types
+				#00      Solid (wall tile)
+				#01      Open (square tile of empty space)
+				#02      Diagonal, open SE
+				#03      Diagonal, open SW
+				#04      Diagonal, open NE
+				#05      Diagonal, open NW
+				#06      Sloping up to the north
+				#07      Sloping up to the south
+				#08      Sloping up to the east
+				#09      Sloping up to the west
 				cell["floor_height"] = (info1 & 0xf0) >> 4 # floor height (0-15 max)
 				# instead of keeping the texture mapping values around
 				# just cut out the middle man and save the direct image index
