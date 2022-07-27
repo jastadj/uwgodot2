@@ -554,6 +554,9 @@ func load_map(filepath):
 		for y in range(0,64):
 			level["cells"].push_back([])
 		
+		# set ceiling (last floor texture mapping)
+		var ceil_texture = floor_maps[o].back()
+		
 		# read tilemap bytes (4 bytes) * 64 * 64		
 		for y in range(0, 64):
 			for x in range(0, 64):
@@ -582,6 +585,7 @@ func load_map(filepath):
 				cell["door"] = door_maps[o][(info1 >> 15) & 0x1] # used for what?
 				# info byte 2
 				cell["wall_texture"] = wall_maps[o][info2 & 0x3f]
+				cell["ceil_texture"] = ceil_texture
 				cell["object_index"] = (info2 >> 6) & 0x3ff
 				
 				# add cell to level map

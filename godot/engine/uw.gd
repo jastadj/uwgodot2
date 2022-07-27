@@ -1,5 +1,7 @@
 extends Node
 
+const TILESIZE = 2 # size of tile height/width in 3d units
+
 # enums
 enum GAME_TYPE{NONE, UW1, UW2}
 enum DIRECTION{NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST}
@@ -10,6 +12,7 @@ var uw2_dir = null
 
 var data = {"uw1":{}, "uw2":{}}
 var current_data = null
+var player = {"floor_level":0}
 
 func _ready():
 	

@@ -7,7 +7,7 @@ onready var world = $uilayer/ViewportContainer/Viewport/world
 func _ready():
 	
 	$uilayer.scale = Vector2(viewscale, viewscale)
-	
+	print(world)
 	
 func _input(event):
 	

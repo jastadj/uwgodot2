@@ -1,9 +1,9 @@
 extends Spatial
 
-const TILESIZE = 2 # size of tile height/width in 3d units
+
 
 onready var _cells = $cells
-
+var level = null
 var _cells_y = 0
 var _cells_x = 0
 
@@ -42,7 +42,7 @@ var buildmatrix = {
 
 func _ready():
 	
-	build_world_level(UW.data["uw1"], 0)
+	build_world_level(UW.current_data, UW.player["floor_level"])
 
 func get_adjacent_cells(cell, level):
 	
@@ -78,7 +78,7 @@ func build_world_level(uwdata, levelnum):
 	
 	var floormeshes
 	var map = uwdata["map"]
-	var level = map["levels"][levelnum]
+	level = map["levels"][levelnum]
 	_cells_y = level["cells"].size()
 	_cells_x = level["cells"][0].size()
 	
@@ -112,15 +112,20 @@ func build_cell(level, pos):
 	cell_node.name = str("cell_",x,"_",y)
 	
 	# move cell into position
-	cell_node.translation.x = x*TILESIZE
-	cell_node.translation.z = y*TILESIZE
+	cell_node.translation.x = x*UW.TILESIZE
+	cell_node.translation.z = y*UW.TILESIZE
 
 	# build floor
 	cell_node.add_child(build_cell_floor(cell))
 	
+	# build ceiling
+	cell_node.add_child(build_cell_ceiling(cell))
+	
 	# build walls
 	var walls = build_cell_walls(cell, get_adjacent_cells(cell, level))
 	if walls: cell_node.add_child(walls)
+	
+
 
 	return cell_node
 	
@@ -135,10 +140,27 @@ func build_cell_floor(cell):
 	material.set_shader_param("img", texture)
 	meshinstance.set_surface_material(0, material)
 	# adjust floor height
-	floormesh.translation.y = cell["floor_height"] * TILESIZE * 0.25
+	floormesh.translation.y = cell["floor_height"] * UW.TILESIZE * 0.25
 	floor_node.name = "floor"
 	floor_node.add_child(floormesh)
 	return floor_node
+
+func build_cell_ceiling(cell):
+	var ceil_node = Spatial.new()
+	var texture = UW.current_data["images"]["floors"][ cell["ceil_texture"] ]
+	# ceil mesh / material
+	var ceilmesh = floor_meshes[1].instance()
+	var meshinstance = ceilmesh.get_node("MeshInstance")
+	var material = UW.current_data["rotating_palette_spatial"].duplicate()
+	material.set_shader_param("img", texture)
+	meshinstance.set_surface_material(0, material)
+	# flip ceiling to face down
+	ceilmesh.rotation_degrees.x = 180
+	# adjust ceil height
+	ceilmesh.translation.y = 16 * UW.TILESIZE * 0.25
+	ceil_node.name = "ceiling"
+	ceil_node.add_child(ceilmesh)
+	return ceil_node	
 
 func build_cell_walls(cell, adjacent):
 	
@@ -164,7 +186,7 @@ func build_cell_walls(cell, adjacent):
 		newmaterial.set_shader_param("scale", Vector2(1.0, 0.25*wall_height))
 		meshinstance.set_surface_material(0, newmaterial)
 		# position/rotate mesh
-		newwallmesh.translation.y = floor_height * TILESIZE * 0.25
+		newwallmesh.translation.y = floor_height * UW.TILESIZE * 0.25
 		if type == 3: newwallmesh.rotation_degrees.y = -90
 		elif type == 4: newwallmesh.rotation_degrees.y = 90
 		elif type == 5: newwallmesh.rotation_degrees.y = 180
@@ -206,7 +228,7 @@ func build_cell_walls(cell, adjacent):
 			# rotate,scale,position mesh
 			newwall.scale.y = scaling
 			newwall.rotation_degrees.y = (d/2)*(-90)
-			newwall.translation.y = floor_height*TILESIZE*0.25
+			newwall.translation.y = floor_height*UW.TILESIZE*0.25
 			
 			match d:
 				UW.DIRECTION.NORTH: newwall.translation.z = -1
@@ -248,7 +270,7 @@ func build_cell_walls(cell, adjacent):
 				
 				# rotate, position mesh
 				newwallslope.rotation_degrees.y = (d/2)*(-90)
-				newwallslope.translation.y = (floor_height+wall_height)*TILESIZE*0.25
+				newwallslope.translation.y = (floor_height+wall_height)*UW.TILESIZE*0.25
 				
 				match d:
 					UW.DIRECTION.NORTH: newwallslope.translation.z = -1
@@ -274,7 +296,7 @@ func new_wall_diagonal(cell):
 	material.set_shader_param("scale", Vector2(1.0, 0.25*wall_height))
 	meshinstance.set_surface_material(0, material)
 	# position/rotate mesh
-	meshinstance.translation.y = floor_height * TILESIZE * 0.25
+	meshinstance.translation.y = floor_height * UW.TILESIZE * 0.25
 	if type == 3: meshinstance.rotation_degrees.y = -90
 	elif type == 4: meshinstance.rotation_degrees.y = 90
 	elif type == 5: meshinstance.rotation_degrees.y = 180
