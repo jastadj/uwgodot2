@@ -22,6 +22,23 @@ var floor_meshes = [
 				]
 var wallmesh = preload("res://scenes/world/cell_shapes/wall.tscn")
 var walldiagmesh = preload("res://scenes/world/cell_shapes/wall_diag.tscn")
+var wallslopeleftmesh = preload("res://scenes/world/cell_shapes/wall_slope_left.tscn")
+var wallsloperightmesh = preload("res://scenes/world/cell_shapes/wall_slope_right.tscn")
+
+# the build matrix rows are directions (n,e,s,w), the cols are adjacent cell type
+# 0 = full wall
+# 1 = wall if floor delta
+# 3 = floor delta + 1 (leading edge of slope tile)
+# 5 = floor delta + slope wall (triangle wall)
+enum BUILD_FLAGS{FULL_WALL=0, FLOOR_DELTA=1, FLOOR_DELTA_LIP=3, FLOOR_DELTA_SOPE=5}
+var buildmatrix = {
+	UW.DIRECTION.NORTH:[0,1,1,1,0,0,1,3,5,5],
+	UW.DIRECTION.EAST:[ 0,1,0,1,0,1,5,5,1,3],
+	UW.DIRECTION.SOUTH:[0,1,0,0,1,1,3,1,5,5],
+	UW.DIRECTION.WEST:[ 0,1,1,0,1,0,5,5,3,1]
+	}
+
+
 
 func _ready():
 	
@@ -102,7 +119,8 @@ func build_cell(level, pos):
 	cell_node.add_child(build_cell_floor(cell))
 	
 	# build walls
-	cell_node.add_child(build_cell_walls(cell, get_adjacent_cells(cell, level)))
+	var walls = build_cell_walls(cell, get_adjacent_cells(cell, level))
+	if walls: cell_node.add_child(walls)
 
 	return cell_node
 	
@@ -117,24 +135,131 @@ func build_cell_floor(cell):
 	material.set_shader_param("img", texture)
 	meshinstance.set_surface_material(0, material)
 	# adjust floor height
-	meshinstance.translation.y = cell["floor_height"] * TILESIZE * 0.25
+	floormesh.translation.y = cell["floor_height"] * TILESIZE * 0.25
 	floor_node.name = "floor"
 	floor_node.add_child(floormesh)
 	return floor_node
 
 func build_cell_walls(cell, adjacent):
 	
-	var walls_node = Spatial.new()
-	walls_node.name = "walls"
-	
 	var type = cell["type"]
+	var floor_height = cell["floor_height"]
+	var walls_node = Spatial.new()
+	var material = UW.current_data["rotating_palette_spatial"].duplicate()
 	
-	# if cell type is a diagonal wall
+	# init walls node
+	walls_node.name = "walls"
+	# set wall material texture
+	material.set_shader_param("img", UW.current_data["images"]["walls"][ cell["wall_texture"] ])
+	
+	
+	# if this cell is diagonal, always build this wall
 	if type >= 2 and type <= 5:
-		walls_node.add_child(new_wall_diagonal(cell))
-	else:
-		for d in adjacent.keys():
-			var wall = new_wall(cell, d, adjacent[d])
+		var wall_height = 16 - floor_height
+		# create mes h/material
+		var newwallmesh = walldiagmesh.instance()
+		var meshinstance = newwallmesh.get_node("MeshInstance")
+		var newmaterial = material.duplicate()
+		meshinstance.scale.y = wall_height
+		newmaterial.set_shader_param("scale", Vector2(1.0, 0.25*wall_height))
+		meshinstance.set_surface_material(0, newmaterial)
+		# position/rotate mesh
+		newwallmesh.translation.y = floor_height * TILESIZE * 0.25
+		if type == 3: newwallmesh.rotation_degrees.y = -90
+		elif type == 4: newwallmesh.rotation_degrees.y = 90
+		elif type == 5: newwallmesh.rotation_degrees.y = 180
+		walls_node.add_child(newwallmesh)
+	
+	# check every direction and build the wall parts
+	for d in adjacent.keys():
+		var wall_height
+		var buildflag = 0
+		
+		# don't draw certain walls for diagonal cell types
+		if type == 2 and (d == UW.DIRECTION.NORTH or d == UW.DIRECTION.WEST): continue
+		elif type == 3 and (d == UW.DIRECTION.NORTH or d == UW.DIRECTION.EAST): continue
+		elif type == 4 and (d == UW.DIRECTION.SOUTH or d == UW.DIRECTION.WEST): continue
+		elif type == 5 and (d == UW.DIRECTION.SOUTH or d == UW.DIRECTION.EAST): continue
+		
+		
+		# if adjacent tile isn't null, get the adjacent tile type
+		# and check what the build rule is
+		if adjacent[d] != null:
+			buildflag = buildmatrix[d][adjacent[d]["type"]]
+		
+		# if making a full wall, get the wall height from the ceil to floor
+		if buildflag == BUILD_FLAGS.FULL_WALL: wall_height = 16 - floor_height
+		# otherwise, get the delta between the floor heights
+		else:
+			wall_height = adjacent[d]["floor_height"] - floor_height
+			if buildflag == BUILD_FLAGS.FLOOR_DELTA_LIP: wall_height += 1
+		
+		# if the wall height is above 0, make a wall
+		if wall_height > 0:
+			var newwall = wallmesh.instance()
+			# set mesh material
+			var mesh = newwall.get_node("MeshInstance")
+			var mat = material.duplicate()
+			var scaling = wall_height
+			mat.set_shader_param("scale", Vector2(1.0, scaling*0.25))
+			mesh.set_surface_material(0, mat)
+			# rotate,scale,position mesh
+			newwall.scale.y = scaling
+			newwall.rotation_degrees.y = (d/2)*(-90)
+			newwall.translation.y = floor_height*TILESIZE*0.25
+			
+			match d:
+				UW.DIRECTION.NORTH: newwall.translation.z = -1
+				UW.DIRECTION.EAST: newwall.translation.x = 1
+				UW.DIRECTION.SOUTH: newwall.translation.z = 1
+				UW.DIRECTION.WEST: newwall.translation.x = -1
+			walls_node.add_child(newwall)
+			
+		# if the adjacent cell has a perpendicular sloping floor
+		# and the height is >= 0, make a slope wall to to cover up
+		# the side of the ramp
+		if wall_height >= 0 and adjacent[d]:
+			if buildmatrix[d][adjacent[d]["type"]] == 5: 
+				var newwallslope = null
+				var mesh
+				var mat = material.duplicate()
+				
+				#06      Sloping up to the north
+				#07      Sloping up to the south
+				#08      Sloping up to the east
+				#09      Sloping up to the west
+				
+				# determine wall slope direction (left or right, going upwards)
+				if d == UW.DIRECTION.NORTH and adjacent[d]:
+					if adjacent[d]["type"] == 9: newwallslope = wallslopeleftmesh.instance()
+					elif adjacent[d]["type"] == 8: newwallslope = wallsloperightmesh.instance()
+				elif d == UW.DIRECTION.EAST and adjacent[d]:
+					if adjacent[d]["type"] == 6: newwallslope = wallslopeleftmesh.instance()
+					elif adjacent[d]["type"] == 7: newwallslope = wallsloperightmesh.instance()
+				elif d == UW.DIRECTION.SOUTH and adjacent[d]:
+					if adjacent[d]["type"] == 8: newwallslope = wallslopeleftmesh.instance()
+					elif adjacent[d]["type"] == 9: newwallslope = wallsloperightmesh.instance()
+				elif d == UW.DIRECTION.WEST and adjacent[d]:
+					if adjacent[d]["type"] == 7: newwallslope = wallslopeleftmesh.instance()
+					elif adjacent[d]["type"] == 6: newwallslope = wallsloperightmesh.instance()
+					
+				mesh = newwallslope.get_node("MeshInstance")
+				mesh.set_surface_material(0, mat)
+				
+				# rotate, position mesh
+				newwallslope.rotation_degrees.y = (d/2)*(-90)
+				newwallslope.translation.y = (floor_height+wall_height)*TILESIZE*0.25
+				
+				match d:
+					UW.DIRECTION.NORTH: newwallslope.translation.z = -1
+					UW.DIRECTION.EAST: newwallslope.translation.x = 1
+					UW.DIRECTION.SOUTH: newwallslope.translation.z = 1
+					UW.DIRECTION.WEST: newwallslope.translation.x = -1
+				
+				walls_node.add_child(newwallslope)
+			
+	if walls_node.get_child_count() == 0: return null
+	return walls_node
 	
 func new_wall_diagonal(cell):
 	var floor_height = cell["floor_height"]
@@ -155,90 +280,5 @@ func new_wall_diagonal(cell):
 	elif type == 5: meshinstance.rotation_degrees.y = 180
 	
 	return meshinstance
-
-
-func new_wall(cell, direction, adjacent):
-	
-	var wallheight = 0
-
-	# a wall isn't built if adjacent wall is:
-	# - open and same or < floor height
-	# - diagonal and same < floor height and facing open in direction
-	# - slope edge meets floor height
-	
-	# build matrix determines what/how walls are built
-	# in a direction against an adjacent cell type
-	# row = direction/2 (ortho direction only)
-	# col = type (0-9)
-	# 0 = full wall
-	# 1 = wall floor delta
-	# 3 = wall floor delta + 1 wall height
-	# 5 = wall floor delta + slope wall
-	var buildmatrix = [
-						[0,1,1,1,0,0,1,3,5,5],
-						[0,1,0,1,0,1,5,5,1,3],
-						[0,1,0,0,1,1,3,1,5,5],
-						[0,1,1,0,1,0,5,5,3,1]
-						]
-	# determine build flags
-	var build_flags = 0
-	if adjacent != null: buildmatrix[direction/2][adjacent["type"]]
-	
-	
-	# calculate wall height
-	if build_flags == 0: wallheight = 16 - cell["floor_height"]
-	
-		
-	
-	# north wall
-	if (north == null or north["floor_height"] > height ) and !(type == 2 or type ==3):
-		var wallheight
-		if north == null: wallheight = 16-height
-		else: wallheight = north["floor_height"]-height
-		var newwall = new_wall(UW.data["uw1"]["images"]["walls"][cell["wall_texture"]], wallheight)
-		newwall.translation.z = -1
-		newwall.translation.y = newfloor.translation.y
-		cell_node.add_child(newwall)
-	# south wall
-	if (south == null or south["floor_height"] > height) and !(type == 4 or type == 5):
-		var wallheight
-		if south == null: wallheight = 16-height
-		else: wallheight = south["floor_height"]-height
-		var newwall = new_wall(UW.data["uw1"]["images"]["walls"][cell["wall_texture"]], wallheight)
-		newwall.translation.z = 1
-		newwall.rotation_degrees.y = 180
-		newwall.translation.y = newfloor.translation.y
-		cell_node.add_child(newwall)
-	# west wall
-	if (west == null or west["floor_height"] > height) and !(type == 2 or type == 4):
-		var wallheight
-		if west == null: wallheight = 16-height
-		else: wallheight = west["floor_height"]-height
-		var newwall = new_wall(UW.data["uw1"]["images"]["walls"][cell["wall_texture"]], wallheight)
-		newwall.translation.x = -1
-		newwall.rotation_degrees.y = 90
-		newwall.translation.y = newfloor.translation.y
-		cell_node.add_child(newwall)
-	# east wall
-	if (east == null or east["floor_height"] > height) and !(type == 3 or type == 5):
-		var wallheight
-		if east == null: wallheight = 16-height
-		else: wallheight = east["floor_height"]-height
-		var newwall = new_wall(UW.data["uw1"]["images"]["walls"][cell["wall_texture"]], wallheight)
-		newwall.translation.x = 1
-		newwall.rotation_degrees.y = -90
-		newwall.translation.y = newfloor.translation.y
-		cell_node.add_child(newwall)
-	
-	
-	var newwallmesh = wallmesh.instance()
-	var meshinstance = newwallmesh.get_node("MeshInstance")
-	var material = UW.data["uw1"]["rotating_palette_spatial"].duplicate()
-	meshinstance.scale.y = height
-	material.set_shader_param("img", texture)
-	material.set_shader_param("scale", Vector2(1.0, 0.25*height))
-	meshinstance.set_surface_material(0, material)
-	
-	return newwallmesh
 	
 

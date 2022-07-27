@@ -4,7 +4,7 @@ func _ready():
 	
 	if true:
 		var mat = UW.data["uw1"]["rotating_palette_spatial"]
-		var wall_height = 8
+		var wall_height = 4
 		$plane.set_surface_material(0, mat)	
 		$plane.scale.y = wall_height
 		mat.set_shader_param("img", UW.data["uw1"]["images"]["walls"][34])

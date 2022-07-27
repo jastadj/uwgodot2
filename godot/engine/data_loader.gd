@@ -560,7 +560,7 @@ func load_map(filepath):
 				var info1 = tfile.get_16()
 				var info2 = tfile.get_16()
 				
-				var cell = {"position":Vector2(x,y)}
+				var cell = {}
 				# info byte 1
 				cell["type"] = info1 & 0xf
 				# cell types
@@ -585,7 +585,9 @@ func load_map(filepath):
 				cell["object_index"] = (info2 >> 6) & 0x3ff
 				
 				# add cell to level map
-				level["cells"][64-1-y].push_back(cell)
+				var converted_y = 64-1-y
+				cell["position"] = Vector2(x, converted_y)
+				level["cells"][converted_y].push_back(cell)
 		
 		# add level to the list
 		map["levels"].push_back(level)
