@@ -12,7 +12,7 @@ var uw2_dir = null
 
 var data = {"uw1":{}, "uw2":{}}
 var current_data = null
-var player = {"floor_level":0}
+var player = {"floor_level":0, "height":1.3}
 
 func _ready():
 	

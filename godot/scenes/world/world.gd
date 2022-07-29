@@ -74,6 +74,11 @@ func get_adjacent_cells(cell, level):
 			UW.DIRECTION.EAST:east,
 			UW.DIRECTION.WEST:west}
 
+func get_cell(x,y):
+	if x < 0 or x >= _cells_x or y < 0 or y >= _cells_y: return null
+	var tcell = level["cells"][y][x]
+	return level["cells"][y][x]
+
 func build_world_level(uwdata, levelnum):
 	
 	var floormeshes
@@ -96,6 +101,9 @@ func build_world_level(uwdata, levelnum):
 			if cell_node == null: continue
 			
 			# done, add node to cells
+			cell_node.translation = Vector3(cell_node.translation.x + (UW.TILESIZE/2),
+										0,
+										cell_node.translation.z + (UW.TILESIZE/2))
 			_cells.add_child(cell_node)
 
 func build_cell(level, pos):
