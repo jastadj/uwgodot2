@@ -4,7 +4,7 @@ onready var world = get_parent()
 onready var _camera_translation = $Camera.translation
 
 var move_speed = 5
-
+var collision_size = 0.2# the size of the player bounding box / 2
 var _dbg_toggle = false
 
 func _ready():
@@ -33,16 +33,14 @@ func _handle_input(delta):
 	var move_input = Vector2()
 	var move_vector = Vector2()
 	var move_angle = get_angle(false)
-	var radius = 0.5
+	
 	
 	# player on tile / player destination tile
 	var tile_x = int(translation.x/UW.TILESIZE)
 	var tile_y = int(translation.z/UW.TILESIZE)
-	var current_cell = world.get_cell(tile_x, tile_y)
+	var current_cell = world.get_cell(Vector2(tile_x, tile_y))
 	var current_cell_type = null
-	var destination_cell = null
-	var destination_tile_x = tile_x
-	var destination_tile_y = tile_y
+	var colliding_with_level = false
 	
 	# movement input
 	if Input.is_action_pressed("ui_up"): move_input.y += 1
@@ -76,8 +74,10 @@ func _handle_input(delta):
 	move_vector = move_vector * (move_input.length() * move_speed * delta)
 	new_pos = new_pos + Vector3(move_vector.x, 0, move_vector.y)
 	
-	# set new position
-	translation = new_pos
+	# create player bounding box
+	var player_bb = Rect2(new_pos.x - collision_size, new_pos.z - collision_size, collision_size*2, collision_size*2)
+	
+	translation = world.collision.resolve_world_collisions(prev_pos, new_pos, move_vector, player_bb)
 	
 func _input(event):
 	

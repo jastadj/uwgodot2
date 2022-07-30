@@ -4,6 +4,7 @@ extends Spatial
 
 onready var _cells = $cells
 var level = null
+var collision = load("res://scenes/world/collision.gd").new()
 var _cells_y = 0
 var _cells_x = 0
 
@@ -43,6 +44,7 @@ var buildmatrix = {
 func _ready():
 	
 	build_world_level(UW.current_data, UW.player["floor_level"])
+	add_child(collision)
 
 func get_adjacent_cells(cell, level):
 	
@@ -74,10 +76,15 @@ func get_adjacent_cells(cell, level):
 			UW.DIRECTION.EAST:east,
 			UW.DIRECTION.WEST:west}
 
-func get_cell(x,y):
-	if x < 0 or x >= _cells_x or y < 0 or y >= _cells_y: return null
-	var tcell = level["cells"][y][x]
-	return level["cells"][y][x]
+func get_cell(pos):
+	if pos.x < 0 or pos.x >= _cells_x or pos.y < 0 or pos.y >= _cells_y: return null
+	var tcell = level["cells"][pos.y][pos.x]
+	return level["cells"][pos.y][pos.x]
+
+func get_cell_bounding_box(pos:Vector2):
+	var tcell = get_cell(pos)
+	if tcell == null: return null
+	return Rect2(pos.x*UW.TILESIZE, pos.y*UW.TILESIZE, UW.TILESIZE, UW.TILESIZE)
 
 func build_world_level(uwdata, levelnum):
 	
