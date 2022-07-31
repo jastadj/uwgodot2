@@ -12,6 +12,7 @@ onready var _cell_type = $PanelContainer/VBoxContainer/info/cell_type
 onready var _cell_height = $PanelContainer/VBoxContainer/info/cell_height
 onready var _cell_highlighter = $cell_highlighter
 onready var _cell_textures = $PanelContainer/VBoxContainer/info/textures
+onready var _cell_objects = $PanelContainer/VBoxContainer/info/objects
 
 var current_game = null
 var current_level = null
@@ -102,6 +103,16 @@ func _process(delta):
 			else:
 				_cell_textures.get_node("floor/TextureRect").texture = current_game["images"]["floors"][ current_cell["floor_texture"]]
 				_cell_textures.get_node("wall/TextureRect").texture = current_game["images"]["walls"][ current_cell["wall_texture"]]
+			
+			# object list
+			_cell_objects.clear()
+			var current_obj = null
+			if current_cell["object_index"] != 0: current_obj = current_level["objects"][current_cell["object_index"]]
+			while current_obj != null:
+				_cell_objects.add_item(str(current_obj["id"]))
+				if current_obj["next"] == 0: current_obj = null
+				else: current_obj = current_level["objects"][current_obj["next"]]
+				
 			
 			# cell wall texture
 		else:

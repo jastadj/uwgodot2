@@ -5,7 +5,7 @@ onready var _camera_translation = $Camera.translation
 
 var move_speed = 5
 var collision_size = 0.2# the size of the player bounding box / 2
-var _dbg_toggle = false
+var _dbg_toggle = true
 
 func _ready():
 	
@@ -76,7 +76,10 @@ func _handle_input(delta):
 	move_vector = move_vector * (move_input.length() * move_speed * delta)
 	new_pos = new_pos + Vector3(move_vector.x, 0, move_vector.y)
 	
-	move_and_slide(Vector3(move_vector.x, 0, move_vector.y)*70, Vector3(0,1,0))
+	if _dbg_toggle:
+		translation = new_pos
+	else:
+		move_and_slide(Vector3(move_vector.x, 0, move_vector.y)*70, Vector3(0,1,0))
 	#translation = world.collision.resolve_world_collisions(prev_pos, new_pos, move_vector, player_bb)
 	
 func _input(event):

@@ -168,6 +168,9 @@ func load_uw1_data():
 	# load strings
 	data["strings"] = load_data(TYPE.STRING, str(data_dir, "/STRINGS.PAK"))
 	
+	# generate objects
+	data["objects"] = create_objects(data)
+	
 	# load game map / levels
 	data["map"] = load_data(TYPE.MAP, str(data_dir, "/LEV.ARK"))
 	
@@ -602,6 +605,58 @@ func load_map(filepath):
 				cell["position"] = Vector2(x, converted_y)
 				level["cells"][converted_y].push_back(cell)
 		
+		# read object data
+		level["objects"] = []
+		for _i in range(0, 1024):
+			var new_object = {}
+			var obj_id_flags_byte = tfile.get_16()
+			var obj_pos = tfile.get_16()
+			var obj_quality_chain = tfile.get_16()
+			var obj_link_special = tfile.get_16()
+			
+			# if index is 0-255, then it's a mob and has extra data
+			if _i < 256:
+				var mob_hp = tfile.get_8()
+				var unk1 = tfile.get_8()
+				var unk2 = tfile.get_8()
+				var mob_goal_targ = tfile.get_16()
+				var mob_info = tfile.get_16()
+				var mob_height = tfile.get_16()
+				var unk3 = tfile.get_8()
+				var unk4 = tfile.get_8()
+				var unk5 = tfile.get_8()
+				var unk6 = tfile.get_8()
+				var unk7 = tfile.get_8()
+				var mob_home_info = tfile.get_16()
+				var mob_angle = tfile.get_8()
+				var mob_hunger = tfile.get_8()
+				var mob_whoami = tfile.get_8()
+			
+			
+			# object ID and flags
+			new_object["id"] = obj_id_flags_byte & 0x1ff # object id
+			new_object["flags"] = (obj_id_flags_byte >> 9) & 0x7 # ?
+			new_object["enchanted"] = (obj_id_flags_byte >> 12) & 0x1 # is enchanted?
+			new_object["door_dir"] = (obj_id_flags_byte >> 13) & 0x1 # door direction
+			new_object["invisible"] = (obj_id_flags_byte >> 14) & 0x1 # don't draw?
+			new_object["is_quantity"] = (obj_id_flags_byte >> 15) & 0x1 # use link field for quantiy/special info
+			
+			# object position
+			new_object["height"] = obj_pos & 0x7f # z pos 0-127
+			new_object["angle"] = (obj_pos >> 7) & 0x7 # per 45 degrees
+			new_object["tile_y"] = (obj_pos >> 10) & 0x7 # y position within tile
+			new_object["tile_x"] = (obj_pos >> 13) & 0x7 # x position within tile
+			
+			# object quality/chain
+			new_object["quality"] = obj_quality_chain & 0x3f
+			new_object["next"] = (obj_quality_chain >> 6) & 0x3ff
+			
+			# object link/special
+			new_object["owner_special"] = obj_link_special & 0x3f
+			new_object["special_link"] = (obj_link_special >> 6) & 0x3ff
+			
+			level["objects"].push_back(new_object)
+			
 		# add level to the list
 		map["levels"].push_back(level)
 		
@@ -797,6 +852,28 @@ func load_strings(filepath):
 	tfile.close()
 	return strings
 
+func create_objects(data):
+	
+	var objects = []
+	var objscene = preload("res://objects/object/object.tscn")
+	
+	# create objects from data (textures, strings, etc)
+	if !data.keys().has("images"):
+		printerr("Error creating objects, no images found in data.")
+		return null
+	if !data["images"].keys().has("objects"):
+		printerr("Error creating objects, no object images found in data.")
+		return null
+	
+	for obj in data["images"]["objects"]:
+		var newobj = objscene.instance()
+		newobj.get_node("Sprite3D").texture = obj
+		objects.push_back(newobj)
+	
+	print("Created ", objects.size(), " objects.")
+	
+	return objects
+	
 func _get_image_header(var tfile):
 	
 	var filesize = tfile.get_len()
@@ -818,13 +895,15 @@ func _get_image_header(var tfile):
 		var newoffset = tfile.get_32()
 		# some records have duplicate offset entries, ignore
 		# also ignore offsets that are at or beyond file size
+		"""
 		if newoffset < filesize:
 			if header["offsets"].empty():
 				header["offsets"].push_back(newoffset)
 			elif newoffset != header["offsets"].back():
 				header["offsets"].push_back(newoffset)
 		else: skipped_offsets += 1
-	
+		"""
+		header["offsets"].push_back(newoffset)
 	if skipped_offsets: print("Found and skipped ", skipped_offsets, " null offset records.")
 	
 	return header

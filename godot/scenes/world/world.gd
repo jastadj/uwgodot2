@@ -124,6 +124,9 @@ func build_cell(level, pos):
 	
 	# create node to store cell components
 	var cell_node = Spatial.new()
+	var objects_node = Spatial.new()
+	objects_node.name = "objects"
+	cell_node.add_child(objects_node)
 	cell_node.name = str("cell_",x,"_",y)
 	
 	# move cell into position
@@ -140,7 +143,28 @@ func build_cell(level, pos):
 	var walls = build_cell_walls(cell, get_adjacent_cells(cell, level))
 	if walls: cell_node.add_child(walls)
 	
-
+	# add objects
+	var current_object = null
+	if cell["object_index"] != 0:
+		current_object = level["objects"][cell["object_index"]]
+		while current_object != null:
+			var newobj = UW.current_data["objects"][current_object["id"]].duplicate()
+			# convert tile coordinates to world coordinates
+			newobj.translation = Vector3(
+				(-UW.TILESIZE/2) + (UW.TILESIZE/16) + (float(current_object["tile_x"]) * (UW.TILESIZE/8.0)), 
+				float(current_object["height"]) * (16.0/128.0) * UW.TILESIZE * 0.25,
+				(-UW.TILESIZE/2) + (UW.TILESIZE/16) + ((7.0-float(current_object["tile_y"])) * (UW.TILESIZE/8.0))
+				) # does the tile-y pos need to be inverted?
+				#( (7-current_object["tile_y"]) * (UW.TILESIZE/8)) + (UW.TILESIZE/16)) # does the tile-y pos need to be inverted?
+			# testing
+			#newobj.translation = Vector3(-UW.TILESIZE/2, 0, -UW.TILESIZE/2)
+			#newobj.translation.y = float(current_object["height"]) * (16.0/128.0) * UW.TILESIZE * 0.25
+			
+			objects_node.add_child(newobj)
+			# next object
+			if current_object["next"] == 0: current_object = null
+			else: current_object = level["objects"][current_object["next"]]
+	
 
 	return cell_node
 	
