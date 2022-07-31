@@ -17,7 +17,7 @@ __meta__ = {
 }
 
 [node name="pal_tester_button" type="Button" parent="CanvasLayer/buttons"]
-margin_right = 102.0
+margin_right = 113.0
 margin_bottom = 20.0
 text = "PAL TESTER"
 __meta__ = {
@@ -26,7 +26,7 @@ __meta__ = {
 
 [node name="image_tester_button" type="Button" parent="CanvasLayer/buttons"]
 margin_top = 24.0
-margin_right = 102.0
+margin_right = 113.0
 margin_bottom = 44.0
 text = "IMAGE TESTER"
 __meta__ = {
@@ -35,7 +35,7 @@ __meta__ = {
 
 [node name="font_tester_button" type="Button" parent="CanvasLayer/buttons"]
 margin_top = 48.0
-margin_right = 102.0
+margin_right = 113.0
 margin_bottom = 68.0
 text = "FONT TESTER"
 __meta__ = {
@@ -44,9 +44,18 @@ __meta__ = {
 
 [node name="map_tester_button" type="Button" parent="CanvasLayer/buttons"]
 margin_top = 72.0
-margin_right = 102.0
+margin_right = 113.0
 margin_bottom = 92.0
 text = "MAP TESTER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="strings_tester_button" type="Button" parent="CanvasLayer/buttons"]
+margin_top = 96.0
+margin_right = 113.0
+margin_bottom = 116.0
+text = "STRINGS TESTER"
 __meta__ = {
 "_edit_use_anchors_": false
 }

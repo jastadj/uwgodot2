@@ -68,16 +68,16 @@ func _handle_input(delta):
 				# otherwise, flat ground
 				_: new_pos.y = floor_height * 0.25 * UW.TILESIZE
 	
+	translation = new_pos
+	
 	
 	# move player in input direction (forward/back, strafe left/right)
 	move_vector = Vector2(-sin(move_angle), -cos(move_angle)) * move_input.y
 	move_vector = move_vector * (move_input.length() * move_speed * delta)
 	new_pos = new_pos + Vector3(move_vector.x, 0, move_vector.y)
 	
-	# create player bounding box
-	var player_bb = Rect2(new_pos.x - collision_size, new_pos.z - collision_size, collision_size*2, collision_size*2)
-	
-	translation = world.collision.resolve_world_collisions(prev_pos, new_pos, move_vector, player_bb)
+	move_and_slide(Vector3(move_vector.x, 0, move_vector.y)*70, Vector3(0,1,0))
+	#translation = world.collision.resolve_world_collisions(prev_pos, new_pos, move_vector, player_bb)
 	
 func _input(event):
 	

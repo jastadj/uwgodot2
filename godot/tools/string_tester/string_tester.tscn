@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tools/string_tester/string_tester.gd" type="Script" id=1]
+
+[node name="string_tester" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background_color" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="Panel" parent="."]
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 85.0
+margin_right = 240.0
+margin_bottom = -89.0
+rect_min_size = Vector2( 200, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="game_type_list" type="OptionButton" parent="PanelContainer"]
+margin_right = 200.0
+margin_bottom = 26.0
+
+[node name="string_blocks" type="ItemList" parent="PanelContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 622.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="strings" type="ItemList" parent="."]
+margin_left = 268.0
+margin_top = 100.0
+margin_right = 1150.0
+margin_bottom = 703.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

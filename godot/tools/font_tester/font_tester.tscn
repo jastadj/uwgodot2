@@ -33,7 +33,7 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 193.0
-margin_bottom = 513.0
+margin_bottom = 713.0
 
 [node name="game_type_list" type="OptionButton" parent="PanelContainer/VBoxContainer"]
 margin_right = 186.0
@@ -50,9 +50,9 @@ __meta__ = {
 }
 
 [node name="info" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
-margin_top = 420.0
+margin_top = 620.0
 margin_right = 186.0
-margin_bottom = 506.0
+margin_bottom = 706.0
 
 [node name="char_count" type="Label" parent="PanelContainer/VBoxContainer/info"]
 margin_right = 186.0

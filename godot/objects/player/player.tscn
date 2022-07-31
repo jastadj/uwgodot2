@@ -3,9 +3,8 @@
 [ext_resource path="res://scenes/world/mouselook.gd" type="Script" id=1]
 [ext_resource path="res://objects/player/player.gd" type="Script" id=2]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 0.275566
-height = 0.607668
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.37206, 0.341421, 0.189295 )
 
 [node name="player" type="KinematicBody"]
 script = ExtResource( 2 )
@@ -17,5 +16,5 @@ fly_mode = false
 move_speed = 0.25
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.756782, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.06172, 0 )
 shape = SubResource( 1 )

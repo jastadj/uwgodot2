@@ -197,7 +197,7 @@ func build_cell_walls(cell, adjacent):
 		var newwallmesh = walldiagmesh.instance()
 		var meshinstance = newwallmesh.get_node("MeshInstance")
 		var newmaterial = material.duplicate()
-		meshinstance.scale.y = wall_height
+		newwallmesh.scale.y = wall_height
 		newmaterial.set_shader_param("scale", Vector2(1.0, 0.25*wall_height))
 		meshinstance.set_surface_material(0, newmaterial)
 		# position/rotate mesh
@@ -306,16 +306,16 @@ func new_wall_diagonal(cell):
 	var newwallmesh = walldiagmesh.instance()
 	var meshinstance = newwallmesh.get_node("MeshInstance")
 	var material = UW.current_data["rotating_palette_spatial"].duplicate()
-	meshinstance.scale.y = wall_height
+	newwallmesh.scale.y = wall_height
 	material.set_shader_param("img", UW.current_data["images"]["walls"][ cell["wall_texture"] ])
 	material.set_shader_param("scale", Vector2(1.0, 0.25*wall_height))
 	meshinstance.set_surface_material(0, material)
 	# position/rotate mesh
-	meshinstance.translation.y = floor_height * UW.TILESIZE * 0.25
-	if type == 3: meshinstance.rotation_degrees.y = -90
-	elif type == 4: meshinstance.rotation_degrees.y = 90
-	elif type == 5: meshinstance.rotation_degrees.y = 180
+	newwallmesh.translation.y = floor_height * UW.TILESIZE * 0.25
+	if type == 3: newwallmesh.rotation_degrees.y = -90
+	elif type == 4: newwallmesh.rotation_degrees.y = 90
+	elif type == 5: newwallmesh.rotation_degrees.y = 180
 	
-	return meshinstance
+	return newwallmesh
 	
 

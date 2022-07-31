@@ -7,7 +7,8 @@ enum TYPE{
 	TEXTURE,
 	FONT,
 	MAP,
-	BITMAP
+	BITMAP,
+	STRING
 	}
 	
 enum FLAGS{
@@ -66,6 +67,11 @@ func load_data(dtype, filepath, ddict = {}):
 		bitmap = load_bitmap(filepath, ddict["palette"])
 		if bitmap: print("Loaded bitmap.")
 		return bitmap
+	elif dtype == TYPE.STRING:
+		var strings
+		print("Loading strings from file:", filepath)
+		strings = load_strings(filepath)
+		return strings
 
 func load_uw1_data():
 	
@@ -158,6 +164,9 @@ func load_uw1_data():
 	
 	# inventory?
 	data["images"]["inventory"] = load_data(TYPE.GRAPHIC, str(data_dir, "/INV.GR"), {"palette":data["palettes"][0], "aux_palette":data["aux_palettes"]})
+	
+	# load strings
+	data["strings"] = load_data(TYPE.STRING, str(data_dir, "/STRINGS.PAK"))
 	
 	# load game map / levels
 	data["map"] = load_data(TYPE.MAP, str(data_dir, "/LEV.ARK"))
@@ -686,11 +695,113 @@ func generate_rotating_palette_material(gametype, pal):
 	
 	return null
 
+func load_strings(filepath):
+	var tfile = File.new()
+	var strings = []
+	var nodecount
+	var blockcount
+	var nodes = []
+	var blocks = []
+	
+	if tfile.open(filepath, File.READ):
+		printerr("Load Strings: Error opening file ", filepath)
+		return null
+	
+	# get node count
+	nodecount = tfile.get_16()
+	
+	# get huffman nodes
+	var debugfile = File.new()
+	debugfile.open("nodes.txt", File.WRITE)
+	for _n in range(0, nodecount):
+		var node = {}
+		node["id"] = _n # debug
+		node["ascii"] = tfile.get_8() # debug
+		node["char"] = char(node["ascii"])
+		node["parent"] = tfile.get_8()
+		node["left_child"] = tfile.get_8()
+		node["right_child"] = tfile.get_8()
+		debugfile.store_line(str(node))
+		nodes.push_back(node)
+	debugfile.close()
+	
+	# get block offsets
+	blockcount = tfile.get_16()
+	for _b in range(0, blockcount):
+		var blockinfo = {}
+		blockinfo["id"] = tfile.get_16()
+		blockinfo["offset"] = tfile.get_32()
+		blockinfo["string_offsets"] = []
+		blocks.push_back(blockinfo)
+	
+	# get data from blocks to generate strings from huffman nodes
+	for b in blocks:
+		
+		var string_entry = {"block_id":b["id"], "strings":[]}
+		
+		tfile.seek(b["offset"])
+		b["string_count"] = tfile.get_16()
+		
+		# get string offsets (relative from end of block header)
+		for n in range(0, b["string_count"]):
+			b["string_offsets"].push_back(tfile.get_16())
+			
+		# get string data
+		for offset in b["string_offsets"]:
+			var string = ""
+			var current_node = nodes.back() # start at the head (the last node in list)
+			var character = null
+			var string_pos
+			var byte
+			# string offset relative to end of header
+			# block offset + string count + strings offsets list + string offset
+			string_pos = b["offset"] + 2 + (b["string_count"]*2) + offset
+			tfile.seek(string_pos)
+			
+			byte = tfile.get_8()
+			
+			# generate string
+			while character != '|':
+				
+				
+				# decode bits (big-endian)
+				for j in range(0, 8):
+					var bit = (byte >> (7 - j)) & 0x1
+					
+					# check current node for end of leaf (-1)
+					# if reaching end, return the character in that node
+					if (current_node["left_child"] == 0xff and !bit) or (current_node["right_child"] == 0xff and bit):
+						character = current_node["char"]
+						current_node = nodes.back()
+						if character == '|':
+							break
+						else: string += character
+					
+					# navigate nodes
+					if bit == 1: # take the right branch
+						current_node = nodes[current_node["right_child"]]
+					else: # else take the left branch
+						current_node = nodes[current_node["left_child"]]
+				
+				byte = tfile.get_8()
+				
+				if character == '|':
+					break
+			# done getting string
+			string_entry["strings"].push_back(string)
+		
+		# done getting strings for this block
+		strings.push_back(string_entry)
+		
+	# done
+	tfile.close()
+	return strings
+
 func _get_image_header(var tfile):
 	
 	var filesize = tfile.get_len()
 	
-	# read in header data
+	# read in header datad
 	var header = {}
 	
 	header["format"] = tfile.get_8()
