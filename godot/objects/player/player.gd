@@ -1,5 +1,7 @@
 extends KinematicBody
 
+const CLICK_RAY_LENGTH = 5.0
+
 onready var world = get_parent()
 onready var _camera_translation = $Camera.translation
 
@@ -94,6 +96,17 @@ func _input(event):
 				$Camera.translation = _camera_translation
 				$Camera.rotation_degrees = Vector3()
 			print("debug mode = ", _dbg_toggle)
+
+# handle mouse clicks on the world/viewport
+func _on_world_clicked(pos, button):
+	print("player world click pos:", pos)
+	var pos_scaled = pos/UW.image_scale
+	var from = $Camera.project_ray_origin(pos_scaled)
+	var to = from + $Camera.project_ray_normal(pos_scaled) * CLICK_RAY_LENGTH
+	var ray = world.cast_ray(from, to, [self])
+	var collider = ray.get_collider()
+	print(collider)
+	
 
 func get_angle(degrees:bool):
 	return $Camera.rotation.y

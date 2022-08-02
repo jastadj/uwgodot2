@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tools/test_ray.gd" type="Script" id=1]
+
+[node name="test_ray" type="RayCast"]
+enabled = true
+collide_with_areas = true
+debug_shape_custom_color = Color( 0.101961, 1, 0, 1 )
+script = ExtResource( 1 )

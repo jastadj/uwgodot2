@@ -46,6 +46,25 @@ func _ready():
 	build_world_level(UW.current_data, UW.player["floor_level"])
 	add_child(collision)
 
+func draw_line(a:Vector3, b:Vector3, color:Color):
+	var line = ImmediateGeometry.new()
+	line.begin(Mesh.PRIMITIVE_LINES)
+	line.set_color(color)
+	line.add_vertex(a)
+	line.add_vertex(b)
+	line.end()
+	add_child(line)
+
+func cast_ray(from,to, exceptions):
+	var testray = preload("res://tools/test_ray.tscn").instance()
+	add_child(testray)
+	testray.translation = from
+	testray.set_cast_to(to-from)
+	for e in exceptions:
+		testray.add_exception(e)
+	testray.force_raycast_update()
+	return testray
+
 func get_adjacent_cells(cell, level):
 	
 	var x = cell["position"].x

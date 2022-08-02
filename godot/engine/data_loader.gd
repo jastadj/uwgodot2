@@ -171,6 +171,9 @@ func load_uw1_data():
 	# generate objects
 	data["objects"] = create_objects(data)
 	
+	# generate mouse cursors
+	data["cursors"] = create_cursors(data)
+	
 	# load game map / levels
 	data["map"] = load_data(TYPE.MAP, str(data_dir, "/LEV.ARK"))
 	
@@ -873,7 +876,32 @@ func create_objects(data):
 	print("Created ", objects.size(), " objects.")
 	
 	return objects
+
+func create_cursors(data):
 	
+	var cursors = []
+	
+	print("Generating scaled cursors...")
+	
+	# create objects from data (textures, strings, etc)
+	if !data.keys().has("images"):
+		printerr("Error creating cursors, no images found in data.")
+		return null
+	if !data["images"].keys().has("cursors"):
+		printerr("Error creating cursors, no cursor images found in data.")
+		return null
+	
+	for texture in data["images"]["cursors"]:
+		var newimg = texture.get_data().duplicate()
+		var newtexture = ImageTexture.new()
+		for n in range(0, UW.image_scale/2):
+			newimg.expand_x2_hq2x()
+		newtexture.create_from_image(newimg, 0)
+		cursors.push_back(newtexture)
+	print(cursors.size(), " cursors generated.")
+	
+	return cursors
+
 func _get_image_header(var tfile):
 	
 	var filesize = tfile.get_len()

@@ -24,8 +24,8 @@ layer = 2
 [node name="ViewportContainer" type="ViewportContainer" parent="uilayer"]
 margin_left = 52.0
 margin_top = 19.0
-margin_right = 627.0
-margin_bottom = 513.0
+margin_right = 224.0
+margin_bottom = 131.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

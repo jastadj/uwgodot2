@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ui/mainui/uw1/mainui.gd" type="Script" id=1]
+[ext_resource path="res://ui/mainui/uw1/scroll/scroll.tscn" type="PackedScene" id=2]
 
 [node name="mainui" type="Control"]
 anchor_right = 1.0
@@ -16,3 +17,5 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="scroll" parent="." instance=ExtResource( 2 )]

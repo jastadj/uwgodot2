@@ -10,6 +10,7 @@ enum DIRECTION{NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST}
 var uw1_dir = "C:/Users/jasta/Documents/uw_data"
 var uw2_dir = null
 
+var image_scale = 4.0
 var data = {"uw1":{}, "uw2":{}}
 var current_data = null
 var player = {"floor_level":0, "height":1.3}
